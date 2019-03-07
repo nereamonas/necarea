@@ -7,7 +7,7 @@ public class NecareaPelikulak {
 	
 	
 			
-	//eraikitzailea
+	 //eraikitzailea
 			
 	private NecareaPelikulak() {
 		this.listaPeli=new ListaPelikula();		

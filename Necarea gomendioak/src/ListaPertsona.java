@@ -8,7 +8,7 @@ public class ListaPertsona {
 	
 	
 			
-//eraikitzailea
+	//eraikitzailea
 			
 	private ListaPertsona() {
 		this.listaPertsona=new ArrayList<Pertsona>();		

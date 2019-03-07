@@ -7,16 +7,11 @@ public class ListaPelikula {
 	
 	
 			
-//eraikitzailea
+	//eraikitzailea
 			
-	private ListaPelikula() {
+	public ListaPelikula() {
 		this.listaPelikula=new ArrayList<Pelikula>();		
 	}
 	
-	public static synchronized ListaPelikula getListaPertsona() {
-		if (ListaPelikula.nireListaPelikula==null) {
-			ListaPelikula.nireListaPelikula= new  ListaPelikula();
-		}
-		return ListaPelikula.nireListaPelikula;
-	}
+	
 }

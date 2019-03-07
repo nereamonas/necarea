@@ -7,10 +7,10 @@ public class Pertsona {
 	
 	
 			
-//eraikitzailea
+	//eraikitzailea
 			
 	public Pertsona() {
-		this.ikusitakoPelikulak=new ListaPelikula();		
+		this.ikusitakoPelikulak= new ListaPelikula();		
 	}
 	
 
