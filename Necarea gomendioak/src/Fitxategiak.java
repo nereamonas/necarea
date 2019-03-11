@@ -1,4 +1,5 @@
-	import java.io.File;
+	import java.io.BufferedReader;
+import java.io.File;
 	import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,10 +29,14 @@ public class Fitxategiak {
 		
 		
 		
-		public void kargatuTitles() {
+		public void kargatuTitles() throws FileNotFoundException {
 			
-			/*CSVR eader reader = new CSVReader( new FileReader("movie-titles.csv"));
+			BufferedReader reader = new BufferedReader( new FileReader("movie-titles.csv"));
 			
+			
+			
+			
+			/*
 	
 			
 			ZinemaGalderaZerrenda listaZinema= ZinemaGalderaZerrenda.getZinemaGalderaZerrenda();
