@@ -18,7 +18,7 @@ public class Pertsona {
 		HM= new HashMap<Integer,Float>();
 	}
 	
-	
+	 
 	public void grafoaraBalorazioaGehitu(int peliId, float balorazioa) {
 		HM.put(peliId, balorazioa);   
 	}
