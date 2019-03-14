@@ -28,3 +28,4 @@ public class NecareaPelikulak {
 		return this.listaPeli.pelikulaBilatuIdz(id);
 	}
 }
+ 
