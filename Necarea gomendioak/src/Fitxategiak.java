@@ -4,9 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-	
-	  
-
 public class Fitxategiak {
 
 		private static Fitxategiak  nireFitxategiak =null;
