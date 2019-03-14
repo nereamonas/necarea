@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class Etiketa {
 
@@ -6,17 +6,19 @@ public class Etiketa {
 	private int pelikulaZenbakia;
 	private String etiketaIzena;
 	private int zenbatAldiz;
-	
+	    
 	
 			
 	//eraikitzailea
 			
-	private Etiketa(int peliZenb, String etiketa) {
+	public Etiketa(int peliZenb, String etiketa) {
 		this.pelikulaZenbakia=peliZenb;
 		this.etiketaIzena=etiketa;
 		this.zenbatAldiz=1;
 	}
 	
-	
+	public void gehituBesteBat() {
+		this.zenbatAldiz++;
+	}
 	
 }

@@ -6,7 +6,7 @@ public class ListaPertsona {
 	private ArrayList<Pertsona> listaPertsona;
 	private static ListaPertsona nireListaPertsona=null;
 	
-	
+	 
 			
 	//eraikitzailea
 			
@@ -19,6 +19,12 @@ public class ListaPertsona {
 			ListaPertsona.nireListaPertsona= new  ListaPertsona();
 		}
 		return ListaPertsona.nireListaPertsona;
+	}
+	
+	public Pertsona bilatuPertsonaIdz(int pos) {
+		Pertsona aurkitua=null;  
+		
+		return aurkitua;
 	}
 	
 }

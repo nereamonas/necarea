@@ -8,9 +8,13 @@ public class ListaEtiketa {
 	
 			
 	//eraikitzailea
-			
+		    	
 	public ListaEtiketa() {
 		this.listaEtiketa=new ArrayList<Etiketa>();		
+	}
+	
+	public void gehituEtiketa(Etiketa e) {
+		this.listaEtiketa.add(e);
 	}
 	
 }

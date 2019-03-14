@@ -16,7 +16,20 @@ public class EtiketaGuztiak {
 	public static synchronized EtiketaGuztiak getEtiketaGuztiak() {
 		if (EtiketaGuztiak.nireEtiketaGuztiak==null) {
 			EtiketaGuztiak.nireEtiketaGuztiak= new  EtiketaGuztiak();
-		}
+		}    
 		return EtiketaGuztiak.nireEtiketaGuztiak;
 	}
+	
+	public Etiketa etiketaBilatu(Etiketa e) {
+		Etiketa aurkitu=null;
+		
+		//buscar si esta esa etiketa y si esta devolverla para hacerle +1;
+		
+		return aurkitu;
+	}
+	
+	public void gehituEtiketa(Etiketa e) {
+		listaEtiketa.gehituEtiketa(e);
+	}
+	
 }
