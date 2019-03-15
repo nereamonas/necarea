@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class EtiketaGuztiak {
 	//atributuak 
@@ -24,9 +25,22 @@ public class EtiketaGuztiak {
 		lista.add(e);
 	}
 	
+	private Iterator<String> getIteradorea() {
+		return this.lista.iterator();
+	}
+	
 	public boolean bilatuEtiketaIzena(String e) {
 		boolean aurkitua=false;
+		Iterator <String> itr=this.getIteradorea();
+		String sBat=null;
+
 		
+		while (itr.hasNext()&& !aurkitua) {
+			sBat=itr.next();
+			if (sBat.equals(e)) {
+				aurkitua=true;
+			}
+		}
 		return aurkitua;
 	}
 	
