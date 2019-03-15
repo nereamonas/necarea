@@ -99,18 +99,17 @@ public class Fitxategiak {
 						
 						//Datuekin etiketa sortu
 						Etiketa e1=new Etiketa(Integer.parseInt(datuGuztiak[0]), datuGuztiak[1]);
-						//begiratu listan jada etiketa hori dagoen:
-						Etiketa badago = EtiketaZerrenda.etiketaBilatu(e1);
-						if(badago!=null) {
-							badago.gehituBesteBat(); //Etiketa existitzen bada, gehitzen diogu beste aldi batean agertu dela
-						}else {
-							//si aun no está creada, la creamos
-							EtiketaZerrenda.gehituEtiketa(e1);
-							//y vamos a buscar la peli a la que le hace referencia y se la añadimoa a ella tambn
-							Pelikula peli = pelikulaZerrenda.pelikulaBilatuIdz(Integer.parseInt(datuGuztiak[0]));
-							if (peli!=null) {//pelikula existitzen da eta etiketa gehituko zaio
-								peli.gehituEtiketa(e1);
-							}
+						
+						//busco la peli para añadirle la etiketa
+						Pelikula peli = pelikulaZerrenda.pelikulaBilatuIdz(Integer.parseInt(datuGuztiak[0]));
+						if (peli!=null) {//pelikula existitzen da eta etiketa gehituko zaio
+							peli.gehituEtiketa(e1);
+						}
+						
+						//Si el nombre de la etiketa no se ha dicho, la añadiremos a etiketaGuztiak
+						boolean dago=EtiketaZerrenda.bilatuEtiketaIzena(datuGuztiak[1]);
+						if(!dago) {  //si no esta añadimos, sino nada
+							EtiketaZerrenda.gehituEtiketa(datuGuztiak[1]);
 						}
 					}
 				}else {

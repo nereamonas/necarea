@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class EtiketaGuztiak {
 	//atributuak 
-	private ListaEtiketa listaEtiketa;
+	private ArrayList<String> lista;
 	private static EtiketaGuztiak nireEtiketaGuztiak=null;
 	
 	
@@ -10,7 +10,7 @@ public class EtiketaGuztiak {
 	//eraikitzailea
 			
 	private EtiketaGuztiak() {
-		this.listaEtiketa=new ListaEtiketa();		
+		this.lista=new ArrayList<String>();		
 	}
 	
 	public static synchronized EtiketaGuztiak getEtiketaGuztiak() {
@@ -20,16 +20,14 @@ public class EtiketaGuztiak {
 		return EtiketaGuztiak.nireEtiketaGuztiak;
 	}
 	
-	public Etiketa etiketaBilatu(Etiketa e) {
-		Etiketa aurkitu=null;
-		
-		//buscar si esta esa etiketa y si esta devolverla para hacerle +1;
-		
-		return aurkitu;
+	public void gehituEtiketa(String e) {
+		lista.add(e);
 	}
 	
-	public void gehituEtiketa(Etiketa e) {
-		listaEtiketa.gehituEtiketa(e);
+	public boolean bilatuEtiketaIzena(String e) {
+		boolean aurkitua=false;
+		
+		return aurkitua;
 	}
 	
 }
