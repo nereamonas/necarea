@@ -15,7 +15,21 @@ public class ListaEtiketa {
 	}
 	
 	public void gehituEtiketa(Etiketa e) {
-		this.listaEtiketa.add(e);
+		EtiketaGuztiak eG=EtiketaGuztiak.getEtiketaGuztiak();
+		Iterator <Etiketa> itr=this.getIteradorea();
+		Etiketa eBat=null;
+		boolean aurkitua=false;
+		while (itr.hasNext()&&!aurkitua) {
+			eBat=itr.next();
+			if (e.getIzena().equals(eBat.getIzena())) {
+				e.gehituBesteBat();
+				aurkitua=true;
+			}
+		}
+		if (!aurkitua) {
+			this.listaEtiketa.add(e);
+			eG.gehituEtiketa(e.getIzena());
+		}
 	}
 	
 	private Iterator<Etiketa> getIteradorea() {
@@ -34,4 +48,14 @@ public class ListaEtiketa {
 			}
 	}
 	
-}
+	public void inprimatuEtiketak() { 
+		Iterator <Etiketa> itr=this.getIteradorea();
+		Etiketa eBat=null;
+			
+		while (itr.hasNext()  ) {
+			eBat=itr.next();
+			eBat.print();
+		}
+
+	}
+	}

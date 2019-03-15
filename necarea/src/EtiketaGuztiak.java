@@ -22,9 +22,10 @@ public class EtiketaGuztiak {
 	}
 	
 	public void gehituEtiketa(String e) {
-		lista.add(e);
+		if(!bilatuEtiketaIzena(e)) {
+			lista.add(e);
+		}
 	}
-	
 	private Iterator<String> getIteradorea() {
 		return this.lista.iterator();
 	}
@@ -34,14 +35,29 @@ public class EtiketaGuztiak {
 		Iterator <String> itr=this.getIteradorea();
 		String sBat=null;
 
-		
 		while (itr.hasNext()&& !aurkitua) {
 			sBat=itr.next();
-			if (sBat.equals(e)) {
+			if (sBat.compareTo(e)==0) {
 				aurkitua=true;
 			}
 		}
 		return aurkitua;
 	}
 	
+	public void inprimatuEtiketaIzenak() {
+		Iterator <String> itr=this.getIteradorea();
+		String s=null;
+		while (itr.hasNext()) {
+			s=itr.next();
+			System.out.println(s);
+	}
+		
+	}
+	
+	public int luzera() {
+		return lista.size();
+}
+	public void erreseteatu() {
+		lista.clear();		
+	}
 }
