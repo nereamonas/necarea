@@ -159,7 +159,6 @@ public class Fitxategiak {
 							badago.pelikulaGehitu(pelihori);
 						}else {
 							Pertsona p1= new Pertsona(Integer.parseInt(datuGuztiak[0]));
-							pertsonaZerrenda.gehituPertsona(p1);
 							p1.grafoaraBalorazioaGehitu(Integer.parseInt(datuGuztiak[1]),Float.parseFloat(datuGuztiak[2]));
 							p1.pelikulaGehitu(pelihori);
 						}

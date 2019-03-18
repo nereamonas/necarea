@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ListaPertsona {
 //i
@@ -22,38 +21,10 @@ public class ListaPertsona {
 		return ListaPertsona.nireListaPertsona;
 	}
 	
-	
-	private Iterator<Pertsona> getIteradorea() {
-		return this.listaPertsona.iterator();
-	}
-	
-	public Pertsona bilatuPertsonaIdz(int pId) {
-		Iterator <Pertsona> itr=this.getIteradorea();
-		Pertsona pBat=null;
-		boolean aurkitua=false;
+	public Pertsona bilatuPertsonaIdz(int pos) {
+		Pertsona aurkitua=null;  
 		
-		while (itr.hasNext()&& !aurkitua) {
-			pBat=itr.next();
-			if (pBat.idBerdinaDu(pId)) {
-				aurkitua=true;
-			}
-		}
-		return pBat;
+		return aurkitua;
 	}
 	
-	public void inprimatu() {
-		Iterator<Pertsona> itr=this.getIteradorea();
-		Pertsona p1;
-		while(itr.hasNext()) {
-			p1=itr.next();
-			p1.idInprimatu();
-		}
-	}
-	
-	public void erreseteatu() {
-		while (this.listaPertsona.size()!=0) {
-				this.listaPertsona.remove(this.listaPertsona.size()-1);
-			}
-	}
 }
-
