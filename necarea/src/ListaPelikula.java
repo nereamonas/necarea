@@ -4,7 +4,6 @@ import java.util.Iterator;
 public class ListaPelikula {
 	//atributuak
 	private ArrayList<Pelikula> listaPelikula;
-	private static ListaPelikula nireListaPelikula=null;
 	
 	
 			
@@ -25,6 +24,7 @@ public class ListaPelikula {
 	public Pelikula pelikulaBilatuIdz(int pId) {
 		Iterator <Pelikula> itr=this.getIteradorea();
 		Pelikula pBat=null;
+		Pelikula p=null;
 		boolean aurkitua=false;
 		
 		while (itr.hasNext()&& !aurkitua) {
@@ -33,10 +33,11 @@ public class ListaPelikula {
 				aurkitua=true;
 			}
 		}
-		return pBat;
+		if(aurkitua) {
+		p=pBat;
+		}
+	return p;
 	}
-	
-
 	public int luzera() {
 		return this.listaPelikula.size();
 	}
@@ -58,4 +59,8 @@ public class ListaPelikula {
    			}
 		}
 		
+
+		
 }
+
+
