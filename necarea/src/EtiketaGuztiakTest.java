@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -31,14 +32,13 @@ public class EtiketaGuztiakTest {
 		s1=null;
 		s2=null;
 		s3=null;
+		eG=null;
 		
 	}
 
 	@Test
 	public void testGetEtiketaGuztiak() {
-		assertNotNull(s1);
-		assertNotNull(s2);
-		assertNotNull(s3);
+		assertNotNull(eG);
 	}
 	
 	@Test
@@ -69,12 +69,17 @@ public class EtiketaGuztiakTest {
 	}
 
 	@Test
-	public void testInprimatuEtiketaIzena(){
+	public void testInprimatuEtiketaIzena() throws IOException{
 		eG.erreseteatu();
 		eG.gehituEtiketa(s1);
 		eG.gehituEtiketa(s2);
 		eG.gehituEtiketa(s3);
 		assertNotNull(eG);
+		eG.inprimatuEtiketaIzenak();
+		
+		//fitxategi handiarekin 
+		eG.erreseteatu();
+		f.kargatuTags();
 		eG.inprimatuEtiketaIzenak();
 		
 	}

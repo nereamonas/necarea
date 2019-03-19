@@ -57,4 +57,18 @@ public class Pertsona {
 	public void idInprimatu() {
 		System.out.println(this.id);
 	}
+	//ListaEtiketa proba batentzat
+	public void printPelikulaBatenEtiketak(int pId) {
+		Pelikula p=ikusitakoPelikulak.pelikulaBilatuIdz(pId);
+		if(p==null) {
+			System.out.println("Ez du pelikula hori ikusi");
+		}else {
+		p.inprimatuEtiketak();
+	
+		}
+	}
+	
+	public void printIkusitakoPelikulak() {
+		ikusitakoPelikulak.inprimatuPelikulak();
+	}
 }

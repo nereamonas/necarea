@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +32,8 @@ public class EtiketaTest {
 	@Test
 	public void testEtiketa() {
 		assertNotNull(e1);
+		assertNotNull(e2);
+		assertNotNull(e3);
 	}
 
 	@Test
@@ -47,7 +51,7 @@ public class EtiketaTest {
 	}
 	
 	@Test
-	public void testPrint() {
+	public void testPrint() throws IOException {
 		assertNotNull(e1);
 		e1.print();
 	}

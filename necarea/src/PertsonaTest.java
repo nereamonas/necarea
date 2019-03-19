@@ -12,6 +12,8 @@ public class PertsonaTest {
 	Pertsona per;
 	Pelikula p1,p2;
 	ListaPertsona lp;
+	Etiketa e1;
+	Etiketa e2;
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,6 +23,8 @@ public class PertsonaTest {
 		f= Fitxategiak.getFitxategia();
 		np = NecareaPelikulak.getNecareaPelikulak();
 		lp= ListaPertsona.getListaPertsona();
+		e1= new Etiketa(1,"Capitalism");
+		e2= new Etiketa(1,"Comedy");
 	}
 
 	@After
@@ -30,6 +34,8 @@ public class PertsonaTest {
 		f=null;
 		np=null;
 		lp=null;
+		e1=null;
+		e2=null;
 	}
 
 	@Test
@@ -91,5 +97,27 @@ public class PertsonaTest {
 		lp.bilatuPertsonaIdz(1).balorazioakInprimatu();
 		
 	}
+	
+	//ListaEtiketa proba batentzat(fitxategitik hartzen listaEtiketan ikusten dugu)
+	@Test
+	public void testPrintPelikulaBatenEtiketak() {
+		per.ikusitakoakErreseteatu();
+		per.pelikulaGehitu(p1);
+		per.pelikulaGehitu(p2);
+		p1.gehituEtiketa(e1);
+		p1.gehituEtiketa(e2);
+		per.printPelikulaBatenEtiketak(1);
+		
+	}
+	
+	@Test
+	public void testPrintIkusitakoPelikulak() {
+		per.ikusitakoakErreseteatu();
+		per.pelikulaGehitu(p1);
+		per.pelikulaGehitu(p2);
+		per.printIkusitakoPelikulak();
+	}
+	
+	
 
 }

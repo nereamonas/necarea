@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +13,13 @@ public class ListaEtiketaTest {
 	Etiketa e2;
 	Etiketa e3;
 	Etiketa e4;
+	Pelikula p;
+	Pelikula p2;
+	ListaPelikula lp;
+	NecareaPelikulak np;
+	Pertsona pe;
+	ListaPertsona lpe;
+	
 
 	@Before
 	public void setUp() throws Exception {
@@ -20,7 +29,9 @@ public class ListaEtiketaTest {
 		e2= new Etiketa(2,"Comedy");
 		e3= new Etiketa(1,"Funny");
 		e4= new Etiketa(1,"Funny");
-		
+		lp=new ListaPelikula();
+		np=NecareaPelikulak.getNecareaPelikulak();
+		lpe= ListaPertsona.getListaPertsona();
 	}
 
 	@After
@@ -31,14 +42,19 @@ public class ListaEtiketaTest {
 		e2=null;
 		e3=null;
 		e4=null;
+		p=null;
+		p2=null;
+		lp=null;
+		np=null;
+		pe=null;
+		lpe=null;
+		
 	}
 
 	@Test
 	public void testListaEtiketa() {
-		assertNotNull(e1);
-		assertNotNull(e2);
-		assertNotNull(e3);
-		assertNotNull(e4);
+		assertNotNull(le);
+
 	}
 
 	@Test
@@ -81,7 +97,7 @@ public class ListaEtiketaTest {
 	}
 	
 	@Test
-	public void testInprimatuEtiketak() {
+	public void testInprimatuEtiketak() throws IOException {
 		
 		le.erreseteatu();
 		le.gehituEtiketa(e1);
@@ -89,6 +105,31 @@ public class ListaEtiketaTest {
 		le.gehituEtiketa(e3);
 		assertNotNull(le);
 		le.inprimatuEtiketak();
+		
+		//Fitxategitik inportatzen
+		
+		//Pelikula guztietatik(NecareaPelikulak)
+		np.erreseteatu();
+		f.kargatuTitles();
+		//adibidez 114 pelikularen etiketak inprimatu
+		p=np.pelikulaBilatuIdz(114);
+		p.print(); //pelikula ondo hartu duela ikusteko
+		f.kargatuTags();
+		p.inprimatuEtiketak();
+		
+		//Pertsona baten ikusitako pelikuletatik abiatuz
+		lp.erreseteatu();
+		lpe.erreseteatu();
+		f.kargatuTitles();
+		f.kargatuRatings();
+		f.kargatuTags();
+		pe=lpe.bilatuPertsonaIdz(1);
+		pe.idInprimatu();//pertsona ondo lortu duela ikusteko
+		pe.printPelikulaBatenEtiketak(1);
+		//Ez du pelikula hori ikusi(Necareatik bilatu etiketak ikusteko)
+		pe.printIkusitakoPelikulak();//809 pelikula ikusi duenez etiketak inprima ditzake
+		pe.printPelikulaBatenEtiketak(809);
+
 	}
 
 }
