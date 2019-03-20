@@ -73,7 +73,6 @@ public class ListaPelikulaTest {
 	
 	@Test
 	public void testInprimatuPelikulak() {
-		
 			lp.erreseteatu();
 			lp.gehituPelikula(p1);
 			lp.gehituPelikula(p2);
