@@ -16,8 +16,8 @@ public class Pelikula {
         	listaEtiketa.gehituEtiketa(e);
         }
         
-        public int getId() {
-        	return this.id;
+        public boolean idBerdinaDu(int pId) {
+        	return this.id==pId;
         }
         
         public int luzeraEtiketa() {
@@ -39,7 +39,11 @@ public class Pelikula {
         }
         
         public void inprimatuEtiketak() {
+           this.listaEtiketa.inprimatuEtiketak();
+        }
         
+        public int getId() { //Junit-etarako bakarrik erabilkiko dugu
+        	return this.id;
         }
         
 }

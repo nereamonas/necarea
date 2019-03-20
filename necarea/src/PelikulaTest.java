@@ -55,9 +55,9 @@ public class PelikulaTest {
 
 	@Test
 	public void testGetId() {
-		assertTrue(p1.getId()==1);
-		assertTrue(p2.getId()==2);
-		assertFalse(p2.getId()==1);
+		assertTrue(p1.idBerdinaDu(1));
+		assertTrue(p2.idBerdinaDu(2));
+		assertFalse(p2.idBerdinaDu(1)); 
 	}
 
 	@Test

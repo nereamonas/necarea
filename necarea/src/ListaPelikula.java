@@ -29,7 +29,7 @@ public class ListaPelikula {
 		
 		while (itr.hasNext()&& !aurkitua) {
 			pBat=itr.next();
-			if (pId==pBat.getId()) {
+			if (pBat.idBerdinaDu(pId)) { 
 				aurkitua=true;
 			}
 		}

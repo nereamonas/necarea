@@ -12,7 +12,7 @@ public class ListaPelikulaTest {
 	ListaPelikula lp;
 	Pelikula p1;
 	Pelikula p2;
-	Pelikula p3;
+	Pelikula p3; 
 	
 	@Before
 	public void setUp() throws Exception {
