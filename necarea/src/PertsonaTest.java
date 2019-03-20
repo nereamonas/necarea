@@ -43,7 +43,7 @@ public class PertsonaTest {
 		assertNotNull(per);
 	}
 
-	@Test
+	@Test 
 	public void testGrafoaraBalorazioaGehitu() {
 		per.grafoaraBalorazioaGehitu(p1.getId(), (float) 4.0);
 		per.grafoaraBalorazioaGehitu(p2.getId(), (float) 4.5);
