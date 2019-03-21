@@ -59,6 +59,16 @@ public class ListaPelikula {
    			}
 		}
 		
+		
+		
+		public String datuakHartu(int p) {
+			return this.listaPelikula.get(p).datuakHartu();
+		}
+		
+		public int posiziokoPelikulakoIda(int p) {
+			return this.listaPelikula.get(p).getId();
+		}
+		
 
 		
 }

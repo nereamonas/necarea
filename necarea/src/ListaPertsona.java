@@ -62,4 +62,17 @@ public class ListaPertsona {
 				this.listaPertsona.remove(this.listaPertsona.size()-1);
 			}
 	}
+	
+	public int luzera() {
+		return this.listaPertsona.size();
+	}
+	
+	public String datuakHartu(int p) {
+		return this.listaPertsona.get(p).datuakHartu();
+	}
+	
+	
+	public Pertsona posiziokoPertsona(int p) {
+		return this.listaPertsona.get(p);
+	}
 }

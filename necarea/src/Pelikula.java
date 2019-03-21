@@ -46,5 +46,10 @@ public class Pelikula {
         	return this.id;
         }
         
+        
+        public String datuakHartu() {
+        	return ("Izena:"+this.izena+", Urtea:"+this.urtea);
+
+        }
 }
 

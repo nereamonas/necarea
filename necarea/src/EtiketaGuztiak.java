@@ -60,4 +60,8 @@ public class EtiketaGuztiak {
 	public void erreseteatu() {
 		lista.clear();		
 	}
+	
+	public String datuakHartu(int p) {
+		return this.lista.get(p);
+	}
 }

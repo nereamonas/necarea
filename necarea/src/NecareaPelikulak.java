@@ -39,4 +39,9 @@ public class NecareaPelikulak {
 	public void erreseteatu() {
 		this.listaPeli.erreseteatu();
 	}
+	
+	public String datuakHartu(int p) {
+		return this.listaPeli.datuakHartu(p);
+	}
+
 }
