@@ -1,7 +1,9 @@
-public class Necarea {
+
+
+public class Necarea{
 	//atributuak
     private static Necarea nireNecarea=null;
-    
+
     
     
             
@@ -16,7 +18,8 @@ public class Necarea {
         }
         return Necarea.nireNecarea;
     }
-
-
+    
+    
+    
 
 }
