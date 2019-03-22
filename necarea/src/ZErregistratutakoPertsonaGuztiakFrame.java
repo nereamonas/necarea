@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 public class ZErregistratutakoPertsonaGuztiakFrame extends JFrame {
@@ -77,7 +78,9 @@ public class ZErregistratutakoPertsonaGuztiakFrame extends JFrame {
 		btnHasierakoMenuraBueltatu.setBackground(Color.MAGENTA);
 		contentPane.add(btnHasierakoMenuraBueltatu, BorderLayout.SOUTH);
 		
-	
+		//jaisteko guztiak ikusteko
+		contentPane.add(new JScrollPane(list),null);
+		pack();
 	
 	}
 

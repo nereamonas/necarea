@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class ZPertsonakFrame extends JFrame {
+public class ZPertsonakFrame extends JFrame { 
 
 	private JPanel contentPane;
 

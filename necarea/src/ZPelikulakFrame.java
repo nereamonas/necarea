@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -79,6 +80,9 @@ public class ZPelikulakFrame extends JFrame {
 		contentPane.add(btnHasierakoMenuraBueltatu, BorderLayout.SOUTH);
 		
 		
+		//jaisteko guztiak ikusteko
+		contentPane.add(new JScrollPane(list),null);
+		pack(); 
 		
 	}
 

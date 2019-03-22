@@ -80,7 +80,7 @@ public class ZMainBotoiak extends JFrame {
 		
 		JButton btnEtiketak = new JButton("Etiketak");
 		btnEtiketak.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
 				ZEtiketakFrame ef;
 				try {
 					ef = new ZEtiketakFrame();
