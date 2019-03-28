@@ -86,5 +86,14 @@ public class Pertsona {
 		return this.ikusitakoPelikulak.luzera();
 	}
 	
+	public int pelikularenId(int pos) {
+		return this.ikusitakoPelikulak.posiziokoPelikulakoIda(pos);
+	}
+
+	public float posiziokoPelikularenBalorazioa(int pos) {
+		int id=this.ikusitakoPelikulak.posiziokoPelikulakoIda(pos);
+		return this.HM.get(id);
+	}
+	
 	
 }
