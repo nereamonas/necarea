@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Pelikula {
 		private int id;      
@@ -51,5 +52,10 @@ public class Pelikula {
         	return ("Izena:"+this.izena+", Urtea:"+this.urtea);
 
         }
+
+        public ListaEtiketa listaEtiketaItzuli() {
+        	return this.listaEtiketa;
+        }
+
 }
 

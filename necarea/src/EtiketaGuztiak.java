@@ -8,14 +8,14 @@ public class EtiketaGuztiak {
 	//atributuak 
 	private ArrayList<String> lista;
 	private static EtiketaGuztiak nireEtiketaGuztiak=null;
-	private HashMap<Integer, String> HM;
+	private HashMap<String,Integer> HM;
 	
 			 
 	//eraikitzailea
 			
 	private EtiketaGuztiak() {
 		this.lista=new ArrayList<String>();		
-		this.HM= new HashMap<Integer,String>();
+		this.HM= new HashMap<String, Integer>();
 	}
 	
 	public static synchronized EtiketaGuztiak getEtiketaGuztiak() {
@@ -25,8 +25,8 @@ public class EtiketaGuztiak {
 		return EtiketaGuztiak.nireEtiketaGuztiak;
 	}
 	
-	public void grafoaraIzenaGehitu(int peliId, String izena) {
-		HM.put(peliId, izena);   
+	public void grafoaraIzenaGehitu(int p, String izena) {
+		HM.put(izena,p);   
 	}
 	
 	public void gehituEtiketa(String e) {
@@ -87,4 +87,10 @@ public class EtiketaGuztiak {
 		
 		return elementuak;
 	}
+	
+	public int EtiketarenPosizioa(String p){
+		return this.HM.get(p);
+	}
+	
+	
 }

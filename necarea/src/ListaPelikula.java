@@ -70,7 +70,9 @@ public class ListaPelikula {
 		}
 		
 
-		
+		public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
+			return this.listaPelikula.get(i).listaEtiketaItzuli();
+		}
 }
 
 

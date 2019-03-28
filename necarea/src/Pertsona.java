@@ -85,4 +85,6 @@ public class Pertsona {
 	public int luzera() {
 		return this.ikusitakoPelikulak.luzera();
 	}
+	
+	
 }

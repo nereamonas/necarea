@@ -58,6 +58,9 @@ public class ListaEtiketa {
 		}
 
 	}
-	
+
+	public Etiketa posiziokoEtiketa(int i) {
+		return this.listaEtiketa.get(i);
+	}
 	
 	}

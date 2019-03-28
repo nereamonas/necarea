@@ -61,5 +61,9 @@ public class NecareaPelikulak {
 		return elementuak;
 	}
 	
+	public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
+		return this.listaPeli.posiziokoPelikularenListaEtiketa(i);
+	}
+	
 	
 }
