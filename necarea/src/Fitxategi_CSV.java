@@ -69,6 +69,7 @@ public class Fitxategi_CSV implements Fitxategi {
 			Scanner s=new Scanner(reader);
 
 			if(s!=null) {	
+				int kont=0;
 				while (s.hasNextLine()) {
 					//lerro bat hartuko dugu
 					String line=s.nextLine();
@@ -96,7 +97,9 @@ public class Fitxategi_CSV implements Fitxategi {
 					//Si el nombre de la etiketa no se ha dicho, la añadiremos a etiketaGuztiak
 					boolean dago=EtiketaZerrenda.bilatuEtiketaIzena(datuGuztiak[1]);
 					if(!dago) {  //si no esta añadimos, sino nada
+						EtiketaZerrenda.grafoaraIzenaGehitu(kont, datuGuztiak[1]);
 						EtiketaZerrenda.gehituEtiketa(datuGuztiak[1]);
+						kont++;
 					}
 				}
 			}else {

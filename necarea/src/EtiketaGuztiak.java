@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -7,13 +8,14 @@ public class EtiketaGuztiak {
 	//atributuak 
 	private ArrayList<String> lista;
 	private static EtiketaGuztiak nireEtiketaGuztiak=null;
-	
+	private HashMap<Integer, String> HM;
 	
 			 
 	//eraikitzailea
 			
 	private EtiketaGuztiak() {
 		this.lista=new ArrayList<String>();		
+		this.HM= new HashMap<Integer,String>();
 	}
 	
 	public static synchronized EtiketaGuztiak getEtiketaGuztiak() {
@@ -21,6 +23,10 @@ public class EtiketaGuztiak {
 			EtiketaGuztiak.nireEtiketaGuztiak= new  EtiketaGuztiak();
 		}    
 		return EtiketaGuztiak.nireEtiketaGuztiak;
+	}
+	
+	public void grafoaraIzenaGehitu(int peliId, String izena) {
+		HM.put(peliId, izena);   
 	}
 	
 	public void gehituEtiketa(String e) {
