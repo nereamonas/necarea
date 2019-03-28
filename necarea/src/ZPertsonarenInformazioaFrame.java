@@ -47,19 +47,8 @@ public class ZPertsonarenInformazioaFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		Fitxategiak f= Fitxategiak.getFitxategia();
-		ListaPertsona lp=ListaPertsona.getListaPertsona();
-		f.kargatuTitles();
-		f.kargatuRatings();
+		Vector elementuak= ListaPertsona.getListaPertsona().BektorePertsona1();
 		
-		Pertsona p=lp.posiziokoPertsona(1);
-	
-		
-		Vector elementuak = new Vector();
-		for(int i=0; i<p.luzera(); i++) {
-			String s=p.datuakHartu(i);
-			elementuak.addElement(s);
-		}
 		JList list=new JList(elementuak);
 		contentPane.add(list, BorderLayout.WEST);
 		

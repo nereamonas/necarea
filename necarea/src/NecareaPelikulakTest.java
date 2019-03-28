@@ -9,7 +9,7 @@ import org.junit.Test;
 public class NecareaPelikulakTest {
 
 
-	Fitxategiak f;
+	Fitxategi_CSV f;
 	NecareaPelikulak np;
 	Pelikula p1;
 	Pelikula p2;
@@ -17,7 +17,7 @@ public class NecareaPelikulakTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV(); 
 		np=NecareaPelikulak.getNecareaPelikulak();
 		p1= new Pelikula(1,"bajo la misma estrella",2010);
 		p2= new Pelikula(2,"De todos los chicos de los que me enamore",2016);

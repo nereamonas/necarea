@@ -49,17 +49,7 @@ public class ZErregistratutakoPertsonaGuztiakFrame extends JFrame {
 	
 	
 		
-		Fitxategiak f= Fitxategiak.getFitxategia();
-		ListaPertsona lp=ListaPertsona.getListaPertsona();
-		f.kargatuTitles();
-		f.kargatuRatings();
-		
-		
-		Vector elementuak = new Vector();
-		for(int i=0; i<lp.luzera(); i++) {
-			String s=lp.datuakHartu(i);
-			elementuak.addElement(s);
-		}
+		Vector elementuak=ListaPertsona.getListaPertsona().BektorePertsona();
 		JList list=new JList(elementuak);
 		contentPane.add(list, BorderLayout.WEST);
 		

@@ -47,18 +47,7 @@ public class ZEtiketakFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		Fitxategiak f= Fitxategiak.getFitxategia();
-		EtiketaGuztiak eg= EtiketaGuztiak.getEtiketaGuztiak();
-		f.kargatuTags();
-		
-		
-	
-		
-		Vector elementuak = new Vector();
-		for(int i=0; i<eg.luzera(); i++) {
-			String s=eg.datuakHartu(i);
-			elementuak.addElement(s);
-		}
+		Vector elementuak=EtiketaGuztiak.getEtiketaGuztiak().bektoreEtiketak();
 		JList list=new JList(elementuak);
 		contentPane.add(list, BorderLayout.WEST);
 		

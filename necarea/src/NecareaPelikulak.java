@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class NecareaPelikulak {
 	//atributuak
@@ -39,9 +41,25 @@ public class NecareaPelikulak {
 	public void erreseteatu() {
 		this.listaPeli.erreseteatu();
 	}
-	
+	  
 	public String datuakHartu(int p) {
 		return this.listaPeli.datuakHartu(p);
 	}
 
+	public Vector bektorePelikulak() throws IOException {
+		Fitxategi_CSV f= new Fitxategi_CSV();
+		NecareaPelikulak lp=NecareaPelikulak.getNecareaPelikulak();
+		f.kargatuTitles();
+		
+		
+		Vector elementuak = new Vector();
+		for(int i=0; i<lp.luzera(); i++) {
+			String s=lp.datuakHartu(i);
+			elementuak.addElement(s);
+		}
+		
+		return elementuak;
+	}
+	
+	
 }

@@ -6,19 +6,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EtiketaTest {
+public class EtiketaTest { 
 	
 	Etiketa e1;
 	Etiketa e2;
 	Etiketa e3;
-	Fitxategiak f;
+	Fitxategi_CSV f;
 
 	@Before
 	public void setUp() throws Exception {
 		e1= new Etiketa(114,"Capitalism");
 		e3= new Etiketa(2,"Comedy");
 		e2= new Etiketa(1,"Funny");
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV();
 	}
 	
 	@After

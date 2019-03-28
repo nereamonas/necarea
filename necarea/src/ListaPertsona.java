@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class ListaPertsona {
 //i
@@ -73,6 +75,38 @@ public class ListaPertsona {
 	
 	
 	public Pertsona posiziokoPertsona(int p) {
-		return this.listaPertsona.get(p);
+		return this.listaPertsona.get(p); 
+	}
+	
+	public Vector BektorePertsona() throws IOException {
+		Fitxategi_CSV f= new Fitxategi_CSV();
+		ListaPertsona lp=ListaPertsona.getListaPertsona();
+		f.kargatuTitles();
+		f.kargatuRatings();
+		
+		Vector elementuak = new Vector();
+		for(int i=0; i<lp.luzera(); i++) {
+			String s=lp.datuakHartu(i);
+			elementuak.addElement(s);
+		}
+		
+		return elementuak;
+	}
+	
+	public Vector BektorePertsona1() throws IOException {
+		Fitxategi_CSV f= new Fitxategi_CSV();
+		ListaPertsona lp=ListaPertsona.getListaPertsona();
+		f.kargatuTitles();
+		f.kargatuRatings();
+		
+		Pertsona p=lp.posiziokoPertsona(1);
+	
+		
+		Vector elementuak = new Vector();
+		for(int i=0; i<p.luzera(); i++) {
+			String s=p.datuakHartu(i);
+			elementuak.addElement(s);
+		}
+		return elementuak;
 	}
 }

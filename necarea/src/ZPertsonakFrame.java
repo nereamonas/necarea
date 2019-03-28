@@ -45,7 +45,7 @@ public class ZPertsonakFrame extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		JButton btnErregistratutakoPertsonaGuztiak = new JButton("Erregistratutako pertsona guztiak erakutzi");
+		JButton btnErregistratutakoPertsonaGuztiak = new JButton("Erregistratutako pertsona guztiak erakutsi");
 		btnErregistratutakoPertsonaGuztiak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ZErregistratutakoPertsonaGuztiakFrame epgf;
@@ -63,7 +63,7 @@ public class ZPertsonakFrame extends JFrame {
 		btnErregistratutakoPertsonaGuztiak.setFont(new Font("MS Gothic", Font.BOLD, 14));
 		btnErregistratutakoPertsonaGuztiak.setBackground(Color.PINK);
 		
-		JButton btnPertsonarenInformazioa = new JButton("1 pertsonaren informazioa erakutzi");
+		JButton btnPertsonarenInformazioa = new JButton("1 pertsonaren informazioa erakutsi");
 		btnPertsonarenInformazioa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ZPertsonarenInformazioaFrame pif;

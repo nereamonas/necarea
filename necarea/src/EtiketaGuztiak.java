@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class EtiketaGuztiak {
 	//atributuak 
@@ -45,7 +47,7 @@ public class EtiketaGuztiak {
 	}
 	
 	public void inprimatuEtiketaIzenak() {
-		Iterator <String> itr=this.getIteradorea();
+		Iterator <String> itr=this.getIteradorea(); 
 		String s=null;
 		while (itr.hasNext()) {
 			s=itr.next();
@@ -63,5 +65,20 @@ public class EtiketaGuztiak {
 	
 	public String datuakHartu(int p) {
 		return this.lista.get(p);
+	}
+	
+	public Vector  bektoreEtiketak() throws IOException {
+		Fitxategi_CSV f= new Fitxategi_CSV();
+		
+		EtiketaGuztiak eg= EtiketaGuztiak.getEtiketaGuztiak();
+		f.kargatuTags();
+		
+		Vector elementuak = new Vector();
+		for(int i=0; i<eg.luzera(); i++) {
+			String s=eg.datuakHartu(i);
+			elementuak.addElement(s);
+		}
+		
+		return elementuak;
 	}
 }

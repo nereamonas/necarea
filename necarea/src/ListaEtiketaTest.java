@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ListaEtiketaTest {
-	Fitxategiak f;
+public class ListaEtiketaTest { 
+	Fitxategi_CSV f;
 	ListaEtiketa le;
 	Etiketa e1;
 	Etiketa e2;
@@ -23,7 +23,7 @@ public class ListaEtiketaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV();
 		le=new ListaEtiketa();
 		e1= new Etiketa(114,"Capitalism");
 		e2= new Etiketa(2,"Comedy");

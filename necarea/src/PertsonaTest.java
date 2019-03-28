@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
+   
 public class PertsonaTest {
 	NecareaPelikulak np;
-	Fitxategiak f;
+	Fitxategi_CSV f;
 	Pertsona per;
 	Pelikula p1,p2;
 	ListaPertsona lp;
@@ -20,7 +20,7 @@ public class PertsonaTest {
 		p1= new Pelikula(1,"bajo la misma estrella",2010);
 		p2= new Pelikula(2,"De todos los chicos de los que me enamore",2016);
 		per= new Pertsona(1234);
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV();
 		np = NecareaPelikulak.getNecareaPelikulak();
 		lp= ListaPertsona.getListaPertsona();
 		e1= new Etiketa(1,"Capitalism");

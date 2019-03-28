@@ -49,18 +49,8 @@ public class ZPelikulakFrame extends JFrame {
 		
 		
 
-		Fitxategiak f= Fitxategiak.getFitxategia();
-		NecareaPelikulak lp=NecareaPelikulak.getNecareaPelikulak();
-		f.kargatuTitles();
 		
-		
-	
-		
-		Vector elementuak = new Vector();
-		for(int i=0; i<lp.luzera(); i++) {
-			String s=lp.datuakHartu(i);
-			elementuak.addElement(s);
-		}
+		Vector elementuak= NecareaPelikulak.getNecareaPelikulak().bektorePelikulak();
 		JList list=new JList(elementuak);
 		contentPane.add(list, BorderLayout.WEST);
 		

@@ -13,7 +13,7 @@ public class PelikulaTest {
 	Etiketa e1;
 	Etiketa e2;
 	Etiketa e3;
-	Fitxategiak f;
+	Fitxategi_CSV f;
 	NecareaPelikulak np;
 	
 	@Before
@@ -23,7 +23,7 @@ public class PelikulaTest {
 		e1= new Etiketa(1,"Llorar");
 		e3= new Etiketa(2,"Llorar");
 		e2= new Etiketa(1,"Amor");
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV(); 
 		np = NecareaPelikulak.getNecareaPelikulak();
 	}
 

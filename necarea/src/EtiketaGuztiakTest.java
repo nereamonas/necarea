@@ -7,9 +7,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EtiketaGuztiakTest {
+public class EtiketaGuztiakTest {  
 	
-	Fitxategiak f;
+	Fitxategi_CSV f;
 	String s1;
 	String s2;
 	String s3;
@@ -18,7 +18,7 @@ public class EtiketaGuztiakTest {
 
 	@Before
 	public void setUp() throws Exception {
-		f= Fitxategiak.getFitxategia();
+		f= new Fitxategi_CSV();
 		s1="Comedy";
 		s2="Funny";
 		s3="Love";
