@@ -9,6 +9,7 @@ public class EtiketaGuztiak {
 	private ArrayList<String> lista;
 	private static EtiketaGuztiak nireEtiketaGuztiak=null;
 	private HashMap<String,Integer> HM;
+	private HashMap<String,Integer> HMKant;
 	
 			 
 	//eraikitzailea
@@ -16,6 +17,7 @@ public class EtiketaGuztiak {
 	private EtiketaGuztiak() {
 		this.lista=new ArrayList<String>();		
 		this.HM= new HashMap<String, Integer>();
+		this.HMKant= new HashMap<String, Integer>();
 	}
 	
 	public static synchronized EtiketaGuztiak getEtiketaGuztiak() {
@@ -50,6 +52,8 @@ public class EtiketaGuztiak {
 			}
 		}
 		return aurkitua;
+		
+		//o se puede hacer con el hashMaph con contains
 	}
 	
 	public void inprimatuEtiketaIzenak() {
@@ -92,5 +96,21 @@ public class EtiketaGuztiak {
 		return this.HM.get(p);
 	}
 	
+	
+	public void EtiketaErrepikatuDa(String etiketa) {
+		
+		if(this.HM.containsKey(etiketa)){
+			int kant=this.HM.get(etiketa);
+			this.HM.put(etiketa, kant);
+		}
+	}
+	
+	public int kantitatea(String p) {
+		return this.HMKant.get(p);
+	}
+	
+	public String posiziokoEtiketaIzena(int i) {
+		return this.lista.get(i);
+	}
 	
 }

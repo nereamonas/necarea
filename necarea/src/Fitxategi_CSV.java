@@ -88,6 +88,10 @@ public class Fitxategi_CSV implements Fitxategi {
 					//Datuekin etiketa sortu
 					Etiketa e1=new Etiketa(Integer.parseInt(datuGuztiak[0]), datuGuztiak[1]);
 					
+					
+					//si ya esta creada la etiketa le hacemos +1
+					EtiketaZerrenda.EtiketaErrepikatuDa(datuGuztiak[0]);
+					
 					//busco la peli para añadirle la etiketa
 					Pelikula peli = pelikulaZerrenda.pelikulaBilatuIdz(Integer.parseInt(datuGuztiak[0]));
 					if (peli!=null) {//pelikula existitzen da eta etiketa gehituko zaio
