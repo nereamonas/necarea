@@ -12,7 +12,7 @@ public class BalorazioMatrize {
 			this.mat= new float[lp.luzera()][np.luzera()];
 		}
 
-		public static synchronized BalorazioMatrize BalorazioMatrize() {
+		public static synchronized BalorazioMatrize getBalorazioMatrize() {
 				if (BalorazioMatrize.nireBalorazioMatrize==null) {
 					BalorazioMatrize.nireBalorazioMatrize= new BalorazioMatrize();
 				}

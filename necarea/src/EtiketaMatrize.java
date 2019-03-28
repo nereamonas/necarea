@@ -14,7 +14,7 @@ public class EtiketaMatrize {
 		
 	}
 
-	public static synchronized EtiketaMatrize EtiketaMatrize() {
+	public static synchronized EtiketaMatrize getEtiketaMatrize() {
 			if (EtiketaMatrize.nireEtiketaMatrize==null) {
 					EtiketaMatrize.nireEtiketaMatrize= new EtiketaMatrize();
 			}
