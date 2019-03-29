@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import Fitxategiak.Fitxategi_CSV;
-
+ 
 public class ListaPertsona {
 //i
 	//atributuak

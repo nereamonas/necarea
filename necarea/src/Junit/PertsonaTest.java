@@ -13,7 +13,7 @@ import Klaseak.ListaPertsona;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pelikula;
 import Klaseak.Pertsona;
-   
+    
 public class PertsonaTest {
 	NecareaPelikulak np;
 	Fitxategi_CSV f;

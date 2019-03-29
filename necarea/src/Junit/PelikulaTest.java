@@ -11,7 +11,7 @@ import Fitxategiak.Fitxategi_CSV;
 import Klaseak.Etiketa;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pelikula;
-
+ 
 public class PelikulaTest {
 
 	Pelikula p1;

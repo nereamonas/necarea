@@ -71,7 +71,7 @@ public class Pertsona {
 	
 	public void printIkusitakoPelikulak() {
 		ikusitakoPelikulak.inprimatuPelikulak();
-	}
+	} 
 	
 	
 	public String datuakHartu() {

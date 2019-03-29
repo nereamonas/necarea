@@ -10,7 +10,7 @@ import org.junit.Test;
 import Fitxategiak.Fitxategi_CSV;
 import Klaseak.ListaPelikula;
 import Klaseak.Pelikula;
-
+ 
 public class ListaPelikulaTest { 
 	
 	Fitxategi_CSV f;

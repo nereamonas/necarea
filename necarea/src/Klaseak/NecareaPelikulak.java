@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import Fitxategiak.Fitxategi_CSV;
-
+ 
 public class NecareaPelikulak {
 	//atributuak
 	private ListaPelikula listaPeli;

@@ -1,6 +1,6 @@
 package Klaseak;
 import java.util.ArrayList;
-
+ 
 public class Pelikula {
 		private int id;      
         private String izena;

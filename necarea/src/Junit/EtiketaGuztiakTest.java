@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import Fitxategiak.Fitxategi_CSV;
 import Klaseak.EtiketaGuztiak;
-
+ 
 public class EtiketaGuztiakTest {  
 	
 	Fitxategi_CSV f;

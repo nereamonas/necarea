@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import Klaseak.ListaPertsona;
 import Klaseak.Pertsona;
-
+ 
 public class ListaPertsonaTest {
 	ListaPertsona lp;
 	Pertsona p1,p2,p3;

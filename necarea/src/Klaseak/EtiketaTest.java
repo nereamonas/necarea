@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Fitxategiak.Fitxategi_CSV;
-
+ 
 public class EtiketaTest { 
 	
 	Etiketa e1;

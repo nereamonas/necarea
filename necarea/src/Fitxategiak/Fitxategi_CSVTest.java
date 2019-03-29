@@ -50,7 +50,7 @@ public class Fitxategi_CSVTest {
 			np.inprimatuPelikulak();
 	}
 	
-	@Test
+	@Test 
 	public void testKargatuTags() throws IOException {
 		assertNotNull(f);
 		f.kargatuTags();

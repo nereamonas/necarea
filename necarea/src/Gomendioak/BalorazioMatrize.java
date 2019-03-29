@@ -8,7 +8,7 @@ public class BalorazioMatrize {
 	private float[][] mat;
 	private static BalorazioMatrize nireBalorazioMatrize=null;
 	
-	
+	 
 	//eraikitzailea
 		
 		private BalorazioMatrize() {

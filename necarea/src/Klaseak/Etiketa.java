@@ -1,5 +1,5 @@
 package Klaseak;
-
+ 
 public class Etiketa {
 
 	//atributuak  

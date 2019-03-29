@@ -1,7 +1,7 @@
 package Gomendioak;
 
 public abstract class Gomendioak {
-	
+	 
 	protected BalorazioMatrize balorazioMatrize;
 	
 	public Gomendioak() {

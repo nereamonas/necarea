@@ -1,6 +1,6 @@
 package Gomendioak;
 public class EOI extends Gomendioak{
-
+ 
 	private EtiketaMatrize etiketaMatrize;
 	private PertsonaEredua pertsonaEredua;
 	

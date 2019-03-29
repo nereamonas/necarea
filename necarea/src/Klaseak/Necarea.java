@@ -1,6 +1,6 @@
 package Klaseak;
 
-
+ 
 public class Necarea{
 	//atributuak
     private static Necarea nireNecarea=null;

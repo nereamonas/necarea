@@ -128,7 +128,7 @@ public class Fitxategi_CSV implements Fitxategi {
 	public void kargatuRatings() throws FileNotFoundException {
 		ListaPertsona pertsonaZerrenda= ListaPertsona.getListaPertsona();
 		NecareaPelikulak pelikulaZerrenda=NecareaPelikulak.getNecareaPelikulak();
-		
+		 
 		// .csv fitxategia irekitzeko
 		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-ratings.csv"));
 		

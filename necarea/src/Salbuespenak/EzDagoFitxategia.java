@@ -1,5 +1,5 @@
 package Salbuespenak;
-
+ 
 
 public class EzDagoFitxategia extends Exception {
 

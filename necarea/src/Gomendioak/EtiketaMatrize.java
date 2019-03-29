@@ -9,7 +9,7 @@ public class EtiketaMatrize {
 	
 	private static EtiketaMatrize nireEtiketaMatrize=null;
 	private Float[][] matrize;	
-	
+	 
 //eraikitzailea    
 	
 	private EtiketaMatrize() {	

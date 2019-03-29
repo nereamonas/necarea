@@ -1,7 +1,7 @@
 package Gomendioak;
 
 public class PertsonaEredua {
-
+ 
 	Float[][] matrizea;
 	private static PertsonaEredua nirePertsonaEredua=null;
 	

@@ -1,7 +1,7 @@
 package Klaseak;
 import java.util.ArrayList;
 import java.util.Iterator;
-
+ 
 public class ListaPelikula {
 	//atributuak
 	private ArrayList<Pelikula> listaPelikula;

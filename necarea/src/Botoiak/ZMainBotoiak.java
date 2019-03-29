@@ -1,4 +1,4 @@
-package Botoiak;
+package Botoiak; 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

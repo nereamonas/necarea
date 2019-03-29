@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import Fitxategiak.Fitxategi_CSV;
-
+ 
 public class EtiketaGuztiak {
 	//atributuak 
 	private ArrayList<String> lista;
