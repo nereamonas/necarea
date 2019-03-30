@@ -44,7 +44,15 @@ public class NecareaPelikulak {
 	public void erreseteatu() {
 		this.listaPeli.erreseteatu();
 	}
+	
+
+	public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
+		return this.listaPeli.posiziokoPelikularenListaEtiketa(i);
+	}
+	
 	  
+	
+	//Botoiak egiteko erabiliko dira
 	public String datuakHartu(int p) {
 		return this.listaPeli.datuakHartu(p);
 	}
@@ -62,10 +70,6 @@ public class NecareaPelikulak {
 		}
 		
 		return elementuak;
-	}
-	
-	public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
-		return this.listaPeli.posiziokoPelikularenListaEtiketa(i);
 	}
 	
 	

@@ -76,6 +76,20 @@ public class ListaPelikulaTest {
 		assertFalse(lp.luzera()==3);
 	}
 	
+	
+	@Test
+	public void testPosiziokoPelikulakoIda() {
+		lp.erreseteatu();
+		lp.gehituPelikula(p1);
+		lp.gehituPelikula(p2);
+		lp.gehituPelikula(p3);
+		assertTrue(lp.posiziokoPelikulakoIda(0)==1);
+		assertFalse(lp.posiziokoPelikulakoIda(1)==1);
+	}
+	
+	
+	
+	
 	@Test
 	public void testInprimatuPelikulak() {
 			lp.erreseteatu();

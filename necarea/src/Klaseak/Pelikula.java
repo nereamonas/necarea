@@ -14,33 +14,38 @@ public class Pelikula {
             listaEtiketa= new ListaEtiketa();
         }
         
-        public void gehituEtiketa(Etiketa e) {
+        public void gehituEtiketa(Etiketa e) { //pelikularen listaEtiketari etiketarenbat gehitu nahi izanez gero, metodo honen bitartez gehitzeko aukera dugu
         	listaEtiketa.gehituEtiketa(e);
         }
         
-        public boolean idBerdinaDu(int pId) {
+        public boolean idBerdinaDu(int pId) { //bere id-a, sartzen den id-arekin konparatzen du, berdinak badira True bueltatuz eta bestela False. Metodo honekin bermatzen dugu, pelikularen informazioa ez pasatzea
         	return this.id==pId;
         }
         
-        public int luzeraEtiketa() {
+        public int luzeraEtiketa() { //Lista Etiketaren luzera zein den esango digu
         	return this.listaEtiketa.luzera();
+        }
+        
+
+        public ListaEtiketa listaEtiketaItzuli() {
+        	return this.listaEtiketa;
         }
         
         
         //Junit-etarako
         
-        public void print() {
+        public void print() { //Junit-etan erabiliko da, ikusteko pelikularen atributu guztiak ondo sartu direla
         	System.out.println("Pelikularen id:" + this.id);
         	System.out.println("Izena:" + this.izena);
         	System.out.println("Urtea:" + this.urtea);
         	System.out.println();
         }
         
-        public void etiketakErreseteatu() {
+        public void etiketakErreseteatu() { //Junit-etan erabiliko dugu
         	this.listaEtiketa.erreseteatu();
         }
         
-        public void inprimatuEtiketak() {
+        public void inprimatuEtiketak() { //Junit-etan, pelikula batek dituen etiketak ondo kargatu direla ikusteko
            this.listaEtiketa.inprimatuEtiketak();
         }
         
@@ -48,15 +53,12 @@ public class Pelikula {
         	return this.id;
         }
         
-        
+        //Botoiak egiteko erabiliko den metodoa
         public String datuakHartu() {
         	return ("Izena:"+this.izena+", Urtea:"+this.urtea);
 
         }
 
-        public ListaEtiketa listaEtiketaItzuli() {
-        	return this.listaEtiketa;
-        }
 
 }
 

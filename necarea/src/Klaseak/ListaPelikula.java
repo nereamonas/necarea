@@ -39,8 +39,19 @@ public class ListaPelikula {
 		}
 	return p;
 	}
+	
 	public int luzera() {
 		return this.listaPelikula.size();
+	}
+	
+	
+	public int posiziokoPelikulakoIda(int p) {
+		return this.listaPelikula.get(p).getId();
+	}
+	
+
+	public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
+		return this.listaPelikula.get(i).listaEtiketaItzuli();
 	}
 	
 	//Junit-etarako behar diren metodoak
@@ -61,19 +72,11 @@ public class ListaPelikula {
 		}
 		
 		
-		
+		//Botoiak egiteko erabiliko da
 		public String datuakHartu(int p) {
 			return this.listaPelikula.get(p).datuakHartu();
 		}
-		
-		public int posiziokoPelikulakoIda(int p) {
-			return this.listaPelikula.get(p).getId();
-		}
-		
-
-		public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
-			return this.listaPelikula.get(i).listaEtiketaItzuli();
-		}
+	
 }
 
 

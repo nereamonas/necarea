@@ -50,7 +50,7 @@ public class PelikulaTest {
 	}
 
 	@Test
-	public void testEtiketaGehitu() {
+	public void testGehituEtiketa() {
 		p1.etiketakErreseteatu();
 		assertTrue(p1.luzeraEtiketa()==0);
 		p1.gehituEtiketa(e1);
@@ -60,17 +60,30 @@ public class PelikulaTest {
 	}
 
 	@Test
-	public void testGetId() {
+	public void testIdBerdinaDu() {
 		assertTrue(p1.idBerdinaDu(1));
 		assertTrue(p2.idBerdinaDu(2));
 		assertFalse(p2.idBerdinaDu(1)); 
 	}
 
+	
+	public void testLuzeraEtiketa() {
+		p1.etiketakErreseteatu();
+		assertTrue(p1.luzeraEtiketa()==0);
+		p1.gehituEtiketa(e1);
+		p1.gehituEtiketa(e2);
+		assertTrue(p1.luzeraEtiketa()==2);
+		assertFalse(p1.luzeraEtiketa()==3);
+	}
+	
 	@Test
 	public void testPrint() {
 		assertNotNull(p1);
 		p1.print();
 	}
+	
+	
+	
 	
 	@Test
 	public void testInprimatuEtiketak() throws IOException {
@@ -82,14 +95,19 @@ public class PelikulaTest {
 			p1.inprimatuEtiketak();
 			
 		//fitxategietatik inportatzen.
+			f.kargatuTitles();
 			f.kargatuTags();
 			//ikusteko ondo kargatu dela, etiketak imprimatuko ditugu
 			
 			//Metodo hau, etiketak sartzeaz aparte, pelikula bakoitzari bere etiketak sartzen dizkio. Beraz pelikula bat hartuko dugu ikusteko bere etiketak ondo sartu direla
-			//Pelikula p= np.PelikulaBilatuIdz(112)
-			//p.inprimatuEtiketak();
-		
-		
+			Pelikula p= np.pelikulaBilatuIdz(120);
+			p.inprimatuEtiketak();
 	}
-
+	
+	@Test
+	public void testDatuakHartu() throws IOException {
+		
+		p1.datuakHartu();
+		assertNotNull(p1);
+	}
 }
