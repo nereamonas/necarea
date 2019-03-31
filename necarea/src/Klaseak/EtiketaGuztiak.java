@@ -37,6 +37,7 @@ public class EtiketaGuztiak {
 	public void gehituEtiketa(String e) {
 		if(!bilatuEtiketaIzena(e)) {
 			lista.add(e);
+			
 		}
 	}
 	private Iterator<String> getIteradorea() {
@@ -45,7 +46,7 @@ public class EtiketaGuztiak {
 	
 	public boolean bilatuEtiketaIzena(String e) {
 		boolean aurkitua=false;
-		Iterator <String> itr=this.getIteradorea();
+		/*Iterator <String> itr=this.getIteradorea();
 		String sBat=null;
 
 		while (itr.hasNext()&& !aurkitua) {
@@ -53,6 +54,10 @@ public class EtiketaGuztiak {
 			if (sBat.compareTo(e)==0) {
 				aurkitua=true;
 			}
+		}*/
+		//int pos=HM.get(e);
+		if (HM.get(e)!=null) {
+			aurkitua=true;
 		}
 		return aurkitua;
 		

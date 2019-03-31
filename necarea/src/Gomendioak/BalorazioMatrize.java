@@ -26,13 +26,31 @@ public class BalorazioMatrize {
 		
 		public void matrizeaSortu() {
 			ListaPertsona lp=ListaPertsona.getListaPertsona();
-			
+			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+			float[][] mat2=new float[lp.luzera()][np.luzera()];
+			int kont=0;
 			for(int i=0; i<lp.luzera();i++) {
-				Pertsona p1=lp.bilatuPertsonaIdz(i);
-				for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
-					mat[i][p1.pelikularenId(j)]=p1.posiziokoPelikularenBalorazioa(j);
-				}
+				Pertsona p1=lp.bilatuPertsonaIdz(i+1);
+				System.out.println(i+1 + ". pertsonara heldu gara (i. errenkada)");
+				if (p1!= null) {
+					for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
+						System.out.println(i+1 + ". pertsonak ikusitako " + j + ". pelikulara heldu gara (j. zutabea)");
+						mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
+					}
+				}else {kont++;}
 			}
+			System.out.println(kont + " huecos");
+			System.out.println("Errenkadak: " +mat2.length);
+			System.out.println("Zutabeak: " +mat2[0].length);
+			mat=mat2;
+		}
+		
+		//Junit-etarako
+		
+		public float posiziokoBalorazioa(int pertsonaId, int peliId) {
+			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+			return mat[pertsonaId-1][np.zeinPosiziotanDago(peliId)];
 		}
 
 }
+

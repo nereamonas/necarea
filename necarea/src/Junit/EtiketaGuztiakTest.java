@@ -49,12 +49,20 @@ public class EtiketaGuztiakTest {
 	public void testGehituEtiketa() {
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
+		//System.out.println(eG.luzera());
 		eG.gehituEtiketa(s1);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
+		//System.out.println(eG.luzera());
 		eG.gehituEtiketa(s2);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
+		//System.out.println(eG.luzera());
 		eG.gehituEtiketa(s3);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
+		//System.out.println(eG.luzera());
 		assertTrue(eG.luzera()==3);
 		assertFalse(eG.luzera()==2);
 		eG.gehituEtiketa(s3);
+		//System.out.println(eG.luzera());
 		assertTrue(eG.luzera()==3);
 		assertFalse(eG.luzera()==4);
 		
@@ -65,8 +73,11 @@ public class EtiketaGuztiakTest {
 	public void testBilatuEtiketaIzena() {
 		eG.erreseteatu();
 		eG.gehituEtiketa(s1);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
 		eG.gehituEtiketa(s2);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
 		eG.gehituEtiketa(s3);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
 		assertTrue(eG.bilatuEtiketaIzena("Comedy")==true);
 		assertTrue(eG.bilatuEtiketaIzena("Horror")==false);
 		
@@ -76,13 +87,17 @@ public class EtiketaGuztiakTest {
 	public void testInprimatuEtiketaIzena() throws IOException{
 		eG.erreseteatu();
 		eG.gehituEtiketa(s1);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
 		eG.gehituEtiketa(s2);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
 		eG.gehituEtiketa(s3);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
 		assertNotNull(eG);
 		eG.inprimatuEtiketaIzenak();
 		
 		//fitxategi handiarekin 
 		eG.erreseteatu();
+		f.kargatuTitles();
 		f.kargatuTags();
 		eG.inprimatuEtiketaIzenak();
 		
@@ -92,7 +107,9 @@ public class EtiketaGuztiakTest {
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
 		eG.gehituEtiketa(s1);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
 		eG.gehituEtiketa(s2);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
 		assertTrue(eG.luzera()==2);
 		assertFalse(eG.luzera()==3);
 	}
@@ -103,7 +120,9 @@ public class EtiketaGuztiakTest {
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
 		eG.gehituEtiketa(s1);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
 		eG.gehituEtiketa(s2);
+		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
 		assertTrue(eG.luzera()==2);
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
