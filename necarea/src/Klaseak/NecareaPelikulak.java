@@ -50,6 +50,15 @@ public class NecareaPelikulak {
 		return this.listaPeli.posiziokoPelikularenListaEtiketa(i);
 	}
 	
+	
+	public String posiziokoPelikularenIzena(int i) {
+		return this.listaPeli.posiziokoPelikularenIzena(i);
+	}
+	
+	public int bilatuPelikularenPosizioa(String p) {
+		return this.listaPeli.bilatuPelikularenPosizioa(p);
+	}
+	
 	  
 	
 	//Botoiak egiteko erabiliko dira

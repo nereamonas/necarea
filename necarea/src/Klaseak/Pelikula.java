@@ -31,6 +31,14 @@ public class Pelikula {
         	return this.listaEtiketa;
         }
         
+        public String getIzena() {
+        	return this.izena;
+        }
+        
+        public boolean izenBeraDute(String p) {
+        	return this.izena.equals(p);
+        }
+        
         
         //Junit-etarako
         

@@ -1,5 +1,7 @@
 package Gomendioak;
 
+import java.util.HashMap;
+
 import Klaseak.EtiketaGuztiak;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pertsona;
@@ -22,60 +24,88 @@ public class PertsonaEredua {
 	}
 	
 	
-	public float[] matrizeaSortu(float[][] balorazioMatrize, float[][] etiketaMatrize, int pertsonaId) {
+	public HashMap<String,Float> balorazioakEman(float[][] balorazioMatrize, float[][] etiketaMatrize, int pertsonaId) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-		//1- coger las pelis que tengn >3.5 de valoración - balorazioMatrize
-		float[][] matrizP=new float[np.luzera()][eg.luzera()];
-		int kontM=0;
 		
-		float[][] matrizPeliEzIkusitak= new float[np.luzera()][eg.luzera()];
+		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
 		float[] pertsonarenBalorazio = balorazioMatrize[pertsonaId];
 		
-		//recorres la etiketaMatrize cogiendo las pelis que ha visto la persona y q sean >3.5
-		for (int i=0;i<pertsonarenBalorazio.length;i++) {
-			if (pertsonarenBalorazio[i]>3.5) {
-				matrizP[kontM]=etiketaMatrize[i];
-				kontM++;
-			}
-		}
+		
+		//2- Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da
+		//3- Beste bektore bat sortuko dugu kosinuaAplikatuta izenekoa. Ikusi ez dit
 
-		//2-Coges la etiketaMatrize, solo de las pelis que + le han gustado y sumas cada etiketa --> de aquí sacas un vector. q es de todas las pelis que ha visto que le gustan, cuantas veces se ha usado cada etiketa.
-		
-		//gehitu
 		float[] gehitura=new float[eg.luzera()];
-		
-		for (int i=0;i<matrizP.length;i++) {
-			for (int j=0;j<matrizP[0].length;i++) {
-				gehitura[j]=gehitura[j]+matrizP[i][j];
-			}
-		}
-		//ya tenemos el vector --> gehitura
-		
-		
-		
-		//hacer una matriz con las pelis que no ha visto:
-		for (int i=0;i<balorazioMatrize.length;i++) {
-			if(pertsonarenBalorazio[i]!=0) {
-				matrizPeliEzIkusitak[i]=balorazioMatrize[i];
+		for (int i=0;i<etiketaMatrize.length;i++) {
+			if (pertsonarenBalorazio[i]>3.5) {
+				//Pelikula ikusi du eta gainera 3.5 baino gehiago emana dio
+				for(int j=0;j<etiketaMatrize[i].length;j++) {
+					gehitura[j]=gehitura[j]+etiketaMatrize[i][j];
+				}
 			}
 		}
 		
+
 		
-		//hacer la formula del cos
-		float[] kosinuaAplikatuta=new float[matrizPeliEzIkusitak.length];
-		for (int i=0;i<matrizPeliEzIkusitak.length;i++) {
-			float[] vectorBat=matrizP[i];
-			float kosinua=kosinuaKalkulatu(gehitura,vectorBat);
-			kosinuaAplikatuta[i]=kosinua;
+		//3- Beste bektore bat sortuko dugu kosinuaAplikatuta izenekoa. Ikusi ez dituen pelikulak begiratu beharko ditugu eta kosinua formula aplikatu etiketaMatrizeko errenkada bakoitza gehitura bektorearekin.
+		//Ezin dugu goiko for-a erabili, oraindik gehitura bektorea sortuta ez dugulako
+		float[] kosinuaAplikatuta=new float[np.luzera()];
+		for (int i=0;i<etiketaMatrize.length;i++) {
+			if (pertsonarenBalorazio[i]==0.0) {
+				//Ez du pelikulaIkusi
+				float[] vectorBat=etiketaMatrize[i];
+				float kosinua=kosinuaKalkulatu(gehitura,vectorBat);
+				kosinuaAplikatuta[i]=kosinua;
+			}else {
+				//Pelikula ikusi du
+				kosinuaAplikatuta[i]=(float) -2.0;
+			}
 		}
 		
+		//4- HashMap bat sortu (pelikula, kosinuan ateratako balioa
+		HashMap<String,Float> HM= new HashMap<String, Float>();
 		
-		return kosinuaAplikatuta;
-		//3- el vector ese q has sacado, lo conparas con el de cada pelikula que le ha gustado y las etiketas de esa peli(de la etiketaMatrize) y en cada uno aplicas la formula de kosinu y te da un numero. cuanto mas se acerque al 1 + le ha gustado
+		for (int i=0; i<etiketaMatrize.length;i++) {
+			HM.put(np.posiziokoPelikularenIzena(i), kosinuaAplikatuta[i]);
+		}
 		
+		//Faltaria ordenarlo cogiendo las 10 primeras solo
+		return HM;
 		
 	}
+	
+	
+	
+	
+	public float baloratuPelikula(float[][] balorazioMatrize, float[][] etiketaMatrize, String pelikulaIzena, int pertsonaId) {
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		
+		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
+		float[] pertsonarenBalorazio = balorazioMatrize[pertsonaId];
+		
+		//2- Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da
+		//3- Beste bektore bat sortuko dugu kosinuaAplikatuta izenekoa. Ikusi ez dit
+		float[] gehitura=new float[eg.luzera()];
+		for (int i=0;i<etiketaMatrize.length;i++) {
+			if (pertsonarenBalorazio[i]>3.5) {
+				//Pelikula ikusi du eta gainera 3.5 baino gehiago emana dio
+				for(int j=0;j<etiketaMatrize[i].length;j++) {
+					gehitura[j]=gehitura[j]+etiketaMatrize[i][j];
+				}
+			}
+		}
+		
+		//3- Kosinua formula kalkulatuko dugu, ikusi nahi duen pelikularekin
+		float[] nahiDuenPelikulaEtiketak = etiketaMatrize[np.bilatuPelikularenPosizioa(pelikulaIzena)];
+		float kosinua=kosinuaKalkulatu(gehitura,nahiDuenPelikulaEtiketak);
+		
+		return kosinua;
+		
+	}
+	
+	
+	
 	
 	public float kosinuaKalkulatu(float[] gehitura, float[] vectorBat) {
 		

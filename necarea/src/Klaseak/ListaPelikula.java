@@ -49,9 +49,35 @@ public class ListaPelikula {
 		return this.listaPelikula.get(p).getId();
 	}
 	
+	public String posiziokoPelikularenIzena(int i) {
+		return this.listaPelikula.get(i).getIzena();
+	}
+	
 
 	public ListaEtiketa posiziokoPelikularenListaEtiketa(int i) {
 		return this.listaPelikula.get(i).listaEtiketaItzuli();
+	}
+	
+	public int bilatuPelikularenPosizioa(String p) {
+		Iterator <Pelikula> itr=this.getIteradorea();
+		Pelikula pBat=null;
+		int kont=0;
+		boolean aurkitua=false;
+		int emaitza=-1;
+			
+		while (itr.hasNext() &&!aurkitua ) {
+			pBat=itr.next();
+			if(pBat.izenBeraDute(p)) {
+				aurkitua=true;
+			}
+			kont++;
+		}
+		
+		if (aurkitua) {
+			emaitza=kont;
+		}
+		
+		return emaitza;
 	}
 	
 	//Junit-etarako behar diren metodoak
