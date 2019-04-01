@@ -109,7 +109,7 @@ public class PertsonaEredua {
 	
 	public float kosinuaKalkulatu(float[] gehitura, float[] vectorBat) {
 		
-		//hay q rellenarlo jaja es poner solo la formula
+		
 		float emaitza;
 		
 		float bat=(float) 0.0;
@@ -122,7 +122,7 @@ public class PertsonaEredua {
 			hiru=hiru+vectorBat[i]*vectorBat[i];
 		}
 		
-		emaitza=bat/(bi*hiru);
+		emaitza=(float) (bat/(Math.sqrt(bi)*Math.sqrt(hiru)));
 		
 		return emaitza;
 	}

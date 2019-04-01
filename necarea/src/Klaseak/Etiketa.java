@@ -18,6 +18,9 @@ public class Etiketa {
 	}
 	
 	public void gehituBesteBat() {
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		eg.gehituEtiketa(0, this.etiketaIzena);
+		
 		this.zenbatAldiz++;
 	}
 	

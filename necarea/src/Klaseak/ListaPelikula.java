@@ -69,10 +69,10 @@ public class ListaPelikula {
 			pBat=itr.next();
 			if(pBat.izenBeraDute(p)) {
 				aurkitua=true;
-			}
+			}else {
 			kont++;
+			}
 		}
-		
 		if (aurkitua) {
 			emaitza=kont;
 		}
@@ -105,5 +105,3 @@ public class ListaPelikula {
 		}
 	
 }
-
-

@@ -176,12 +176,13 @@ public class PertsonaEreduaTest {
          
          
          
-         
-         
+
          
          
 		//la 3
 		HashMap<String,Float> hm=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 1);
+		HashMap<String,Float> hm2=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 2);
+		//HashMap<String,Float> hm3=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 3); //--> nova
 	
 	
 		//inprimatu HashMap
@@ -189,6 +190,20 @@ public class PertsonaEreduaTest {
 			for(String key : hm.keySet()) {
 				System.out.println(key + ": " + hm.get(key));
 			}
+			
+			for(String key : hm2.keySet()) {
+				System.out.println(key + ": " + hm2.get(key));
+			}
+			
+			/*for(String key : hm3.keySet()) {
+				System.out.println(key + ": " + hm3.get(key));
+			} */
+			
+			//BaloratuPelikula
+			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p1.getIzena(), 1));
+			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p3.getIzena(), 2));
+			//System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p2.getIzena(), 3)); //--> no va
+			//System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p3.getIzena(), 3)); //--> no va
 	}
 
 	@Test
@@ -203,7 +218,14 @@ public class PertsonaEreduaTest {
 
 	@Test
 	public void testKosinuaKalkulatu() {
-		fail("Not yet implemented");
+		//kosinua kalkulatu --> bn
+        float[] e=new float[2];
+        e[0]=(float)0.3;
+        e[1]=(float)0.6;
+        
+        float[] i=new float[2];
+        i[0]=(float)-0.1;
+        i[1]=(float)0.3;
+       float u= pertsonaEredua.kosinuaKalkulatu(e, i);
+        System.out.println(u);
 	}
-
-}

@@ -49,7 +49,16 @@ public class EtiketaMatrize {
 		float[][] m=new float[np.luzera()][eg.luzera()];
 		for (int i=0;i<np.luzera();i++) {
 			for(int j=0;j<eg.luzera();j++) {
-				m[i][j]=(float) (lehenengoMatrizea[i][j]*Math.log10(np.luzera()/eg.kantitatea(eg.posiziokoEtiketaIzena(j))));
+				if (eg.kantitatea(eg.posiziokoEtiketaIzena(j))==0){
+					m[i][j]=(float)0.0;
+				
+				}else {
+					float bat=(float) lehenengoMatrizea[i][j];
+					float bi=(float) np.luzera();
+					float hiru=(float)eg.kantitatea(eg.posiziokoEtiketaIzena(j));
+					m[i][j]=(float) (bat*Math.log10(bi/hiru));
+					
+				}
 			}
 		}
 		 this.matrize=m;

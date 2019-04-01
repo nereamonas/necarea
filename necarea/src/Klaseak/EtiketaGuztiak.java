@@ -44,19 +44,16 @@ public class EtiketaGuztiak {
 		
 		
 	}
-	public void grafoaraIzenaGehitu(int p, String izena) {
-		HM.put(izena,p);   
-		HMKant.put(izena, 1);
-	}
 	
 	public void gehituEtiketa(int p, String izena) {
-		if(!bilatuEtiketaIzena(izena)) {
+		//if(!bilatuEtiketaIzena(izena)) {
+		if(!this.HM.containsKey(izena)) {
 			this.lista.add(izena);
 			HM.put(izena,p);   
 			HMKant.put(izena, 1);
 		}else {
-			int kant=this.HM.get(izena);
-			this.HM.put(izena, kant+1);
+			int kant=this.HMKant.get(izena);
+			this.HMKant.put(izena, kant+1);
 			
 		}
 	}
@@ -65,13 +62,13 @@ public class EtiketaGuztiak {
 	}
 	
 	public boolean bilatuEtiketaIzena(String e) {
-		
+
 		boolean aurkitua=false;
 		Iterator <String> itr=this.getIteradorea();
 		String sBat=null;
 		while (itr.hasNext()&& !aurkitua) {
 			sBat=itr.next();
-			if (sBat.compareTo(e)==0) {
+			if (sBat.equals(e)) {
 				aurkitua=true;
 			}
 		}
