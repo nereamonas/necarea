@@ -39,15 +39,12 @@ public class BalorazioMatrizeTest {
 		bm.matrizeaSortu();
 		//Van bien
 		System.out.println(bm.posiziokoBalorazioa(240, 77) + " -> 5.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 146) + " -> 4.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 462) + " -> 1.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 275) + " -> 2.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 329) + " -> 5.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 607) + " -> 4.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 1891) + " -> 4.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 788) + " -> 2.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 603) + " -> 4.0 izan behar du.");
-		System.out.println(bm.posiziokoBalorazioa(240, 85) + " -> 5.0 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(3265, 122) + " -> 4.0 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(2116, 8587) + " -> 5.0 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(4081, 12) + " -> 3.5 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(845, 9741) + " -> 2.0 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(4933, 3049) + " -> 5.0 izan behar du.");
+		System.out.println(bm.posiziokoBalorazioa(5335, 122) + " -> 2.5 izan behar du.");
 		//Van bien
 	}
 	
@@ -69,7 +66,6 @@ public class BalorazioMatrizeTest {
 		System.out.println(bm.posiziokoBalorazioa(240, 603) + " -> 4.0 izan behar du.");
 		System.out.println(bm.posiziokoBalorazioa(240, 85) + " -> 5.0 izan behar du.");
 		//Van bien
-		//No cuadran porque hay id de usuarios que no hay
 	}
 
 }
