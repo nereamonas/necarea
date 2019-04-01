@@ -1,4 +1,4 @@
-package Klaseak;
+package Junit;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Fitxategiak.Fitxategi_CSV;
+import Klaseak.Etiketa;
  
 public class EtiketaTest { 
 	

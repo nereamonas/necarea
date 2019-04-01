@@ -35,9 +35,14 @@ public class EtiketaGuztiak {
 		HMKant.put(izena, 1);
 	}
 	
-	public void gehituEtiketa(String e) {
-		if(!bilatuEtiketaIzena(e)) {
-			lista.add(e);
+	public void gehituEtiketa(int p, String izena) {
+		if(!bilatuEtiketaIzena(izena)) {
+			this.lista.add(izena);
+			HM.put(izena,p);   
+			HMKant.put(izena, 1);
+		}else {
+			int kant=this.HM.get(izena);
+			this.HM.put(izena, kant+1);
 			
 		}
 	}
@@ -46,23 +51,22 @@ public class EtiketaGuztiak {
 	}
 	
 	public boolean bilatuEtiketaIzena(String e) {
-		/*
+		
 		boolean aurkitua=false;
-		/*Iterator <String> itr=this.getIteradorea();
+		Iterator <String> itr=this.getIteradorea();
 		String sBat=null;
 		while (itr.hasNext()&& !aurkitua) {
 			sBat=itr.next();
 			if (sBat.compareTo(e)==0) {
 				aurkitua=true;
 			}
-		}*//*
-		//int pos=HM.get(e);
-		if (HM.get(e)!=null) {
-			aurkitua=true;
 		}
+		//int pos=HM.get(e);
+		//if (HM.get(e)!=null) {
+			//aurkitua=true;
+		//}
 		return aurkitua;
-		*/
-		return this.HM.containsKey(e);
+		
 		//o se puede hacer con el hashMaph con contains
 	}
 	
@@ -106,14 +110,6 @@ public class EtiketaGuztiak {
 		return this.HM.get(p);
 	}
 	
-	
-	public void EtiketaErrepikatuDa(String etiketa) {
-		
-		if(this.HM.containsKey(etiketa)){
-			int kant=this.HM.get(etiketa);
-			this.HM.put(etiketa, kant+1);
-		}
-	}
 	
 	public int kantitatea(String p) {
 		return this.HMKant.get(p);

@@ -28,14 +28,12 @@ public class ListaEtiketa {
 			if (e.getIzena().equals(eBat.getIzena())) {
 				e.gehituBesteBat();
 				aurkitua=true;
-				eG.EtiketaErrepikatuDa(e.getIzena());
 			}
 		}
 		if (!aurkitua) {
 			this.listaEtiketa.add(e);
-			eG.grafoaraIzenaGehitu(eG.luzera(), e.getIzena());
-			eG.gehituEtiketa(e.getIzena());
 		}
+		eG.gehituEtiketa(eG.luzera(), e.getIzena());
 		
 	}
 	

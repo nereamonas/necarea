@@ -50,18 +50,15 @@ public class EtiketaGuztiakTest {
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
 		//System.out.println(eG.luzera());
-		eG.gehituEtiketa(s1);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
+		eG.gehituEtiketa(eG.luzera(),s1);
 		//System.out.println(eG.luzera());
-		eG.gehituEtiketa(s2);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
+		eG.gehituEtiketa(eG.luzera(),s2);
 		//System.out.println(eG.luzera());
-		eG.gehituEtiketa(s3);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
+		eG.gehituEtiketa(eG.luzera(),s3);
 		//System.out.println(eG.luzera());
 		assertTrue(eG.luzera()==3);
 		assertFalse(eG.luzera()==2);
-		eG.gehituEtiketa(s3);
+		eG.gehituEtiketa(eG.luzera(),s3);
 		//System.out.println(eG.luzera());
 		assertTrue(eG.luzera()==3);
 		assertFalse(eG.luzera()==4);
@@ -72,12 +69,9 @@ public class EtiketaGuztiakTest {
 	@Test
 	public void testBilatuEtiketaIzena() {
 		eG.erreseteatu();
-		eG.gehituEtiketa(s1);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
-		eG.gehituEtiketa(s2);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
-		eG.gehituEtiketa(s3);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
+		eG.gehituEtiketa(eG.luzera(),s1);
+		eG.gehituEtiketa(eG.luzera(),s2);
+		eG.gehituEtiketa(eG.luzera(),s3);
 		assertTrue(eG.bilatuEtiketaIzena("Comedy")==true);
 		assertTrue(eG.bilatuEtiketaIzena("Horror")==false);
 		
@@ -86,12 +80,9 @@ public class EtiketaGuztiakTest {
 	@Test
 	public void testInprimatuEtiketaIzena() throws IOException{
 		eG.erreseteatu();
-		eG.gehituEtiketa(s1);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
-		eG.gehituEtiketa(s2);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
-		eG.gehituEtiketa(s3);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s3);
+		eG.gehituEtiketa(eG.luzera(),s1);
+		eG.gehituEtiketa(eG.luzera(),s2);
+		eG.gehituEtiketa(eG.luzera(),s3);
 		assertNotNull(eG);
 		eG.inprimatuEtiketaIzenak();
 		
@@ -106,10 +97,8 @@ public class EtiketaGuztiakTest {
 	public void testLuzera() {
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
-		eG.gehituEtiketa(s1);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
-		eG.gehituEtiketa(s2);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
+		eG.gehituEtiketa(eG.luzera(),s1);
+		eG.gehituEtiketa(eG.luzera(),s2);
 		assertTrue(eG.luzera()==2);
 		assertFalse(eG.luzera()==3);
 	}
@@ -119,10 +108,8 @@ public class EtiketaGuztiakTest {
 		
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);
-		eG.gehituEtiketa(s1);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s1);
-		eG.gehituEtiketa(s2);
-		eG.grafoaraIzenaGehitu(eG.luzera(), s2);
+		eG.gehituEtiketa(eG.luzera(),s1);
+		eG.gehituEtiketa(eG.luzera(),s2);
 		assertTrue(eG.luzera()==2);
 		eG.erreseteatu();
 		assertTrue(eG.luzera()==0);

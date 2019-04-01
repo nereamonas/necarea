@@ -99,7 +99,6 @@ public class Fitxategi_CSV implements Fitxategi {
 					
 					
 					//si ya esta creada la etiketa le hacemos +1
-					EtiketaZerrenda.EtiketaErrepikatuDa(datuGuztiak[0]);
 					
 					//busco la peli para añadirle la etiketa
 					Pelikula peli = pelikulaZerrenda.pelikulaBilatuIdz(Integer.parseInt(datuGuztiak[0]));
@@ -109,9 +108,8 @@ public class Fitxategi_CSV implements Fitxategi {
 					
 					//Si el nombre de la etiketa no se ha dicho, la añadiremos a etiketaGuztiak
 					boolean dago=EtiketaZerrenda.bilatuEtiketaIzena(datuGuztiak[1]);
-					if(!dago) {  //si no esta añadimos, sino nada
-						EtiketaZerrenda.grafoaraIzenaGehitu(kont, datuGuztiak[1]);
-						EtiketaZerrenda.gehituEtiketa(datuGuztiak[1]);
+					EtiketaZerrenda.gehituEtiketa(kont, datuGuztiak[1]);
+					if(!dago) {  //
 						kont++;
 					}
 				}
