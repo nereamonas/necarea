@@ -30,6 +30,20 @@ public class EtiketaGuztiak {
 		return EtiketaGuztiak.nireEtiketaGuztiak;
 	}
 	
+	//QUITARLOS LUEGO
+	public void imprimirHM() {
+		System.out.println("LA PRIMERA");
+		for(String key : this.HM.keySet()) {
+			System.out.println(key + ": " + this.HM.get(key));
+		}
+		
+		System.out.println("LA segunda");
+		for(String key : this.HMKant.keySet()) {
+			System.out.println(key + ": " + this.HMKant.get(key));
+		}
+		
+		
+	}
 	public void grafoaraIzenaGehitu(int p, String izena) {
 		HM.put(izena,p);   
 		HMKant.put(izena, 1);

@@ -37,7 +37,6 @@ public class EtiketaMatrize {
 				Etiketa eBat=le.posiziokoEtiketa(j);
 				int pos=eg.EtiketarenPosizioa(eBat.getIzena());
 				matrizea[i][pos]=eBat.getAldiak();
-			
 			}	
 		}	
 		return matrizea;

@@ -111,7 +111,10 @@ public class PertsonaEreduaTest {
 		System.out.println("ETIKETA GUZTIAK:");
 		eg.inprimatuEtiketaIzenak();
 		
+		eg.imprimirHM();
 		
+		
+		System.out.println("");
 
 		System.out.println("NECAREA PELIKULAK:");
 		np.inprimatuPelikulak();
