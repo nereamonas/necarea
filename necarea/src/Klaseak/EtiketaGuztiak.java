@@ -11,8 +11,8 @@ public class EtiketaGuztiak {
 	//atributuak 
 	private ArrayList<String> lista;
 	private static EtiketaGuztiak nireEtiketaGuztiak=null;
-	private HashMap<String,Integer> HM;
-	private HashMap<String,Integer> HMKant;
+	private HashMap<String,Integer> HM;  //Posizioa
+	private HashMap<String,Integer> HMKant;  //Zenbat aldiz erabili den etiketa
 	
 			 
 	//eraikitzailea
@@ -32,6 +32,7 @@ public class EtiketaGuztiak {
 	
 	public void grafoaraIzenaGehitu(int p, String izena) {
 		HM.put(izena,p);   
+		HMKant.put(izena, 1);
 	}
 	
 	public void gehituEtiketa(String e) {
@@ -45,22 +46,23 @@ public class EtiketaGuztiak {
 	}
 	
 	public boolean bilatuEtiketaIzena(String e) {
+		/*
 		boolean aurkitua=false;
 		/*Iterator <String> itr=this.getIteradorea();
 		String sBat=null;
-
 		while (itr.hasNext()&& !aurkitua) {
 			sBat=itr.next();
 			if (sBat.compareTo(e)==0) {
 				aurkitua=true;
 			}
-		}*/
+		}*//*
 		//int pos=HM.get(e);
 		if (HM.get(e)!=null) {
 			aurkitua=true;
 		}
 		return aurkitua;
-		
+		*/
+		return this.HM.containsKey(e);
 		//o se puede hacer con el hashMaph con contains
 	}
 	
@@ -109,7 +111,7 @@ public class EtiketaGuztiak {
 		
 		if(this.HM.containsKey(etiketa)){
 			int kant=this.HM.get(etiketa);
-			this.HM.put(etiketa, kant);
+			this.HM.put(etiketa, kant+1);
 		}
 	}
 	

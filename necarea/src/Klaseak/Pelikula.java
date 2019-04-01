@@ -15,7 +15,7 @@ public class Pelikula {
         }
         
         public void gehituEtiketa(Etiketa e) { //pelikularen listaEtiketari etiketarenbat gehitu nahi izanez gero, metodo honen bitartez gehitzeko aukera dugu
-        	listaEtiketa.gehituEtiketa(e);
+        	this.listaEtiketa.gehituEtiketa(e);
         }
         
         public boolean idBerdinaDu(int pId) { //bere id-a, sartzen den id-arekin konparatzen du, berdinak badira True bueltatuz eta bestela False. Metodo honekin bermatzen dugu, pelikularen informazioa ez pasatzea
@@ -65,6 +65,10 @@ public class Pelikula {
         public String datuakHartu() {
         	return ("Izena:"+this.izena+", Urtea:"+this.urtea);
 
+        }
+        
+        public String posiziokoEtiketaIzena(int i) {
+        	return this.listaEtiketa.posiziokoEtiketaIzena(i);
         }
 
 

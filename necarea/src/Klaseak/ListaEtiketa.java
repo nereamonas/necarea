@@ -16,7 +16,10 @@ public class ListaEtiketa {
 	}
 	
 	public void gehituEtiketa(Etiketa e) {
+		
 		EtiketaGuztiak eG=EtiketaGuztiak.getEtiketaGuztiak();
+		
+		//miramos la pequeña
 		Iterator <Etiketa> itr=this.getIteradorea();
 		Etiketa eBat=null;
 		boolean aurkitua=false;
@@ -25,12 +28,15 @@ public class ListaEtiketa {
 			if (e.getIzena().equals(eBat.getIzena())) {
 				e.gehituBesteBat();
 				aurkitua=true;
+				eG.EtiketaErrepikatuDa(e.getIzena());
 			}
 		}
 		if (!aurkitua) {
 			this.listaEtiketa.add(e);
+			eG.grafoaraIzenaGehitu(eG.luzera(), e.getIzena());
 			eG.gehituEtiketa(e.getIzena());
 		}
+		
 	}
 	
 	private Iterator<Etiketa> getIteradorea() {
@@ -63,5 +69,9 @@ public class ListaEtiketa {
 	public Etiketa posiziokoEtiketa(int i) {
 		return this.listaEtiketa.get(i);
 	}
+	
+	public String posiziokoEtiketaIzena(int i) {
+    	return this.listaEtiketa.get(i).getIzena();
+    }
 	
 	}

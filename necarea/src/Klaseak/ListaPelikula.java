@@ -80,6 +80,7 @@ public class ListaPelikula {
 		return emaitza;
 	}
 	
+
 	//Junit-etarako behar diren metodoak
 		public void inprimatuPelikulak() { //jUnit-etan hitz guztiak ondo gehitu direla ikusteko
 			Iterator <Pelikula> itr=this.getIteradorea();

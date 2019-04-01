@@ -24,7 +24,7 @@ public class BalorazioMatrize {
 				return BalorazioMatrize.nireBalorazioMatrize;
 		}
 		
-		public void matrizeaSortu() {
+		public float[][] matrizeaSortu() {
 			ListaPertsona lp=ListaPertsona.getListaPertsona();
 			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 			float[][] mat2=new float[lp.luzera()][np.luzera()];
@@ -39,6 +39,7 @@ public class BalorazioMatrize {
 				}
 			}
 			mat=mat2;
+			return mat;
 		}
 		
 		//Junit-etarako
@@ -49,4 +50,3 @@ public class BalorazioMatrize {
 		}
 
 }
-
