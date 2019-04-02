@@ -29,13 +29,11 @@ public class BalorazioMatrize {
 			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 			float[][] mat2=new float[lp.luzera()][np.luzera()];
 			for(int i=0; i<lp.luzera();i++) {
-				Pertsona p1=lp.bilatuPertsonaIdz(i+1);
+				Pertsona p1=lp.posiziokoPertsona(i);
 				//System.out.println(i+1 + ". pertsonara heldu gara (i. errenkada)");
-				if (p1!= null) {
-					for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
-						//System.out.println(i+1 + ". pertsonak ikusitako " + j + ". pelikulara heldu gara (j. zutabea)");
-						mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
-					}
+				for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
+					//System.out.println(i+1 + ". pertsonak ikusitako " + j + ". pelikulara heldu gara (j. zutabea)");
+					mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
 				}
 			}
 			mat=mat2;
@@ -46,7 +44,8 @@ public class BalorazioMatrize {
 		
 		public float posiziokoBalorazioa(int pertsonaId, int peliId) {
 			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-			return mat[pertsonaId-1][np.zeinPosiziotanDago(peliId)];
+			ListaPertsona lp=ListaPertsona.getListaPertsona();
+			return mat[lp.zeinPosiziotanDago(pertsonaId)][np.zeinPosiziotanDago(peliId)];
 		}
 
 }

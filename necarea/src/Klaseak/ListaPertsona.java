@@ -1,6 +1,7 @@
 package Klaseak;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -11,13 +12,14 @@ public class ListaPertsona {
 	//atributuak
 	private ArrayList<Pertsona> listaPertsona;
 	private static ListaPertsona nireListaPertsona=null;
-	
+	private HashMap<Integer, Integer> id_pos;
 	 
 			
 	//eraikitzailea
 			
 	private ListaPertsona() {
-		this.listaPertsona=new ArrayList<Pertsona>();		
+		this.listaPertsona=new ArrayList<Pertsona>();	
+		this.id_pos= new HashMap<Integer,Integer>();
 	}
 	
 	public static synchronized ListaPertsona getListaPertsona() {
@@ -33,6 +35,7 @@ public class ListaPertsona {
 	}
 	
 	public void gehituPertsona(Pertsona p) {
+		this.id_pos.put(p.getId(), this.luzera());
 		this.listaPertsona.add(p);
 	}
 	
@@ -111,5 +114,9 @@ public class ListaPertsona {
 			elementuak.addElement(s);
 		}
 		return elementuak;
+	}
+	
+	public int zeinPosiziotanDago(int id) {
+		return id_pos.get(id);
 	}
 }

@@ -3,6 +3,7 @@ package Gomendioak;
 import java.util.HashMap;
 
 import Klaseak.EtiketaGuztiak;
+import Klaseak.ListaPertsona;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pertsona;
 
@@ -27,9 +28,9 @@ public class PertsonaEredua {
 	public HashMap<String,Float> balorazioakEman(float[][] balorazioMatrize, float[][] etiketaMatrize, int pertsonaId) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-		
+		ListaPertsona lp=ListaPertsona.getListaPertsona();
 		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
-		float[] pertsonarenBalorazio = balorazioMatrize[pertsonaId];
+		float[] pertsonarenBalorazio = balorazioMatrize[lp.zeinPosiziotanDago(pertsonaId)];
 		
 		
 		//2- Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da
@@ -80,9 +81,9 @@ public class PertsonaEredua {
 	public float baloratuPelikula(float[][] balorazioMatrize, float[][] etiketaMatrize, String pelikulaIzena, int pertsonaId) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-		
+		ListaPertsona lp=ListaPertsona.getListaPertsona();
 		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
-		float[] pertsonarenBalorazio = balorazioMatrize[pertsonaId];
+		float[] pertsonarenBalorazio = balorazioMatrize[lp.zeinPosiziotanDago(pertsonaId)];
 		
 		//2- Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da
 		//3- Beste bektore bat sortuko dugu kosinuaAplikatuta izenekoa. Ikusi ez dit

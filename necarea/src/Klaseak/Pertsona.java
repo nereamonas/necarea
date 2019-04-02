@@ -58,6 +58,10 @@ public class Pertsona {
 	public void idInprimatu() {
 		System.out.println(this.id);
 	}
+	
+	public int getId() {
+		return this.id;
+	}
 	//ListaEtiketa proba batentzat
 	public void printPelikulaBatenEtiketak(int pId) {
 		Pelikula p=ikusitakoPelikulak.pelikulaBilatuIdz(pId);
