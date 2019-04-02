@@ -15,7 +15,13 @@ public class Pelikula {
         }
         
         public void gehituEtiketa(Etiketa e) { //pelikularen listaEtiketari etiketarenbat gehitu nahi izanez gero, metodo honen bitartez gehitzeko aukera dugu
-        	this.listaEtiketa.gehituEtiketa(e);
+        	Etiketa etik=listaEtiketa.etiketaDago(e.getIzena());
+        	if(etik==null) {
+        		this.listaEtiketa.gehituEtiketa(e);
+        	}else {
+        		listaEtiketa.gehituBesteBatEtiketari(e.getIzena());
+        	}
+        	
         }
         
         public boolean idBerdinaDu(int pId) { //bere id-a, sartzen den id-arekin konparatzen du, berdinak badira True bueltatuz eta bestela False. Metodo honekin bermatzen dugu, pelikularen informazioa ez pasatzea

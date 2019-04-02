@@ -45,6 +45,11 @@ public class ListaEtiketa {
 		return this.listaEtiketa.size();
 	}
 	
+	public void gehituBesteBatEtiketari(String izen) {
+		Etiketa e=this.etiketaDago(izen);
+		e.gehituBesteBat();
+	}
+	
 	//Junit-etarako
 
 	public void erreseteatu(){
@@ -71,5 +76,22 @@ public class ListaEtiketa {
 	public String posiziokoEtiketaIzena(int i) {
     	return this.listaEtiketa.get(i).getIzena();
     }
+	
+	public Etiketa etiketaDago(String izena) {
+		Iterator <Etiketa> itr= this.getIteradorea();
+		Etiketa eBat=null;
+		Etiketa e=null;
+		boolean aurkitua=false;
+		while (itr.hasNext() && !aurkitua) {
+			eBat=itr.next();
+			if(eBat.getIzena().equals(izena)) {
+				aurkitua=true;
+			}
+		}
+		if(aurkitua) {
+			e=eBat;
+		}
+		return e;
+	}
 	
 	}

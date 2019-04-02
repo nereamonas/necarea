@@ -66,6 +66,13 @@ public class EtiketaMatrize {
 		
 	}
 	
+	public int posiziokoZenbakiaLehenengoMatrizean(int peliId,String etiketaIzena) {
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		int[][] mat=this.lehenengoMatrizeaSortu();
+		
+		return mat[np.zeinPosiziotanDago(peliId)][eg.EtiketarenPosizioa(etiketaIzena)];
+	}
 	
 	
 	
