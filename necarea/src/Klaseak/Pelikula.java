@@ -16,8 +16,10 @@ public class Pelikula {
         
         public void gehituEtiketa(Etiketa e) { //pelikularen listaEtiketari etiketarenbat gehitu nahi izanez gero, metodo honen bitartez gehitzeko aukera dugu
         	Etiketa etik=listaEtiketa.etiketaDago(e.getIzena());
+        	EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
         	if(etik==null) {
         		this.listaEtiketa.gehituEtiketa(e);
+        		eg.kantitateaGehitu(e.getIzena());
         	}else {
         		listaEtiketa.gehituBesteBatEtiketari(e.getIzena());
         	}

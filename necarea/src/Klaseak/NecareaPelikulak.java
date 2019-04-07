@@ -11,13 +11,14 @@ public class NecareaPelikulak {
 	private ListaPelikula listaPeli;
 	private static NecareaPelikulak nireNecareaPelikulak=null;
 	private HashMap<Integer, Integer> id_pos;
-	
+	private HashMap<String, Integer> izen_pos;
 			
 	 //eraikitzailea
 			
 	private NecareaPelikulak() {
 		this.listaPeli=new ListaPelikula();	
 		this.id_pos= new HashMap<Integer,Integer>();
+		this.izen_pos= new HashMap<String,Integer>();
 	}
 	    
 	public static synchronized NecareaPelikulak getNecareaPelikulak() {
@@ -29,6 +30,7 @@ public class NecareaPelikulak {
 	
 	public void gehituPelikula(Pelikula p) {
 		this.id_pos.put(p.getId(), this.luzera());
+		this.izen_pos.put(p.getIzena(), this.luzera());
 		this.listaPeli.gehituPelikula(p);
 	}
 	
@@ -59,11 +61,13 @@ public class NecareaPelikulak {
 	}
 	
 	public int bilatuPelikularenPosizioa(String p) {
-		return this.listaPeli.bilatuPelikularenPosizioa(p);
+		//return this.listaPeli.bilatuPelikularenPosizioa(p);
+		return this.izen_pos.get(p);
 	}
 	
 	public int zeinPosiziotanDago(int id) {
 		return id_pos.get(id);
+		
 	}
 	
 	  

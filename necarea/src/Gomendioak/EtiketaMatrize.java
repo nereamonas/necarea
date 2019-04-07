@@ -39,6 +39,16 @@ public class EtiketaMatrize {
 				matrizea[i][pos]=eBat.getAldiak();
 			}	
 		}	
+		System.out.println();
+		System.out.println();
+		System.out.println("Etiketa matrizea(formula aplikatu gabe): ");
+		System.out.println();
+		/*for (int i=0;i<matrizea.length;i++) {
+			for(int j=0;j<matrizea[0].length;j++) {
+				System.out.print(matrizea[i][j] + "  ");
+			}
+			System.out.println();
+		}*/
 		return matrizea;
 	}
 	
@@ -61,10 +71,16 @@ public class EtiketaMatrize {
 				}
 			}
 		}
-		 this.matrize=m;
+		this.matrize=m;
+		System.out.println();
+		System.out.println();
+		System.out.println("Etiketa matrizea(formula aplikatuta): ");
+		System.out.println();
+		//this.matrizeaInprimatu();
 		return m;
 		
 	}
+	
 	
 	public int posiziokoZenbakiaLehenengoMatrizean(int peliId,String etiketaIzena) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
@@ -74,6 +90,20 @@ public class EtiketaMatrize {
 		return mat[np.zeinPosiziotanDago(peliId)][eg.EtiketarenPosizioa(etiketaIzena)];
 	}
 	
+	public float posiziokoZenbakiaBigarrenMatrizean(int peliId,String etiketaIzena) {
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		
+		return matrize[np.zeinPosiziotanDago(peliId)][eg.EtiketarenPosizioa(etiketaIzena)];
+	}
 	
+	public void matrizeaInprimatu() {
+		for (int i=0;i<matrize.length;i++) {
+			for(int j=0;j<matrize[0].length;j++) {
+				System.out.print(matrize[i][j] + "  ");
+			}
+			System.out.println();
+		}
+	}
 	
 }

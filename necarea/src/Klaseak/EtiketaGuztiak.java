@@ -32,10 +32,10 @@ public class EtiketaGuztiak {
 	
 	//QUITARLOS LUEGO
 	public void imprimirHM() {
-		System.out.println("LA PRIMERA");
+		/*System.out.println("LA PRIMERA");
 		for(String key : this.HM.keySet()) {
 			System.out.println(key + ": " + this.HM.get(key));
-		}
+		}*/
 		
 		System.out.println("LA segunda");
 		for(String key : this.HMKant.keySet()) {
@@ -50,13 +50,23 @@ public class EtiketaGuztiak {
 		if(!this.HM.containsKey(izena)) {
 			this.lista.add(izena);
 			HM.put(izena,p);   
-			HMKant.put(izena, 1);
-		}else {
+			//HMKant.put(izena, 1);
+		}/*else {
 			int kant=this.HMKant.get(izena);
 			this.HMKant.put(izena, kant+1);
 			
+		}*/
+	}
+	
+	public void kantitateaGehitu(String izena) {
+		if(this.HMKant.containsKey(izena)) {
+			int kant=this.HMKant.get(izena);
+			this.HMKant.put(izena, kant+1);
+		}else {
+			this.HMKant.put(izena, 1);
 		}
 	}
+	
 	private Iterator<String> getIteradorea() {
 		return this.lista.iterator();
 	}

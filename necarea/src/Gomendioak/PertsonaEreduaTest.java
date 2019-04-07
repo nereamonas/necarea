@@ -2,6 +2,7 @@ package Gomendioak;
 
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 import org.junit.After;
@@ -32,7 +33,7 @@ public class PertsonaEreduaTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		p1= new Pelikula(1,"bajo la misma estrella",2010);
+		/*p1= new Pelikula(1,"bajo la misma estrella",2010);
 		p2= new Pelikula(2,"De todos los chicos de los que me enamore",2016);
 		p3= new Pelikula(3,"Alvin y las ardillas",2015);
 		e1= new Etiketa(1,"Llorar");	
@@ -78,7 +79,7 @@ public class PertsonaEreduaTest {
 		eg.EtiketaErrepikatuDa("Llorar");
 		eg.EtiketaErrepikatuDa("Llorar");
 		eg.EtiketaErrepikatuDa("Amor");
-		*/
+		
 		
 		lp=ListaPertsona.getListaPertsona();
 		lp.gehituPertsona(pe1);
@@ -94,7 +95,12 @@ public class PertsonaEreduaTest {
 		
 		balorazioMatrize=BalorazioMatrize.getBalorazioMatrize();
 		etiketaMatrize=EtiketaMatrize.getEtiketaMatrize();
-		pertsonaEredua=PertsonaEredua.getPertsonaEredua();
+		pertsonaEredua=PertsonaEredua.getPertsonaEredua();*/
+		
+		
+		f=new Fitxategi_CSV();
+		etiketaMatrize=EtiketaMatrize.getEtiketaMatrize();
+		balorazioMatrize=BalorazioMatrize.getBalorazioMatrize();
 		
 	}
 	@After
@@ -182,7 +188,7 @@ public class PertsonaEreduaTest {
 		//la 3
 		HashMap<String,Float> hm=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 1);
 		HashMap<String,Float> hm2=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 2);
-		//HashMap<String,Float> hm3=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 3); //--> nova
+		HashMap<String,Float> hm3=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 3); //--> nova
 	
 	
 		//inprimatu HashMap
@@ -195,15 +201,15 @@ public class PertsonaEreduaTest {
 				System.out.println(key + ": " + hm2.get(key));
 			}
 			
-			/*for(String key : hm3.keySet()) {
+			for(String key : hm3.keySet()) {
 				System.out.println(key + ": " + hm3.get(key));
-			} */
+			} 
 			
 			//BaloratuPelikula
 			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p1.getIzena(), 1));
 			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p3.getIzena(), 2));
-			//System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p2.getIzena(), 3)); //--> no va
-			//System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p3.getIzena(), 3)); //--> no va
+			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p2.getIzena(), 3)); //--> no va
+			System.out.println(pertsonaEredua.baloratuPelikula(m1, m2, p3.getIzena(), 3)); //--> no va
 	}
 
 	@Test
@@ -212,20 +218,51 @@ public class PertsonaEreduaTest {
 	}
 
 	@Test
-	public void testMatrizeaSortu() {
-		fail("Not yet implemented");
+	public void testMatrizeaSortu() throws FileNotFoundException {
+		f.kargatuTitles();
+		f.kargatuRatings();
+		f.kargatuTags();
+		
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		System.out.println("NecareaPelikulak: ");
+		np.inprimatuPelikulak();
+		System.out.println();
+		/*
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		System.out.println("EtiketaGuztiak: ");
+		eg.inprimatuEtiketaIzenak();
+		
+		ListaPertsona lp=ListaPertsona.getListaPertsona();
+		System.out.println("ListaPertsona: ");
+		lp.inprimatu();*/
+		
+		float[][] bm=balorazioMatrize.matrizeaSortu();
+		float[][] em=etiketaMatrize.MatrizeaSortu();
+		
+		PertsonaEredua pertsonaEredua=PertsonaEredua.getPertsonaEredua();
+		
+		//System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Cccc", 4));
+		
+		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Stargate ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Twelve Monkeys [a.k.a. 12 Monkeys] ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Seven [a.k.a. Se7en] ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Sin City ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Star Wars: Episode IV - A New Hope ", 4045));
 	}
 
 	@Test
 	public void testKosinuaKalkulatu() {
 		//kosinua kalkulatu --> bn
-        float[] e=new float[2];
+        float[] e=new float[3];
         e[0]=(float)0.3;
         e[1]=(float)0.6;
+        e[2]=(float)0.4;
         
-        float[] i=new float[2];
+        float[] i=new float[3];
         i[0]=(float)-0.1;
         i[1]=(float)0.3;
+        i[2]=(float)0.4;
        float u= pertsonaEredua.kosinuaKalkulatu(e, i);
         System.out.println(u);
 	}
+}
