@@ -89,7 +89,7 @@ public class PertsonaEredua {
 		//3- Beste bektore bat sortuko dugu kosinuaAplikatuta izenekoa. Ikusi ez dit
 		float[] gehitura=new float[eg.luzera()];
 		for (int i=0;i<etiketaMatrize.length;i++) {
-			if (pertsonarenBalorazio[i]>3.5) {
+			if (pertsonarenBalorazio[i]>=3.5) {
 				//Pelikula ikusi du eta gainera 3.5 baino gehiago emana dio
 				for(int j=0;j<etiketaMatrize[i].length;j++) {
 					gehitura[j]=gehitura[j]+etiketaMatrize[i][j];
@@ -97,12 +97,18 @@ public class PertsonaEredua {
 			}
 		}
 		
+		  
+		/*for (int k=0;k<gehitura.length;k++) {
+			System.out.print(gehitura[k] + "  ");
+		}*/
+		
 		//3- Kosinua formula kalkulatuko dugu, ikusi nahi duen pelikularekin
 		float[] nahiDuenPelikulaEtiketak = etiketaMatrize[np.bilatuPelikularenPosizioa(pelikulaIzena)];
 		float kosinua=kosinuaKalkulatu(gehitura,nahiDuenPelikulaEtiketak);
 		
-		return kosinua;
 		
+		return kosinua;
+		//return 0;
 	}
 	
 	
