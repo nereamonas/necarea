@@ -25,7 +25,8 @@ public class Fitxategi_CSV implements Fitxategi {
 		NecareaPelikulak pelikulaZerrenda= NecareaPelikulak.getNecareaPelikulak();
 		
 		// .csv fitxategia irekitzeko
-		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-titles.csv"));
+		//BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-titles.csv"));
+		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-titles2.csv"));
 		
 		try {
 			Scanner s=new Scanner(reader);
@@ -72,7 +73,8 @@ public class Fitxategi_CSV implements Fitxategi {
 		NecareaPelikulak pelikulaZerrenda= NecareaPelikulak.getNecareaPelikulak();			
 		
 		// .csv fitxategia irekitzeko
-		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-tags.csv"));
+		//BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-tags.csv"));
+		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-tags2.csv"));
 		
 		try {
 			Scanner s=new Scanner(reader);
@@ -128,7 +130,8 @@ public class Fitxategi_CSV implements Fitxategi {
 		NecareaPelikulak pelikulaZerrenda=NecareaPelikulak.getNecareaPelikulak();
 		 
 		// .csv fitxategia irekitzeko
-		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-ratings.csv"));
+		//BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-ratings.csv"));
+		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-ratings2.csv"));
 		
 		try {
 			Scanner s=new Scanner(reader);

@@ -29,27 +29,27 @@ public class EtiketaMatrize {
 	public int[][] lehenengoMatrizeaSortu() {   //cambiar luego a privado, q es para comprobarlo
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-		int[][]matrizea=new int[np.luzera()][eg.luzera()];
+		int[][]matriz=new int[np.luzera()][eg.luzera()];
 		
 		for (int i=0; i<np.luzera();i++) {
 			ListaEtiketa le=np.posiziokoPelikularenListaEtiketa(i);
 			for (int j=0;j<le.luzera();j++) {
 				Etiketa eBat=le.posiziokoEtiketa(j);
 				int pos=eg.EtiketarenPosizioa(eBat.getIzena());
-				matrizea[i][pos]=eBat.getAldiak();
+				matriz[i][pos]=eBat.getAldiak();
 			}	
 		}	
-		System.out.println();
+		/*System.out.println();
 		System.out.println();
 		System.out.println("Etiketa matrizea(formula aplikatu gabe): ");
 		System.out.println();
-		/*for (int i=0;i<matrizea.length;i++) {
+		for (int i=0;i<matrizea.length;i++) {
 			for(int j=0;j<matrizea[0].length;j++) {
 				System.out.print(matrizea[i][j] + "  ");
 			}
 			System.out.println();
 		}*/
-		return matrizea;
+		return matriz;
 	}
 	
 	public float[][] MatrizeaSortu() {
@@ -72,11 +72,12 @@ public class EtiketaMatrize {
 			}
 		}
 		this.matrize=m;
-		System.out.println();
+		/*System.out.println();
 		System.out.println();
 		System.out.println("Etiketa matrizea(formula aplikatuta): ");
 		System.out.println();
-		//this.matrizeaInprimatu();
+		this.matrizeaInprimatu();
+		*/
 		return m;
 		
 	}

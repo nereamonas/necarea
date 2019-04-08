@@ -43,7 +43,6 @@ public class PertsonaEreduaTest {
 		e5= new Etiketa(3,"Risa");
 		e6= new Etiketa(3,"Llorar");
 		e6.gehituBesteBat();
-
 		
 		p1.gehituEtiketa(e1);
 		p1.gehituEtiketa(e2);
@@ -92,10 +91,10 @@ public class PertsonaEreduaTest {
 		pe2.grafoaraBalorazioaGehitu(2, (float)3.0);
 		pe3.grafoaraBalorazioaGehitu(1, (float)4.0);
 		
-		
+		*/
 		balorazioMatrize=BalorazioMatrize.getBalorazioMatrize();
 		etiketaMatrize=EtiketaMatrize.getEtiketaMatrize();
-		pertsonaEredua=PertsonaEredua.getPertsonaEredua();*/
+		pertsonaEredua=PertsonaEredua.getPertsonaEredua();
 		
 		
 		f=new Fitxategi_CSV();
@@ -242,14 +241,15 @@ public class PertsonaEreduaTest {
 		PertsonaEredua pertsonaEredua=PertsonaEredua.getPertsonaEredua();
 		
 		//System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Cccc", 4));
-		
+		/*
 		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Stargate ", 4045));
 		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Twelve Monkeys [a.k.a. 12 Monkeys] ", 4045));
 		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Seven [a.k.a. Se7en] ", 4045));
 		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Sin City ", 4045));
 		System.out.println(pertsonaEredua.baloratuPelikula(bm, em, "Star Wars: Episode IV - A New Hope ", 4045));
+		*/
 	}
-
+	
 	@Test
 	public void testKosinuaKalkulatu() {
 		//kosinua kalkulatu --> bn

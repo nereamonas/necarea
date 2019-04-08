@@ -32,12 +32,13 @@ public class EtiketaGuztiak {
 	
 	//QUITARLOS LUEGO
 	public void imprimirHM() {
-		/*System.out.println("LA PRIMERA");
+		System.out.println("LA PRIMERA - posizioak");
 		for(String key : this.HM.keySet()) {
 			System.out.println(key + ": " + this.HM.get(key));
-		}*/
+		}
+		System.out.println();
 		
-		System.out.println("LA segunda");
+		System.out.println("LA SEGUNDA - kantitatea");
 		for(String key : this.HMKant.keySet()) {
 			System.out.println(key + ": " + this.HMKant.get(key));
 		}
