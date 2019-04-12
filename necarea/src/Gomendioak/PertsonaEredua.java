@@ -25,7 +25,12 @@ public class PertsonaEredua {
 	}
 	
 	
-	public HashMap<String,Float> balorazioakEman(float[][] balorazioMatrize, float[][] etiketaMatrize, int pertsonaId) {
+	public HashMap<String,Float> balorazioakEman(int pertsonaId) {
+		BalorazioMatrize BM = BalorazioMatrize.getBalorazioMatrize();
+		EtiketaMatrize EM=EtiketaMatrize.getEtiketaMatrize();
+		float[][] balorazioMatrize=BM.matrizeaSortu();
+		float[][] etiketaMatrize=EM.MatrizeaSortu();
+		
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 		ListaPertsona lp=ListaPertsona.getListaPertsona();
@@ -78,7 +83,12 @@ public class PertsonaEredua {
 	
 	
 	
-	public float baloratuPelikula(float[][] balorazioMatrize, float[][] etiketaMatrize, String pelikulaIzena, int pertsonaId) {
+	public float baloratuPelikula(String pelikulaIzena, int pertsonaId) {
+		BalorazioMatrize BM = BalorazioMatrize.getBalorazioMatrize();
+		EtiketaMatrize EM=EtiketaMatrize.getEtiketaMatrize();
+		float[][] balorazioMatrize=BM.matrizeaSortu();
+		float[][] etiketaMatrize=EM.MatrizeaSortu();
+		
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 		ListaPertsona lp=ListaPertsona.getListaPertsona();

@@ -1,7 +1,11 @@
 package Klaseak;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Vector;
+
+import Fitxategiak.Fitxategi_CSV;
 
 public class Pertsona {
 	//atributuak
@@ -9,6 +13,7 @@ public class Pertsona {
 	//HashMap con las baloraciones
 	private HashMap<Integer, Float> HM;
 	private int id;
+	private int pasahitza;
 	
 	
 			 
@@ -18,6 +23,7 @@ public class Pertsona {
 		this.id=id;  
 		this.ikusitakoPelikulak= new ListaPelikula();	
 		HM= new HashMap<Integer,Float>();
+		this.pasahitza=id;
 	}
 	
 	
@@ -98,6 +104,29 @@ public class Pertsona {
 	public float posiziokoPelikularenBalorazioa(int pos) {
 		int id=this.ikusitakoPelikulak.posiziokoPelikulakoIda(pos);
 		return this.HM.get(id);
+	}
+	
+	public boolean pasahitzaKonprobatu(int pas) {
+		return (this.pasahitza==pas);
+	}
+	
+	public Vector bektoreIkusitakoPelikulak() throws IOException {
+		Vector elementuak = new Vector();
+		for(int i=0; i<this.luzera(); i++) {
+			String s=this.ikusitakoPelikulak.datuakHartu(i);
+			elementuak.addElement(s);
+		}
+		
+		return elementuak;
+	}
+	
+	public boolean bilatuPelikula(String peli) {
+		boolean emaitza=false;
+		if(this.ikusitakoPelikulak.bilatuPelikularenPosizioa(peli)!=-1) {
+			emaitza=true;
+		}
+		return emaitza;
+		
 	}
 	
 	

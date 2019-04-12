@@ -10,7 +10,7 @@ public class NecareaPelikulak {
 	//atributuak
 	private ListaPelikula listaPeli;
 	private static NecareaPelikulak nireNecareaPelikulak=null;
-	private HashMap<Integer, Integer> id_pos;
+	private HashMap<Integer, Integer> id_pos; //creo q hay q borrar
 	private HashMap<String, Integer> izen_pos;
 			
 	 //eraikitzailea
@@ -78,18 +78,18 @@ public class NecareaPelikulak {
 	}
 
 	public Vector bektorePelikulak() throws IOException {
-		Fitxategi_CSV f= new Fitxategi_CSV();
-		NecareaPelikulak lp=NecareaPelikulak.getNecareaPelikulak();
-		f.kargatuTitles();
-		
-		
+
 		Vector elementuak = new Vector();
-		for(int i=0; i<lp.luzera(); i++) {
-			String s=lp.datuakHartu(i);
+		for(int i=0; i<this.listaPeli.luzera(); i++) {
+			String s=this.listaPeli.datuakHartu(i);
 			elementuak.addElement(s);
 		}
 		
 		return elementuak;
+	}
+	
+	public Pelikula bilatuPelikulaIzenaz(String peli) {
+		return this.listaPeli.bilatuPelikulaIzenaz(peli);
 	}
 	
 	

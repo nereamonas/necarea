@@ -138,7 +138,7 @@ public class peTest {
  		System.out.println("   BALORAZIO GUZTIAK ");
  		//1 pertsonaren pelikulak
  		System.out.println("       1 PERTSONAREN BALORAZIOAK ");
- 		HashMap<String,Float> hm=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 1);
+ 		HashMap<String,Float> hm=pertsonaEredua.balorazioakEman(1);
 
  		for(String key : hm.keySet()) {
  			System.out.println(key + ": " + hm.get(key));
@@ -150,7 +150,7 @@ public class peTest {
  		
  		//2 pertsonaren pelikulak
  		System.out.println("       2 PERTSONAREN BALORAZIOAK ");
- 		HashMap<String,Float> hm2=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 2);
+ 		HashMap<String,Float> hm2=pertsonaEredua.balorazioakEman(2);
 
  		for(String key : hm2.keySet()) {
  			System.out.println(key + ": " + hm2.get(key));
@@ -162,7 +162,7 @@ public class peTest {
 
  		//3 pertsonaren pelikulak
  		System.out.println("       3 PERTSONAREN BALORAZIOAK ");
- 		HashMap<String,Float> hm3=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 3); 
+ 		HashMap<String,Float> hm3=pertsonaEredua.balorazioakEman( 3); 
  			
  		for(String key : hm3.keySet()) {
  			System.out.println(key + ": " + hm3.get(key));
@@ -175,7 +175,7 @@ public class peTest {
  		
  		//4 pertsonaren pelikulak
  		System.out.println("       4 PERTSONAREN BALORAZIOAK ");
- 		HashMap<String,Float> hm4=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 4); 
+ 		HashMap<String,Float> hm4=pertsonaEredua.balorazioakEman(4); 
  			
  		for(String key : hm4.keySet()) {
  			System.out.println(key + ": " + hm4.get(key));
@@ -187,13 +187,26 @@ public class peTest {
 		
 		//5 pertsonaren pelikulak
  		System.out.println("       5 PERTSONAREN BALORAZIOAK ");
- 		HashMap<String,Float> hm5=pertsonaEredua.balorazioakEman(balorazioMatrize.matrizeaSortu(), etiketaMatrize.MatrizeaSortu(), 5); 
+ 		HashMap<String,Float> hm5=pertsonaEredua.balorazioakEman( 5); 
  			
  		for(String key : hm5.keySet()) {
  			System.out.println(key + ": " + hm5.get(key));
  		} 
  		System.out.println();
  		System.out.println("---------------------------------------------------");
+	
+ 		System.out.println();
+ 		System.out.println();
+ 		
+ 		
+ 		System.out.println(pertsonaEredua.baloratuPelikula("Stargate ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula("Twelve Monkeys [a.k.a. 12 Monkeys] ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula( "Seven [a.k.a. Se7en] ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula("Sin City ", 4045));
+		System.out.println(pertsonaEredua.baloratuPelikula("Star Wars: Episode IV - A New Hope ", 4045));
+		
+	
+	
 	}
 
 

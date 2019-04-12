@@ -58,6 +58,24 @@ public class ListaPelikula {
 		return this.listaPelikula.get(i).listaEtiketaItzuli();
 	}
 	
+	public Pelikula bilatuPelikulaIzenaz(String peli) {
+		Iterator <Pelikula> itr=this.getIteradorea();
+		Pelikula pBat=null;
+		Pelikula p=null;
+		boolean aurkitua=false;
+		
+		while (itr.hasNext()&& !aurkitua) {
+			pBat=itr.next();
+			if (pBat.getIzena()==peli) { 
+				aurkitua=true;
+			}
+		}
+		if(aurkitua) {
+		p=pBat;
+		}
+	return p;
+	}
+	
 	public int bilatuPelikularenPosizioa(String p) {
 		Iterator <Pelikula> itr=this.getIteradorea();
 		Pelikula pBat=null;

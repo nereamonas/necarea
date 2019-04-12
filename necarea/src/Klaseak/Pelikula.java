@@ -51,9 +51,9 @@ public class Pelikula {
         //Junit-etarako
         
         public void print() { //Junit-etan erabiliko da, ikusteko pelikularen atributu guztiak ondo sartu direla
-        	System.out.println("Pelikularen id:" + this.id);
-        	System.out.println("Izena:" + this.izena);
-        	System.out.println("Urtea:" + this.urtea);
+        	System.out.println("Pelikularen id: " + this.id);
+        	System.out.println(" Izena: " + this.izena);
+        	System.out.println(" Urtea: " + this.urtea);
         	System.out.println();
         }
         
@@ -70,8 +70,12 @@ public class Pelikula {
         }
         
         //Botoiak egiteko erabiliko den metodoa
+        public String datuakHartu2() {
+        	return ("Izena: "+this.izena+", Urtea: "+this.urtea);
+
+        }
         public String datuakHartu() {
-        	return ("Izena:"+this.izena+", Urtea:"+this.urtea);
+        	return (this.izena);
 
         }
         

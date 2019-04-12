@@ -24,7 +24,7 @@ public class ZEtiketakFrame extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 */ 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -54,7 +54,7 @@ public class ZEtiketakFrame extends JFrame {
 		JList list=new JList(elementuak);
 		contentPane.add(list, BorderLayout.WEST);
 		
-		JLabel lblHauekDiraNecarea = new JLabel("Hauek dira gendeak erabilitako etiketa guztiak");
+		JLabel lblHauekDiraNecarea = new JLabel("Hauek dira jendeak erabilitako etiketa guztiak");
 		lblHauekDiraNecarea.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		contentPane.add(lblHauekDiraNecarea, BorderLayout.NORTH);
 		
@@ -63,7 +63,7 @@ public class ZEtiketakFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				ZMainBotoiak b=new ZMainBotoiak();
 				b.setVisible(true);
-				
+				//contentPane.clo
 			}
 		});
 		btnHasierakoMenuraBueltatu.setBackground(Color.MAGENTA);
