@@ -159,7 +159,7 @@ public class PertsonaEredua {
 		TreeSet conjuntoOrdenado = new TreeSet(Values);
 		Object[] arrayOrdenado = conjuntoOrdenado.toArray();
 		int size = arrayOrdenado.length;
-		for (int i=0; i<size; i++) {
+		for (int i=size-1; i>=0; i--) {
 		mapResultado.put
 		(Keys.get(
 		Values.indexOf(arrayOrdenado[i])),arrayOrdenado[i]);
