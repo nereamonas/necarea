@@ -15,7 +15,7 @@ import Klaseak.Pertsona;
 
 public class PertsonaEredua {
  
-	 LinkedHashMap<String,Float> lHM;
+	LinkedHashMap<String,Float> lHM;
 	private static PertsonaEredua nirePertsonaEredua=null;
 	
 	public PertsonaEredua() {
@@ -82,8 +82,8 @@ public class PertsonaEredua {
 		}
 		
 		//Faltaria ordenarlo cogiendo las 10 primeras solo
-		this.lHM=this.ordenatu(HM);
-		return this.lHM;
+		
+		return this.ordenatu(HM);
 		
 	}
 	
@@ -167,7 +167,7 @@ public class PertsonaEredua {
 		return (LinkedHashMap<String, Float>) mapResultado;
 		}
 	
-	public Vector bektorePelikulak() throws IOException {
+	public Vector bektore10(LinkedHashMap<String,Float> lHM) throws IOException {
 		int kont=0;
 
 		Vector elementuak = new Vector();
