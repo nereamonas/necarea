@@ -83,4 +83,16 @@ public class Necarea{
     	return this.pelikulak.bilatuPelikulaIzenaz(peli).datuakHartu2();
     }
     
+    
+    public float pelikulariEmandakoBalorazioa(int perts, String peli) {
+    	Pertsona pertsona=this.pertsonak.bilatuPertsonaIdz(perts);
+    	int peliPos=this.pelikulak.bilatuPelikularenPosizioa(peli);
+    	return (pertsona.posiziokoPelikularenBalorazioa(peliPos));
+    }
+    
+    public float pelikulaBaloratu(int perts,String peli) {
+    	PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
+    	return (pe.baloratuPelikula(peli, perts));
+    }
+    
 }

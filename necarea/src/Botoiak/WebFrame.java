@@ -19,6 +19,7 @@ import Klaseak.NecareaPelikulak;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JLabel;
+import java.awt.Cursor;
 
 public class WebFrame extends JFrame {
 
@@ -59,9 +60,11 @@ public class WebFrame extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		JButton btnErabiltzaileId = new JButton("Erabiltzailea: "+erabiltzaileId);
+		btnErabiltzaileId.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnErabiltzaileId);
 		
 		JButton btnSaioaItxi = new JButton("Saioa itxi");
+		btnSaioaItxi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnSaioaItxi);
 		
 		JLabel lblKatalogoa = new JLabel("Katalogoa:");
@@ -81,6 +84,7 @@ public class WebFrame extends JFrame {
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 		
 		JButton btnSartu = new JButton("Sartu");
+		btnSartu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel_2.add(btnSartu);
 		
 		//

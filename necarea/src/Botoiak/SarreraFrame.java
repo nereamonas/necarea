@@ -75,6 +75,7 @@ public class SarreraFrame extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		JButton btnSaioaHasi = new JButton("Saioa hasi");
+		btnSaioaHasi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnSaioaHasi);
 		btnSaioaHasi.setBackground(new Color(135, 206, 250));
 		btnSaioaHasi.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
@@ -89,6 +90,7 @@ public class SarreraFrame extends JFrame {
 		});
 		
 		JButton btnKontuaSortu = new JButton("Kontua sortu");
+		btnKontuaSortu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnKontuaSortu);
 		btnKontuaSortu.setBackground(new Color(135, 206, 250));
 		btnKontuaSortu.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));

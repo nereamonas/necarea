@@ -16,7 +16,7 @@ public class Pertsona {
 	private int pasahitza;
 	
 	
-			 
+			
 	//eraikitzailea
 			
 	public Pertsona(int id) {

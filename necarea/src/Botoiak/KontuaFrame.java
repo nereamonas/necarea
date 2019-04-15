@@ -17,6 +17,7 @@ import Klaseak.Necarea;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
+import java.awt.Cursor;
 
 public class KontuaFrame extends JFrame {
 
@@ -85,6 +86,7 @@ public class KontuaFrame extends JFrame {
 		contentPane.add(panel_3, BorderLayout.EAST);
 		
 		JButton btnSartuPelikulan = new JButton("Sartu Pelikulan");
+		btnSartuPelikulan.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel_3.add(btnSartuPelikulan);
 		
 		btnSartuPelikulan.addActionListener(new ActionListener() {
@@ -98,6 +100,7 @@ public class KontuaFrame extends JFrame {
 		});
 		
 		JButton btnAtzeraJoan = new JButton("Atzera joan");
+		btnAtzeraJoan.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel_3.add(btnAtzeraJoan);
 		
 		btnAtzeraJoan.addActionListener(new ActionListener() {

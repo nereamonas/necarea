@@ -14,6 +14,7 @@ import Klaseak.Necarea;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.Cursor;
 
 public class PelikulaFrame extends JFrame {
 
@@ -62,16 +63,25 @@ public class PelikulaFrame extends JFrame {
 		panel_1.add(lblDatuak);
 		
 		
+		
 		Boolean ikusiDu=necarea.pelikulaIkusiDu(erabiltzaileId,peli);
 		JLabel label;
+		JLabel lblBalorazioa;
 		if(ikusiDu) {
 			label = new JLabel("Pelikula hau ikusi duzu");
+			lblBalorazioa = new JLabel("Pelikulari emandako balorazioa:" +necarea.pelikulariEmandakoBalorazioa(erabiltzaileId, peli)+"/5.0");
 		}else {
 			label = new JLabel("Ez duzu pelikula hau ikusi");
+			lblBalorazioa = new JLabel("Pelikulari emango zeniokeen balorazioa:"+necarea.pelikulaBaloratu(erabiltzaileId, peli)+"/5.0");
+			
 		}
 		panel_1.add(label);
+		panel_1.add(lblBalorazioa);
+		
+		
 		
 		JButton btnAtzeraJoan = new JButton("Atzera joan");
+		btnAtzeraJoan.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		contentPane.add(btnAtzeraJoan, BorderLayout.SOUTH);
 		
 		btnAtzeraJoan.addActionListener(new ActionListener() {

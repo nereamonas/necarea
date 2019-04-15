@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.awt.Color;
+import java.awt.Cursor;
 
 public class SartuKontuanFrame extends JFrame {
 
@@ -87,6 +88,7 @@ public class SartuKontuanFrame extends JFrame {
 		//------------------------
 		
 		JButton btnSartu = new JButton("Sartu");
+		btnSartu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnSartu);
 		
 		JLabel label = new JLabel("");
@@ -100,12 +102,34 @@ public class SartuKontuanFrame extends JFrame {
 		//---------------
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				//Erbailtzailea hartu 
 				String hartuErabiltzaile=textField_1.getText().trim();
+				int erabiltzailea=-1;
+				if (hartuErabiltzaile=="") {
+					label.setText("Ez duzu erabiltzailea sartu");
+					textField_1.setBackground(Color.RED);
+				}else {
+					erabiltzailea=Integer.parseInt(hartuErabiltzaile);
+				}
+				
+				
+				//Pasahitza hartu:
 				String hartuPasahitza=textField.getText().trim();
-				int erabiltzailea=Integer.parseInt(hartuErabiltzaile);
-				int pasahitza=Integer.parseInt(hartuPasahitza);
+				
+				int pasahitza=-1;
+				if (textField==null) {
+					label.setText("Ez duzu pasahitza sartu");
+					textField.setBackground(Color.RED);
+				}else {
+					pasahitza=Integer.parseInt(hartuPasahitza);
+				}
 				
 				boolean dago=necarea.pertsonaBilatu(erabiltzailea);
+				
+				
+				
+				
 				
 				if (dago) {
 					if(necarea.pasahitzaKonprobatu(erabiltzailea,pasahitza)) {

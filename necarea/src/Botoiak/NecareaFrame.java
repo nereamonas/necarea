@@ -16,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 import Klaseak.Necarea;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Cursor;
 
 public class NecareaFrame extends JFrame {
 
@@ -46,12 +49,12 @@ public class NecareaFrame extends JFrame {
 		setBackground(new Color(255, 255, 255));
 
 		Necarea necarea=Necarea.getNecarea();
-		necarea.fitxategiGuztiakKargatu();
+		
 		PlayerFrame player= new PlayerFrame();
 		player.setVisible(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 482);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(100, 149, 237));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -63,6 +66,8 @@ public class NecareaFrame extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 				
 		JButton btnNecareaPelikulak = new JButton("NECAREA PELIKULAK");
+		btnNecareaPelikulak.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		btnNecareaPelikulak.setBackground(new Color(135, 206, 250));
 		btnNecareaPelikulak.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 41));
 		panel.add(btnNecareaPelikulak);
@@ -76,11 +81,18 @@ public class NecareaFrame extends JFrame {
 		panel.add(lblZuenGustukoaIzatea);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("C:\\Users\\nerea\\Desktop\\Sin t\u00EDtulo.jpg"));
+		label.setIcon(new ImageIcon("src/logofin2.png"));
 		panel.add(label);
 		
 		btnNecareaPelikulak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				btnNecareaPelikulak.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+				try {
+					necarea.fitxategiGuztiakKargatu();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				SarreraFrame b=null;
 				try {
 					b = new SarreraFrame();

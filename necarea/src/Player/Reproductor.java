@@ -37,7 +37,7 @@ public class Reproductor {
 	public static void main(String args[]){
 		try {
 			Reproductor mi_reproductor = new Reproductor();
-			mi_reproductor.AbrirFichero("C:\\Users\\nerea\\Desktop\\a.mp3");
+			mi_reproductor.AbrirFichero("src/Player/a.mp3");
 			mi_reproductor.Play();
 		} catch (Exception ex) {
 			System.out.println("Error");

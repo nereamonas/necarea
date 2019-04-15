@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import Klaseak.Necarea;
 import java.awt.Color;
+import java.awt.Cursor;
 
 public class SortuKontuaFrame extends JFrame {
 
@@ -65,6 +66,7 @@ public class SortuKontuaFrame extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnSartu = new JButton("Sartu");
+		btnSartu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnSartu);
 		
 		
