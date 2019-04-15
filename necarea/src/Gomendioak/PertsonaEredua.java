@@ -1,6 +1,12 @@
 package Gomendioak;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeSet;
+import java.util.Vector;
+import java.util.Map.Entry;
 
 import Klaseak.EtiketaGuztiak;
 import Klaseak.ListaPertsona;
@@ -9,11 +15,11 @@ import Klaseak.Pertsona;
 
 public class PertsonaEredua {
  
-	Float[][] matrizea;
+	 LinkedHashMap<String,Float> lHM;
 	private static PertsonaEredua nirePertsonaEredua=null;
 	
 	public PertsonaEredua() {
-		this.matrizea=new Float[2][2];
+		lHM= new  LinkedHashMap<String,Float>();
 	}
 	
 
@@ -25,7 +31,7 @@ public class PertsonaEredua {
 	}
 	
 	
-	public HashMap<String,Float> balorazioakEman(int pertsonaId) {
+	public LinkedHashMap<String,Float> balorazioakEman(int pertsonaId) {
 		BalorazioMatrize BM = BalorazioMatrize.getBalorazioMatrize();
 		EtiketaMatrize EM=EtiketaMatrize.getEtiketaMatrize();
 		float[][] balorazioMatrize=BM.matrizeaSortu();
@@ -76,7 +82,8 @@ public class PertsonaEredua {
 		}
 		
 		//Faltaria ordenarlo cogiendo las 10 primeras solo
-		return HM;
+		this.lHM=this.ordenatu(HM);
+		return this.lHM;
 		
 	}
 	
@@ -143,5 +150,39 @@ public class PertsonaEredua {
 		
 		return emaitza;
 	}
+	
+
+	public LinkedHashMap<String,Float> ordenatu(HashMap<String,Float> HM) {
+		HashMap mapResultado = new LinkedHashMap<String,Float>();
+		ArrayList<String> Keys = new ArrayList(HM.keySet());
+		ArrayList<Float> Values = new ArrayList(HM.values());
+		TreeSet conjuntoOrdenado = new TreeSet(Values);
+		Object[] arrayOrdenado = conjuntoOrdenado.toArray();
+		int size = arrayOrdenado.length;
+		for (int i=0; i<size; i++) {
+		mapResultado.put
+		(Keys.get(
+		Values.indexOf(arrayOrdenado[i])),arrayOrdenado[i]);
+		}
+		return (LinkedHashMap<String, Float>) mapResultado;
+		}
+	
+	public Vector bektorePelikulak() throws IOException {
+		int kont=0;
+
+		Vector elementuak = new Vector();
+		for(Entry<String, Float> entry : lHM.entrySet()){
+			if (kont<10) {
+				 String key = entry.getKey();
+				 Float value = entry.getValue();
+				String s=(key+": " +value);
+				elementuak.addElement(s);
+			}
+			kont++;
+		}
+		
+		return elementuak;
+	}
+		
 	
 }
