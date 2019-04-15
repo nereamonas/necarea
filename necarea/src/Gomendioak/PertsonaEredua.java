@@ -15,11 +15,11 @@ import Klaseak.Pertsona;
 
 public class PertsonaEredua {
  
-	LinkedHashMap<String,Float> lHM;
+	
 	private static PertsonaEredua nirePertsonaEredua=null;
 	
 	public PertsonaEredua() {
-		lHM= new  LinkedHashMap<String,Float>();
+		
 	}
 	
 
