@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
  
 public class ListaPertsona {
 //i
@@ -85,14 +85,10 @@ public class ListaPertsona {
 	}
 	
 	public Vector BektorePertsona() throws IOException {
-		Fitxategi_CSV f= new Fitxategi_CSV();
-		ListaPertsona lp=ListaPertsona.getListaPertsona();
-		f.kargatuTitles();
-		f.kargatuRatings();
-		
+
 		Vector elementuak = new Vector();
-		for(int i=0; i<lp.luzera(); i++) {
-			String s=lp.datuakHartu(i);
+		for(int i=0; i<this.listaPertsona.size(); i++) {
+			String s=datuakHartu(i);
 			elementuak.addElement(s);
 		}
 		
@@ -100,12 +96,9 @@ public class ListaPertsona {
 	}
 	
 	public Vector BektorePertsona1() throws IOException {
-		Fitxategi_CSV f= new Fitxategi_CSV();
-		ListaPertsona lp=ListaPertsona.getListaPertsona();
-		f.kargatuTitles();
-		f.kargatuRatings();
+
 		
-		Pertsona p=lp.posiziokoPertsona(1);
+		Pertsona p=posiziokoPertsona(1);
 	
 		
 		Vector elementuak = new Vector();

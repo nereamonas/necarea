@@ -1,5 +1,7 @@
 package Klaseak;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Vector;
  
 public class Pelikula {
 		private int id;      
@@ -82,6 +84,20 @@ public class Pelikula {
         public String posiziokoEtiketaIzena(int i) {
         	return this.listaEtiketa.posiziokoEtiketaIzena(i);
         }
+        
+        public int getUrtea() {
+        	return this.urtea;
+        }
+        
+        
+    	public Vector BektoreListaEtiketa() throws IOException {
+    		Vector elementuak = new Vector();
+    		for(int i=0; i<this.listaEtiketa.luzera(); i++) {
+    			String s=this.listaEtiketa.posiziokoEtiketaIzena(i);
+    			elementuak.addElement(s);
+    		}
+    		return elementuak;
+    	}
 
 
 }

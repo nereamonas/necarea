@@ -1,4 +1,7 @@
 package Gomendioak;
+import java.util.HashMap;
+
+import AntzekotasunNeurriak.Kosinua;
 import Klaseak.Etiketa;
 import Klaseak.EtiketaGuztiak;
 import Klaseak.ListaEtiketa;
@@ -52,7 +55,7 @@ public class EtiketaMatrize {
 		return matriz;
 	}
 	
-	public float[][] MatrizeaSortu() {
+	public void MatrizeaSortu() {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 		int[][] lehenengoMatrizea=this.lehenengoMatrizeaSortu();
@@ -78,7 +81,7 @@ public class EtiketaMatrize {
 		System.out.println();
 		this.matrizeaInprimatu();
 		*/
-		return m;
+		
 		
 	}
 	
@@ -107,4 +110,70 @@ public class EtiketaMatrize {
 		}
 	}
 	
+	//Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da.
+	public float [] gehituraKalkulatu(float[] perBalorazioa) {
+		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+		float[] gehitura=new float[eg.luzera()];
+		for (int i=0;i<this.matrize.length;i++) {
+			if (perBalorazioa[i]>=3.5) {
+				//Pelikula ikusi du eta gainera 3.5 baino gehiago emana dio
+				for(int j=0;j<this.matrize[i].length;j++) {
+					gehitura[j]=gehitura[j]+this.matrize[i][j];
+				}
+			}
+		}
+		return gehitura;
+	}
+	//Kosinua formula kalkulatuko dugu, ikusi nahi duen pelikularekin	
+	public float kosinuaAplikatu(String peliIzen, float[] perBalorazioa) {
+		Kosinua kos= new Kosinua();
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		float[] nahiDuenPelikulaEtiketak = this.matrize[np.bilatuPelikularenPosizioa(peliIzen)];
+		float kosinua=kos.metodoaAplikatu(this.gehituraKalkulatu(perBalorazioa),nahiDuenPelikulaEtiketak);
+		return kosinua;
+		
+	}
+	
+	public void emImprimatu() {
+ 		for(int i=0;i<this.matrize.length;i++) {
+	        for(int j=0;j<this.matrize.length;j++) {
+	          	 System.out.print(this.matrize[i][j]);
+	           	 System.out.print("   ");
+	        }
+	        System.out.println();
+		 }
+	}
+	
+	//metodo handiarentzat 
+	
+	public float[] kosinuaAplikatutaBektore(float[] pertsonarenBalorazio) {
+	Kosinua kos = new Kosinua();
+	NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();	
+	float[] gehitura=this.gehituraKalkulatu(pertsonarenBalorazio);
+	float[] kosinuaAplikatuta=new float[np.luzera()];
+	for (int i=0;i<this.matrize.length;i++) {
+		if (pertsonarenBalorazio[i]==0.0) {
+			//Ez du pelikulaIkusi
+			float[] vectorBat=this.matrize[i];
+			float kosinua=kos.metodoaAplikatu(gehitura,vectorBat);
+			kosinuaAplikatuta[i]=kosinua;
+		}else {
+			//Pelikula ikusi du
+			kosinuaAplikatuta[i]=(float) -2.0;
+		}
+	}
+	return kosinuaAplikatuta;
+	}
+	//hasMap sortu
+	public HashMap<String,Float> hmSortu(float[] kosinuaAplikatuta){
+	HashMap<String,Float> HM= new HashMap<String, Float>();
+	Kosinua kos = new Kosinua();
+	NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+	for (int i=0; i<this.matrize.length;i++) {
+		HM.put(np.posiziokoPelikularenIzena(i), kosinuaAplikatuta[i]);
+	}
+	return HM;
+	
+
+}
 }

@@ -93,13 +93,7 @@ public class NecareaFrame extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				SarreraFrame b=null;
-				try {
-					b = new SarreraFrame();
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				SarreraFrame b=new SarreraFrame();
 				b.setVisible(true);
 				dispose();	
 			}

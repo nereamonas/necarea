@@ -1,42 +1,48 @@
 package Botoiak;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-import javax.swing.JToolBar;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.UIManager;
-import java.awt.Cursor;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class WebFrame extends JFrame {
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
+
+import Klaseak.Necarea;
+
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JToolBar;
+import javax.swing.JSlider;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+
+public class BaloratuFrame extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args,int erabiltzaileId,int p) {
+	public static void main(String[] args,int erabiltzaileId,int p, String peli) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WebFrame frame = new WebFrame(erabiltzaileId, p);
+					BaloratuFrame frame = new BaloratuFrame(erabiltzaileId,p,peli);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,9 +54,11 @@ public class WebFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public WebFrame(int erabiltzaileId,int p) {
+	public BaloratuFrame(int erabiltzaileId,int p, String peli) {
+		Necarea necarea=Necarea.getNecarea();
+		
 		setBackground(new Color(245, 255, 250));
-		setTitle("Printzipala");
+		setTitle("Balorazioa eman");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -122,6 +130,74 @@ public class WebFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(175, 238, 238));
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		JLabel lblBaloratu = new JLabel("Balorazioa eman");
+		lblBaloratu.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
+		panel.add(lblBaloratu);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(245, 255, 250));
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		
+		JLabel lblZeBalorazioaEmango = new JLabel("Ze balorazioa emango zenioke?");
+		lblZeBalorazioaEmango.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		
+		JSlider slider = new JSlider(1,5);
+		slider.setForeground(new Color(245, 255, 250));
+		
+		JLabel lblMileskerBalorazioaEmateagatik = new JLabel("Milesker balorazioa emateagatik.");
+		lblMileskerBalorazioaEmateagatik.setVisible(false);
+		
+		JButton btnBestePelikulaBat = new JButton("Beste pelikula bat ikusi");
+		btnBestePelikulaBat.setBackground(new Color(135, 206, 250));
+		btnBestePelikulaBat.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnBestePelikulaBat.setVisible(false);
+		
+		JButton btnBalorazioaEman = new JButton("Baloratu");
+		btnBalorazioaEman.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnBalorazioaEman.setBackground(new Color(135, 206, 250));
+		btnBalorazioaEman.setVisible(false);
+		
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(23)
+							.addComponent(lblZeBalorazioaEmango)
+							.addGap(26)
+							.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(131)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+								.addComponent(lblMileskerBalorazioaEmateagatik)
+								.addComponent(btnBestePelikulaBat)
+								.addGroup(gl_panel_1.createSequentialGroup()
+									.addComponent(btnBalorazioaEman, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE)
+									.addGap(28)))))
+					.addContainerGap(8, Short.MAX_VALUE))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(29)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblZeBalorazioaEmango)
+						.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+					.addComponent(btnBalorazioaEman, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(lblMileskerBalorazioaEmateagatik)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btnBestePelikulaBat)
+					.addGap(24))
+		);
+		panel_1.setLayout(gl_panel_1);
 		
 		
 		//Saioa itxi
@@ -215,11 +291,28 @@ public class WebFrame extends JFrame {
 			}
 		});
 		
-	
+		slider.addChangeListener(new ChangeListener() {
+			   public void stateChanged(ChangeEvent arg0) {
+				   float n=slider.getValue();
+				   btnBalorazioaEman.setVisible(true);
+				   btnBalorazioaEman.addActionListener(new ActionListener() { 
+						public void actionPerformed(ActionEvent e) {
+							lblMileskerBalorazioaEmateagatik.setVisible(true);
+							btnBestePelikulaBat.setVisible(true);
+							necarea.balorazioaGehitu(erabiltzaileId,peli,n);
+							
+							btnBestePelikulaBat.addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									PelikulaBatIkusiFrame bestebatikusi= new PelikulaBatIkusiFrame(erabiltzaileId,p);
+									bestebatikusi.setVisible(true);
+									dispose();
+								}
+							});
+						}
+				   });
+			   }
+		});
 		
-		
-		
-		
-	}
 
+	}
 }

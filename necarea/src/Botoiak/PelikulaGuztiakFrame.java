@@ -1,42 +1,43 @@
 package Botoiak;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-import javax.swing.JToolBar;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Vector;
 
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.UIManager;
-import java.awt.Cursor;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
-public class WebFrame extends JFrame {
+import Klaseak.Necarea;
+
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+import javax.swing.JButton;
+
+public class PelikulaGuztiakFrame extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args,int erabiltzaileId,int p) {
+	public static void main(String[] args, int erabiltzaileId, int p) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WebFrame frame = new WebFrame(erabiltzaileId, p);
+					PelikulaGuztiakFrame frame = new PelikulaGuztiakFrame(erabiltzaileId, p);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,10 +48,12 @@ public class WebFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
 	 */
-	public WebFrame(int erabiltzaileId,int p) {
+	public PelikulaGuztiakFrame(int erabiltzaileId, int p) throws IOException {
+		Necarea necarea=Necarea.getNecarea();
 		setBackground(new Color(245, 255, 250));
-		setTitle("Printzipala");
+		setTitle("Katalogoko pelikula guztiak");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -122,6 +125,32 @@ public class WebFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(175, 238, 238));
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		JLabel lblKatalogokoPelikulaGuztiak = new JLabel("Katalogoko pelikula guztiak:");
+		lblKatalogokoPelikulaGuztiak.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
+		panel.add(lblKatalogokoPelikulaGuztiak);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+		
+		Vector elementuak= necarea.bektorePelikulak();
+		JList list = new JList(elementuak);
+		scrollPane.setViewportView(list);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(245, 255, 250));
+		contentPane.add(panel_1, BorderLayout.SOUTH);
+		
+		JButton btnPelikularenInformazioaLortu = new JButton("Pelikularen informazioa lortu");
+
+		btnPelikularenInformazioaLortu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPelikularenInformazioaLortu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnPelikularenInformazioaLortu.setBackground(new Color(135, 206, 250));
+		panel_1.add(btnPelikularenInformazioaLortu);
 		
 		
 		//Saioa itxi
@@ -215,10 +244,22 @@ public class WebFrame extends JFrame {
 			}
 		});
 		
-	
-		
-		
-		
+		btnPelikularenInformazioaLortu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(list.getSelectedIndex()!=-1) {
+					PelikulaBatenInformazioaFrame peli=null;
+					try {
+						peli = new PelikulaBatenInformazioaFrame((String) list.getSelectedValue(), erabiltzaileId,p);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					peli.setVisible(true);
+					dispose();
+				}
+				
+			}
+		});
 		
 	}
 

@@ -7,17 +7,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
 
 public class BalorazioMatrizeTest {
 	
 	BalorazioMatrize bm;
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 
 	@Before
 	public void setUp() throws Exception {
 		bm= BalorazioMatrize.getBalorazioMatrize();
-		f=new Fitxategi_CSV();
+		f=new Kargatu_CSV();
 	}
 
 	@After

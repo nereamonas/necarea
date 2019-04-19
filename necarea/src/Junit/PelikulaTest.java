@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
 import Klaseak.Etiketa;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pelikula;
@@ -19,7 +19,7 @@ public class PelikulaTest {
 	Etiketa e1;
 	Etiketa e2;
 	Etiketa e3;
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	NecareaPelikulak np;
 	
 	@Before
@@ -29,7 +29,7 @@ public class PelikulaTest {
 		e1= new Etiketa(1,"Llorar");
 		e3= new Etiketa(2,"Llorar");
 		e2= new Etiketa(1,"Amor");
-		f= new Fitxategi_CSV(); 
+		f= new Kargatu_CSV(); 
 		np = NecareaPelikulak.getNecareaPelikulak();
 	}
 

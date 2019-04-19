@@ -7,21 +7,22 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
  
 public class EtiketaMatrizeTest {
 
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	EtiketaMatrize em;
 	
 	@Before
 	public void setUp() throws Exception {
-		f= new Fitxategi_CSV();
+		f= new Kargatu_CSV();
 		em=EtiketaMatrize.getEtiketaMatrize();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		em=null;
 	}
 
 	@Test
@@ -31,6 +32,7 @@ public class EtiketaMatrizeTest {
 		f.kargatuRatings();
 		
 		em.MatrizeaSortu();
+		em.matrizeaInprimatu();
 	}
 
 }

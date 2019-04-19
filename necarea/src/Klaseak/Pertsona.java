@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import Fitxategiak.Fitxategi_CSV;
-
 public class Pertsona {
 	//atributuak
 	private ListaPelikula ikusitakoPelikulak;
@@ -112,8 +110,8 @@ public class Pertsona {
 	
 	public Vector bektoreIkusitakoPelikulak() throws IOException {
 		Vector elementuak = new Vector();
-		for(int i=0; i<this.luzera(); i++) {
-			String s=this.ikusitakoPelikulak.datuakHartu(i);
+		for(int i=0; i<this.ikusitakoPelikulak.luzera(); i++) {
+			String s=this.ikusitakoPelikulak.posiziokoPelikularenIzena(i);
 			elementuak.addElement(s);
 		}
 		
@@ -127,6 +125,22 @@ public class Pertsona {
 		}
 		return emaitza;
 		
+	}
+	
+	public void pasahitzaAldatu(int p) {
+		this.pasahitza=p;
+	}
+	
+	public Vector bektoreIkusiEzDituenPelikulak() {
+		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+		Vector elementuak = new Vector();
+		for(int i=0; i<np.luzera(); i++) {
+			String s=np.posiziokoPelikularenIzena(i);
+			if(this.ikusitakoPelikulak.bilatuPelikulaIzenaz(s)==null) {
+				elementuak.addElement(s);
+			}
+		}
+		return elementuak;
 	}
 	
 	

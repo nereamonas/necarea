@@ -7,13 +7,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
 import Klaseak.ListaPelikula;
 import Klaseak.Pelikula;
  
 public class ListaPelikulaTest { 
 	
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	ListaPelikula lp;
 	Pelikula p1;
 	Pelikula p2;
@@ -21,7 +21,7 @@ public class ListaPelikulaTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		f= new Fitxategi_CSV();
+		f= new Kargatu_CSV();
 		lp=new ListaPelikula();
 		p1= new Pelikula(1,"bajo la misma estrella",2010);
 		p2= new Pelikula(2,"De todos los chicos de los que me enamore",2016);

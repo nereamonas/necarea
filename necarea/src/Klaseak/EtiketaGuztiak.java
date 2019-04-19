@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
  
 public class EtiketaGuztiak {
 	//atributuak 
@@ -114,14 +114,14 @@ public class EtiketaGuztiak {
 	}
 	
 	public Vector  bektoreEtiketak() throws IOException {
-		Fitxategi_CSV f= new Fitxategi_CSV();
+		//Fitxategi_CSV f= new Fitxategi_CSV();
 		
-		EtiketaGuztiak eg= EtiketaGuztiak.getEtiketaGuztiak();
-		f.kargatuTags();
+		//EtiketaGuztiak eg= EtiketaGuztiak.getEtiketaGuztiak();
+		//f.kargatuTags();
 		
 		Vector elementuak = new Vector();
-		for(int i=0; i<eg.luzera(); i++) {
-			String s=eg.datuakHartu(i);
+		for(int i=0; i<this.lista.size(); i++) {
+			String s=datuakHartu(i);
 			elementuak.addElement(s);
 		}
 		

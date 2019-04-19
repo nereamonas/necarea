@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
 import Klaseak.Etiketa;
 import Klaseak.ListaEtiketa;
 import Klaseak.ListaPelikula;
@@ -17,7 +17,7 @@ import Klaseak.Pelikula;
 import Klaseak.Pertsona;
  
 public class ListaEtiketaTest { 
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	ListaEtiketa le;
 	Etiketa e1;
 	Etiketa e2;
@@ -33,7 +33,7 @@ public class ListaEtiketaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		f= new Fitxategi_CSV();
+		f= new Kargatu_CSV();
 		le=new ListaEtiketa();
 		e1= new Etiketa(114,"Capitalism");
 		e2= new Etiketa(2,"Comedy");

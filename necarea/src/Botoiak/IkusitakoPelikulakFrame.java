@@ -1,42 +1,45 @@
 package Botoiak;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
-import javax.swing.JToolBar;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Vector;
 
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.UIManager;
-import java.awt.Cursor;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.border.EmptyBorder;
 
-public class WebFrame extends JFrame {
+import Klaseak.Necarea;
+
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JList;
+
+public class IkusitakoPelikulakFrame extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args,int erabiltzaileId,int p) {
+	public static void main(String[] args, int erabiltzaileId,int p) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WebFrame frame = new WebFrame(erabiltzaileId, p);
+					IkusitakoPelikulakFrame frame = new IkusitakoPelikulakFrame(erabiltzaileId,p);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,10 +50,12 @@ public class WebFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
 	 */
-	public WebFrame(int erabiltzaileId,int p) {
+	public IkusitakoPelikulakFrame(int erabiltzaileId,int p) throws IOException {
+		Necarea necarea=Necarea.getNecarea();
 		setBackground(new Color(245, 255, 250));
-		setTitle("Printzipala");
+		setTitle("Ikusi diturn pelikulak");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -81,7 +86,6 @@ public class WebFrame extends JFrame {
 		JMenuItem mntmPelikulaGuztiak = new JMenuItem("Pelikula guztiak");
 		mntmPelikulaGuztiak.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		mnKatalogoa.add(mntmPelikulaGuztiak);
-		
 		
 		JMenuItem mntmPelikulaBatIkusi = new JMenuItem("Pelikula bat ikusi");
 		mntmPelikulaBatIkusi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -116,12 +120,71 @@ public class WebFrame extends JFrame {
 		JMenuItem mntmH = new JMenuItem("");
 		mntmH.setBackground(new Color(245, 255, 250));
 		mntmH.setIcon(new ImageIcon("C:\\Users\\nerea\\Desktop\\logo_txikia2.png"));
-		menuBar.add(mntmH);
+		menuBar.add(mntmH); 
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(175, 238, 238));
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		JLabel lblIkusiDituzunPelikula = new JLabel("Ikusi dituzun pelikula guztiak:");
+		lblIkusiDituzunPelikula.setFont(new Font("Yu Gothic UI", Font.BOLD, 18));
+		panel.add(lblIkusiDituzunPelikula);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+		
+		Vector ikusiPeli = necarea.ikusitakoPelikulak(erabiltzaileId);
+		JList list = new JList(ikusiPeli);
+		scrollPane.setViewportView(list);
+		
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(245, 255, 250));
+		contentPane.add(panel_1, BorderLayout.SOUTH);
+		
+		JButton btnPelikularenInformazioaLortu = new JButton("Pelikularen informazioa lortu");
+		btnPelikularenInformazioaLortu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnPelikularenInformazioaLortu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnPelikularenInformazioaLortu.setBackground(new Color(135, 206, 250));
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(120)
+					.addComponent(btnPelikularenInformazioaLortu)
+					.addContainerGap(119, Short.MAX_VALUE))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addComponent(btnPelikularenInformazioaLortu)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		panel_1.setLayout(gl_panel_1);
+		
+		
+		
+		
+		btnPelikularenInformazioaLortu.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent arg0) {
+			if(list.getSelectedIndex()!=-1) {
+				PelikulaBatenInformazioaFrame peli=null;
+				try {
+					peli = new PelikulaBatenInformazioaFrame((String) list.getSelectedValue(), erabiltzaileId,p);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				peli.setVisible(true);
+				dispose();
+			}
+		}
+	});
 		
 		
 		//Saioa itxi
@@ -214,8 +277,6 @@ public class WebFrame extends JFrame {
 				dispose();
 			}
 		});
-		
-	
 		
 		
 		

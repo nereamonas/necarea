@@ -1,4 +1,4 @@
-package Fitxategiak;
+package Karga;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,10 +14,16 @@ import Klaseak.Pelikula;
 import Klaseak.Pertsona;
 import Salbuespenak.EzDagoFitxategia;
 
-public class Fitxategi_CSV implements Fitxategi { 
+public class Kargatu_CSV implements Kargatu { 
 	
 	
-	public Fitxategi_CSV() {
+	public Kargatu_CSV() {
+	}
+	
+	public void guztiaKrgatu() throws FileNotFoundException {
+		this.kargatuTitles();
+		this.kargatuTags();
+		this.kargatuRatings();
 	}
 
 

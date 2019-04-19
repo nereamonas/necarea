@@ -8,12 +8,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu_CSV;
 import Klaseak.EtiketaGuztiak;
  
 public class EtiketaGuztiakTest {  
 	
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	String s1;
 	String s2;
 	String s3;
@@ -22,7 +22,7 @@ public class EtiketaGuztiakTest {
 
 	@Before
 	public void setUp() throws Exception {
-		f= new Fitxategi_CSV();
+		f= new Kargatu_CSV();
 		s1="Comedy";
 		s2="Funny";
 		s3="Love";

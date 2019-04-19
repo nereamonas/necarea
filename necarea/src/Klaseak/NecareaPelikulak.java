@@ -3,8 +3,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-
-import Fitxategiak.Fitxategi_CSV;
  
 public class NecareaPelikulak {
 	//atributuak
@@ -84,7 +82,6 @@ public class NecareaPelikulak {
 			String s=this.listaPeli.datuakHartu(i);
 			elementuak.addElement(s);
 		}
-		
 		return elementuak;
 	}
 	

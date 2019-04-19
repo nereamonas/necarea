@@ -1,4 +1,4 @@
-package Fitxategiak;
+package Karga;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
@@ -11,17 +11,17 @@ import Klaseak.EtiketaGuztiak;
 import Klaseak.ListaPertsona;
 import Klaseak.NecareaPelikulak;
 
-public class Fitxategi_CSVTest {
+public class Kargatu_CSVTest {
  
 
-	Fitxategi_CSV f;
+	Kargatu_CSV f;
 	NecareaPelikulak np;
 	EtiketaGuztiak ez;
 	ListaPertsona lp;
 	
 	@Before
 	public void setUp() throws Exception {
-		f= new Fitxategi_CSV();
+		f= new Kargatu_CSV();
 		np=NecareaPelikulak.getNecareaPelikulak();
 		ez=EtiketaGuztiak.getEtiketaGuztiak();
 		lp=ListaPertsona.getListaPertsona();

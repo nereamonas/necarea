@@ -50,9 +50,9 @@ public class SarreraFrame extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @throws FileNotFoundException 
+
 	 */
-	public SarreraFrame() throws FileNotFoundException {
+	public SarreraFrame(){
 		setTitle("Necarea");
 		
 		Necarea necarea=Necarea.getNecarea();
@@ -65,10 +65,6 @@ public class SarreraFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		 
-		JLabel lblNecareaPelikulak = new JLabel("NECAREA PELIKULAK");
-		lblNecareaPelikulak.setFont(new Font("Yu Gothic UI", Font.BOLD, 28));
-		contentPane.add(lblNecareaPelikulak, BorderLayout.NORTH);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(240, 255, 255));
@@ -94,6 +90,14 @@ public class SarreraFrame extends JFrame {
 		panel.add(btnKontuaSortu);
 		btnKontuaSortu.setBackground(new Color(135, 206, 250));
 		btnKontuaSortu.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(175, 238, 238));
+		contentPane.add(panel_1, BorderLayout.NORTH);
+		
+		JLabel lblNecareaPelikulak = new JLabel("NECAREA PELIKULAK");
+		panel_1.add(lblNecareaPelikulak);
+		lblNecareaPelikulak.setFont(new Font("Yu Gothic UI", Font.BOLD, 28));
 		
 		//Kontua sortu-ri ematean:
 		btnKontuaSortu.addActionListener(new ActionListener() {

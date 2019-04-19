@@ -24,7 +24,7 @@ public class BalorazioMatrize {
 				return BalorazioMatrize.nireBalorazioMatrize;
 		}
 		
-		public float[][] matrizeaSortu() {
+		public void matrizeaSortu() {
 			ListaPertsona lp=ListaPertsona.getListaPertsona();
 			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 			float[][] mat2=new float[lp.luzera()][np.luzera()];
@@ -37,7 +37,12 @@ public class BalorazioMatrize {
 				}
 			}
 			mat=mat2;
-			return mat;
+		}
+		
+		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
+		public float[] pertsonarenBalorazioa(int p) {
+			float[] pertsonarenBalorazio = this.mat[p];
+			return pertsonarenBalorazio;
 		}
 		
 		//Junit-etarako
@@ -47,5 +52,14 @@ public class BalorazioMatrize {
 			ListaPertsona lp=ListaPertsona.getListaPertsona();
 			return mat[lp.zeinPosiziotanDago(pertsonaId)][np.zeinPosiziotanDago(peliId)];
 		}
+		public void bmImprimatu() {
+		 for(int i=0;i<this.mat.length;i++) {
+             for(int j=0;j<this.mat[i].length;j++) {
+            	 System.out.print(this.mat[i][j]);
+            	 System.out.print("   ");
+             }
+             System.out.println("");
+		 }
 
+}
 }

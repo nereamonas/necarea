@@ -4,8 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
 
-import Fitxategiak.Fitxategi;
-import Fitxategiak.Fitxategi_CSV;
+import Karga.Kargatu;
+import Karga.Kargatu_CSV;
 import Gomendioak.PertsonaEredua;
 
 public class Necarea{
@@ -14,7 +14,7 @@ public class Necarea{
     
     private NecareaPelikulak pelikulak;
     private ListaPertsona pertsonak;
-    private Fitxategi fitxategiak;
+    private Kargatu kargatu;
     private EtiketaGuztiak etiketak;
     
 
@@ -24,7 +24,7 @@ public class Necarea{
 //eraikitzailea
             
     private Necarea() { 
-    	this.fitxategiak=new Fitxategi_CSV();
+    	this.kargatu=new Kargatu_CSV();
     	this.pelikulak=NecareaPelikulak.getNecareaPelikulak();
     	this.pertsonak=ListaPertsona.getListaPertsona();
     	this.etiketak=EtiketaGuztiak.getEtiketaGuztiak();
@@ -38,9 +38,7 @@ public class Necarea{
     }
     
     public void fitxategiGuztiakKargatu() throws FileNotFoundException {
-    	this.fitxategiak.kargatuTitles();
-    	this.fitxategiak.kargatuTags();
-    	this.fitxategiak.kargatuRatings();
+    	this.kargatu.guztiaKrgatu();
     }
     
     public boolean pertsonaBilatu(int id) {
@@ -75,6 +73,10 @@ public class Necarea{
     	return this.pertsonak.bilatuPertsonaIdz(erabiltzaile).bektoreIkusitakoPelikulak();
     }
     
+    public Vector ikusiEzDituenPelikulak(int erabiltzaile) {
+    	return this.pertsonak.bilatuPertsonaIdz(erabiltzaile).bektoreIkusiEzDituenPelikulak();
+    }
+    
     public boolean pelikulaIkusiDu(int erabiltzaileId,String peli) {
     	return this.pertsonak.bilatuPertsonaIdz(erabiltzaileId).bilatuPelikula(peli);
     }
@@ -94,5 +96,43 @@ public class Necarea{
     	PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
     	return (pe.baloratuPelikula(peli, perts));
     }
+    
+    
+   public Vector gehienGustatukoZaizkionPelikulak(int erabiltzaileId) throws IOException {
+	   PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
+	   return pe.bektore10(pe.balorazioakEman(erabiltzaileId));
+   }
+   
+   public void pasahitzaAldatu(int erabiltzaile, int p) {
+	   this.pertsonak.bilatuPertsonaIdz(erabiltzaile).pasahitzaAldatu(p);
+   }
+   
+   public int pelikularenUrtea(String peli) {
+	  return this.pelikulak.bilatuPelikulaIzenaz(peli).getUrtea();
+   }
+   
+   public int pelikularenId(String peli) {
+	   return this.pelikulak.bilatuPelikulaIzenaz(peli).getId();
+   }
+   
+   public Vector PelikularenListaEtiketa(String peli) throws IOException {
+	   return this.pelikulak.bilatuPelikulaIzenaz(peli).BektoreListaEtiketa();
+   }
+   
+   public void pelikulaGehitu(String peliIzen, int pertsona) {
+	   Pelikula p=this.pelikulak.bilatuPelikulaIzenaz(peliIzen);
+	   this.pertsonak.bilatuPertsonaIdz(pertsona).pelikulaGehitu(p);
+   }
+   
+   public void balorazioaGehitu(int pertsona,String peliIzen,float n) {
+	   int p=this.pelikulak.bilatuPelikulaIzenaz(peliIzen).getId();
+	   this.pertsonak.bilatuPertsonaIdz(pertsona).grafoaraBalorazioaGehitu(p, n);
+   }
+   
+   public float pelikularenBalorazioaLortu(int erabiltzaileId,String peli) {
+	   int p=this.pelikulak.bilatuPelikulaIzenaz(peli).getId();
+	  return this.pertsonak.bilatuPertsonaIdz(erabiltzaileId).posiziokoPelikularenBalorazioa(p);
+   }
+    
     
 }
