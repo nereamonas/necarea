@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.border.EmptyBorder;
@@ -22,13 +23,16 @@ import javax.swing.border.EmptyBorder;
 import Klaseak.Necarea;
 
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListModel;
 import javax.swing.JButton;
+
 
 public class PelikulaBatBaloratuFrame extends JFrame {
 
@@ -162,6 +166,10 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 		
 		JLabel label_1 = new JLabel("    ");
 		
+		JButton btnBilatu = new JButton("Bilatu");
+		btnBilatu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnBilatu.setBackground(new Color(135, 206, 250));
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -180,12 +188,12 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 						.addComponent(label))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-							.addGap(10))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-							.addContainerGap())))
+						.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+							.addGap(18)
+							.addComponent(btnBilatu)))
+					.addContainerGap())
 				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
 		);
 		gl_contentPane.setVerticalGroup(
@@ -195,7 +203,8 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblBilatuPelikula)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnBilatu))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
@@ -321,6 +330,24 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 					}
 				
 				}
+			}
+		});
+		
+		//bilatu
+		btnBilatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Busqueda=textField.getText();
+				DefaultListModel modelo = new DefaultListModel();
+				list_1.removeAll();
+				for(int i=0;i<elementuak.size();i++){
+					String s=(String) elementuak.get(i);
+					if(s.contains(Busqueda)){
+							modelo.addElement(s);
+					}
+				}
+	
+				list_1.setModel(modelo);
+				
 			}
 		});
 		
