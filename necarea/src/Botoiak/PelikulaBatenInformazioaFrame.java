@@ -165,7 +165,7 @@ public class PelikulaBatenInformazioaFrame extends JFrame {
 
 		Boolean ikusiDu=necarea.pelikulaIkusiDu(erabiltzaileId,peli);
 		if(ikusiDu) {
-			label.setText(""+necarea.pelikularenBalorazioaLortu(erabiltzaileId,peli));
+			label.setText(""+necarea.pelikulariEmandakoBalorazioa(erabiltzaileId, peli));
 			lblEmandakoBalorazioa.setText("Emandako balorazioa:");
 			
 		}

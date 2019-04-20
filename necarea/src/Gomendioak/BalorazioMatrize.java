@@ -34,6 +34,7 @@ public class BalorazioMatrize {
 				for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
 					//System.out.println(i+1 + ". pertsonak ikusitako " + j + ". pelikulara heldu gara (j. zutabea)");
 					mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
+					
 				}
 			}
 			mat=mat2;

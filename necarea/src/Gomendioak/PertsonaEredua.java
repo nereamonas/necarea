@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 import Klaseak.EtiketaGuztiak;
 import Klaseak.ListaPertsona;
+import Klaseak.Necarea;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pertsona;
 
@@ -57,19 +58,25 @@ public class PertsonaEredua {
 
 	
 	public float baloratuPelikula(String pelikulaIzena, int pertsonaId) { //LO DE -2 SI NO LO HA VISTO DONDE VA?
-		BalorazioMatrize BM = BalorazioMatrize.getBalorazioMatrize();
-		EtiketaMatrize EM=EtiketaMatrize.getEtiketaMatrize();
+		boolean ikusiDu=Necarea.getNecarea().pelikulaIkusiDu(pertsonaId, pelikulaIzena);
+		float emaitza=-2;
+		if(!ikusiDu) {
+			BalorazioMatrize BM = BalorazioMatrize.getBalorazioMatrize();
+			EtiketaMatrize EM=EtiketaMatrize.getEtiketaMatrize();
+			
+			BM.matrizeaSortu();
+			EM.MatrizeaSortu();
+			
+			EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
+			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
+			ListaPertsona lp=ListaPertsona.getListaPertsona();
+			 
+			float[] pertsonarenBalorazio = BM.pertsonarenBalorazioa(lp.zeinPosiziotanDago(pertsonaId)); 
+			float kosinua= EM.kosinuaAplikatu(pelikulaIzena, pertsonarenBalorazio);
+			emaitza=kosinua;
+		}
 		
-		BM.matrizeaSortu();
-		EM.MatrizeaSortu();
-		
-		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
-		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
-		ListaPertsona lp=ListaPertsona.getListaPertsona();
-		 
-		float[] pertsonarenBalorazio = BM.pertsonarenBalorazioa(lp.zeinPosiziotanDago(pertsonaId)); 
-		float kosinua= EM.kosinuaAplikatu(pelikulaIzena, pertsonarenBalorazio);
-		return kosinua;
+		return emaitza;
 		
 	}
 	

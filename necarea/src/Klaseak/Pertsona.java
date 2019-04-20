@@ -104,6 +104,10 @@ public class Pertsona {
 		return this.HM.get(id);
 	}
 	
+	public float idHorrenPelikularenBalorazioa(int id) {
+		return this.HM.get(id);
+	}
+	
 	public boolean pasahitzaKonprobatu(int pas) {
 		return (this.pasahitza==pas);
 	}

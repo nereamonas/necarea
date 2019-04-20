@@ -89,7 +89,8 @@ public class Necarea{
     public float pelikulariEmandakoBalorazioa(int perts, String peli) {
     	Pertsona pertsona=this.pertsonak.bilatuPertsonaIdz(perts);
     	int peliPos=this.pelikulak.bilatuPelikularenPosizioa(peli);
-    	return (pertsona.posiziokoPelikularenBalorazioa(peliPos));
+    	int peliId =this.pelikulak.bilatuPelikulaIzenaz(peli).getId();
+    	return (pertsona.idHorrenPelikularenBalorazioa(peliId));
     }
     
     public float pelikulaBaloratu(int perts,String peli) {
@@ -125,14 +126,11 @@ public class Necarea{
    }
    
    public void balorazioaGehitu(int pertsona,String peliIzen,float n) {
-	   int p=this.pelikulak.bilatuPelikulaIzenaz(peliIzen).getId();
-	   this.pertsonak.bilatuPertsonaIdz(pertsona).grafoaraBalorazioaGehitu(p, n);
+	  
+	    Pertsona p=this.pertsonak.bilatuPertsonaIdz(pertsona);
+   		int peliPos=this.pelikulak.bilatuPelikularenPosizioa(peliIzen);
+   		p.grafoaraBalorazioaGehitu(peliPos, n);
    }
-   
-   public float pelikularenBalorazioaLortu(int erabiltzaileId,String peli) {
-	   int p=this.pelikulak.bilatuPelikulaIzenaz(peli).getId();
-	  return this.pertsonak.bilatuPertsonaIdz(erabiltzaileId).posiziokoPelikularenBalorazioa(p);
-   }
-    
+
     
 }
