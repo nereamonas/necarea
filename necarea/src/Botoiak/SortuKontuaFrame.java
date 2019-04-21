@@ -79,6 +79,7 @@ public class SortuKontuaFrame extends JFrame {
 		
 		JLabel label_1 = new JLabel("");
 		panel_2.add(label_1);
+		label_1.setForeground(Color.RED);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 255, 250));

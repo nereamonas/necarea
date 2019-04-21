@@ -120,6 +120,7 @@ public class SartuKontuanFrame extends JFrame {
 		
 		JLabel label = new JLabel("");
 		panel.add(label);
+		label.setForeground(Color.RED);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(245, 255, 250));

@@ -88,6 +88,7 @@ public class PasahitzaAldatuFrame extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblPasahitzezegokia = new JLabel("");
+		lblPasahitzezegokia.setForeground(Color.RED);
 		
 		JLabel lblSaioaAmaitukoDa = new JLabel("Saioa amaituko da");
 		lblSaioaAmaitukoDa.setFont(new Font("Yu Gothic UI", Font.PLAIN, 10));
