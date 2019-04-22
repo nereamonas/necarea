@@ -95,19 +95,7 @@ public class ListaPertsona {
 		return elementuak;
 	}
 	
-	public Vector BektorePertsona1() throws IOException {
-
-		
-		Pertsona p=posiziokoPertsona(1);
 	
-		
-		Vector elementuak = new Vector();
-		for(int i=0; i<p.luzera(); i++) {
-			String s=p.datuakHartu(i);
-			elementuak.addElement(s);
-		}
-		return elementuak;
-	}
 	
 	public int zeinPosiziotanDago(int id) {
 		return id_pos.get(id);

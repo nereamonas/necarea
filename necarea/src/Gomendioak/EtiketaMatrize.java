@@ -110,6 +110,7 @@ public class EtiketaMatrize {
 		}
 	}
 	
+	
 	//Ikusi dituen eta 3.5 baino gehiagoko balorazioa eman dien pelikulak hartuko dira. Gehitura izeneko bektore bat sortuko dugu eta posizio bakoitzean orain esandako pelikula guztien etiketa bakoitzaren batura gordeko da.
 	public float [] gehituraKalkulatu(float[] perBalorazioa) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
@@ -133,16 +134,7 @@ public class EtiketaMatrize {
 		return kosinua;
 		
 	}
-	
-	public void emImprimatu() {
- 		for(int i=0;i<this.matrize.length;i++) {
-	        for(int j=0;j<this.matrize.length;j++) {
-	          	 System.out.print(this.matrize[i][j]);
-	           	 System.out.print("   ");
-	        }
-	        System.out.println();
-		 }
-	}
+
 	
 	//metodo handiarentzat 
 	

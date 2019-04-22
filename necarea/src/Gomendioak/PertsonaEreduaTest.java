@@ -59,6 +59,7 @@ public class PertsonaEreduaTest {
 		f.kargatuTags();
 		f.kargatuRatings();
 
+		
 		//guztia ondo kargatu dela ikusi:
 		System.out.println("LISTA PERTSONAK:");
 		lp.inprimatu();
@@ -118,7 +119,7 @@ public class PertsonaEreduaTest {
 	    System.out.println("   3- ETIKETA MATRIZEA - bigarren matrizea");
 	    etiketaMatrize.MatrizeaSortu();
 	 	//inprimatu
-	    etiketaMatrize.emImprimatu();
+	    etiketaMatrize.matrizeaInprimatu();
  		System.out.println();
  		System.out.println();
 		System.out.println("  --------------------------------");
@@ -176,6 +177,7 @@ public class PertsonaEreduaTest {
 		System.out.println("    -------------------------");
  		System.out.println();
 		
+ 		
 		
 		//5 pertsonaren pelikulak
  		System.out.println("       5 PERTSONAREN BALORAZIOAK ");
@@ -197,8 +199,19 @@ public class PertsonaEreduaTest {
 		System.out.println(pertsonaEredua.baloratuPelikula("Sin City ", 4045));
 		System.out.println(pertsonaEredua.baloratuPelikula("Star Wars: Episode IV - A New Hope ", 4045));
 		
-	
-	
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("       4045 PERTSONAREN BALORAZIOAK ");
+ 		LinkedHashMap<String,Float> hm6=pertsonaEredua.balorazioakEman(4045); 
+ 			
+ 		for(String key : hm6.keySet()) {
+ 			System.out.println(key + ": " + hm6.get(key));
+ 		} 
+ 		System.out.println();
+		System.out.println();
+ 		
+ 		
 	}
 
 

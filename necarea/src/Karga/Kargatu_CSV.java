@@ -20,7 +20,7 @@ public class Kargatu_CSV implements Kargatu {
 	public Kargatu_CSV() {
 	}
 	
-	public void guztiaKrgatu() throws FileNotFoundException {
+	public void guztiaKargatu() throws FileNotFoundException {
 		this.kargatuTitles();
 		this.kargatuTags();
 		this.kargatuRatings();

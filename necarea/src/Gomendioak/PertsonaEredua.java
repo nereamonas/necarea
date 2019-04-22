@@ -57,7 +57,7 @@ public class PertsonaEredua {
 	
 
 	
-	public float baloratuPelikula(String pelikulaIzena, int pertsonaId) { //LO DE -2 SI NO LO HA VISTO DONDE VA?
+	public float baloratuPelikula(String pelikulaIzena, int pertsonaId) { 
 		boolean ikusiDu=Necarea.getNecarea().pelikulaIkusiDu(pertsonaId, pelikulaIzena);
 		float emaitza=-2;
 		if(!ikusiDu) {
@@ -95,9 +95,9 @@ public class PertsonaEredua {
 		return (LinkedHashMap<String, Float>) mapResultado;
 		}
 	
+	
 	public Vector bektore10(LinkedHashMap<String,Float> lHM) throws IOException {
 		int kont=0;
-
 		Vector elementuak = new Vector();
 		for(Entry<String, Float> entry : lHM.entrySet()){
 			if (kont<10) {

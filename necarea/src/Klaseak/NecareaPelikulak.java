@@ -68,13 +68,15 @@ public class NecareaPelikulak {
 		
 	}
 	
+	public Pelikula bilatuPelikulaIzenaz(String peli) {
+		return this.listaPeli.bilatuPelikulaIzenaz(peli);
+	}
+	
+	
 	  
 	
 	//Botoiak egiteko erabiliko dira
-	public String datuakHartu(int p) {
-		return this.listaPeli.datuakHartu(p);
-	}
-
+	
 	public Vector bektorePelikulak() throws IOException {
 
 		Vector elementuak = new Vector();
@@ -85,9 +87,6 @@ public class NecareaPelikulak {
 		return elementuak;
 	}
 	
-	public Pelikula bilatuPelikulaIzenaz(String peli) {
-		return this.listaPeli.bilatuPelikulaIzenaz(peli);
-	}
-	
+
 	
 }

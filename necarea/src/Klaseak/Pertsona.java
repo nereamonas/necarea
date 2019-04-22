@@ -86,10 +86,6 @@ public class Pertsona {
 		return (this.id+" id-a duen pertsona");
 	}
 	
-	public String datuakHartu(int p) {
-		int id=this.ikusitakoPelikulak.posiziokoPelikulakoIda(p);
-		return ("Ikusitako "+p+" pelikula ondorengoa da: " + this.ikusitakoPelikulak.datuakHartu(p)+" eta emandako balorazioa honakoa izan da:" + this.HM.get(id) );
-	}
 	
 	public int luzera() {
 		return this.ikusitakoPelikulak.luzera();

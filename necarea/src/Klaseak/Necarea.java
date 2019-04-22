@@ -38,7 +38,7 @@ public class Necarea{
     }
     
     public void fitxategiGuztiakKargatu() throws FileNotFoundException {
-    	this.kargatu.guztiaKrgatu();
+    	this.kargatu.guztiaKargatu();
     }
     
     public boolean pertsonaBilatu(int id) {
