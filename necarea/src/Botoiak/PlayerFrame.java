@@ -41,7 +41,7 @@ public class PlayerFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		Reproductor r=new Reproductor();
-		r.AbrirFichero("C:\\Users\\nerea\\Desktop\\a.mp3");
+		r.AbrirFichero("src/Player/musika.mp3");
 		r.Play();
 	}
 
