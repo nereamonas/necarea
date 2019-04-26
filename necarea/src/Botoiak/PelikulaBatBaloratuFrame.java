@@ -158,7 +158,7 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 		btnBaloratu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		Vector elementuak= necarea.bektorePelikulak();
+		Vector elementuak= necarea.ikusiEzDituenPelikulak(erabiltzaileId);
 		JList list_1 = new JList(elementuak);
 		scrollPane_1.setViewportView(list_1);
 		
@@ -219,6 +219,10 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 							.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)))
 					.addGap(0))
 		);
+		
+		JLabel lblIkusiEzDituzun = new JLabel("Ikusi ez dituzun pelikulak:");
+		lblIkusiEzDituzun.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		scrollPane_1.setColumnHeaderView(lblIkusiEzDituzun);
 		
 		
 		contentPane.setLayout(gl_contentPane);
