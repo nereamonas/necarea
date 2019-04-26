@@ -52,7 +52,8 @@ public class WebFrame extends JFrame {
 		setBackground(new Color(245, 255, 250));
 		setTitle("Printzipala");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 440, 370);
+
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -115,13 +116,17 @@ public class WebFrame extends JFrame {
 		
 		JMenuItem mntmH = new JMenuItem("");
 		mntmH.setBackground(new Color(245, 255, 250));
-		mntmH.setIcon(new ImageIcon("C:\\Users\\nerea\\Desktop\\logo_txikia2.png"));
+		mntmH.setIcon(new ImageIcon("src/logo_txikia2.png"));
 		menuBar.add(mntmH);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("src/x.png"));
+		contentPane.add(label, BorderLayout.CENTER);
 		
 		
 		//Saioa itxi

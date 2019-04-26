@@ -130,7 +130,7 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 		
 		JMenuItem mntmH = new JMenuItem("");
 		mntmH.setBackground(new Color(245, 255, 250));
-		mntmH.setIcon(new ImageIcon("C:\\Users\\nerea\\Desktop\\logo_txikia2.png"));
+		mntmH.setIcon(new ImageIcon("src/logo_txikia2.png"));
 		menuBar.add(mntmH);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
@@ -323,16 +323,7 @@ public class PelikulaBatBaloratuFrame extends JFrame {
 		btnBaloratu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(list_1.getSelectedIndex()!=-1) {
-					Boolean ikusiDu=necarea.pelikulaIkusiDu(erabiltzaileId,(String) list_1.getSelectedValue());
-					if(ikusiDu) {
-						label.setText("Pelikula hau ikusi duzu. ");
-						label_1.setText("Pelikulari emandako balorazioa:" +necarea.pelikulariEmandakoBalorazioa(erabiltzaileId, (String) list_1.getSelectedValue())+"/5.0");
-						
-					}else {
-						label.setText("Ez duzu pelikula hau ikusi. ");
-						label_1.setText("Pelikula hau gustatuko zaizu: "+necarea.pelikulaBaloratu(erabiltzaileId, (String) list_1.getSelectedValue())+"/1.0");
-					}
-				
+					label_1.setText("Pelikula hau gustatuko zaizu: "+necarea.pelikulaBaloratu(erabiltzaileId, (String) list_1.getSelectedValue())+"/1.0");
 				}
 			}
 		});

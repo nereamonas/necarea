@@ -123,7 +123,7 @@ public class BaloratuFrame extends JFrame {
 		
 		JMenuItem mntmH = new JMenuItem("");
 		mntmH.setBackground(new Color(245, 255, 250));
-		mntmH.setIcon(new ImageIcon("C:\\Users\\nerea\\Desktop\\logo_txikia2.png"));
+		mntmH.setIcon(new ImageIcon("src/logo_txikia2.png"));
 		menuBar.add(mntmH);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(245, 255, 250));
