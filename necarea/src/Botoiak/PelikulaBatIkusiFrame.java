@@ -28,10 +28,13 @@ import javax.swing.JScrollPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
 
 public class PelikulaBatIkusiFrame extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -58,7 +61,7 @@ public class PelikulaBatIkusiFrame extends JFrame {
 		setBackground(new Color(245, 255, 250));
 		setTitle("Pelikula abt ikusi");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 691, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -161,46 +164,111 @@ public class PelikulaBatIkusiFrame extends JFrame {
 		lblZeIrudituZaizu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
 		lblZeIrudituZaizu.setVisible(false);
 		
+		JLabel lblBalorazioaEman = new JLabel("Balorazioa eman:");
+		lblBalorazioaEman.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		lblBalorazioaEman.setVisible(false);
+		
+		JLabel lblEtiketaBatGehitu = new JLabel("Etiketa bat gehitu:");
+		lblEtiketaBatGehitu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		lblEtiketaBatGehitu.setVisible(false);
+		
+		JSlider slider = new JSlider(1,5);
+		slider.setBackground(new Color(245, 255, 250));
+		slider.setVisible(false);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setVisible(false);
+		
+		JButton btnGehitu = new JButton("Gehitu");
+		btnGehitu.setBackground(new Color(135, 206, 250));
+		btnGehitu.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnGehitu.setVisible(false);
+		
+		JButton btnBestePelikulaBat = new JButton("Beste pelikula bat ikusi");
+		btnBestePelikulaBat.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		btnBestePelikulaBat.setBackground(new Color(135, 206, 250));
+		btnBestePelikulaBat.setVisible(false);
+		
+		JLabel label = new JLabel("");
+		label.setVisible(false);
+		
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
+			gl_panel_1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_panel_1.createSequentialGroup()
+								.addGap(18)
+								.addComponent(btnPelikulaHauIkusi)
+								.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+								.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING, false)
+									.addGroup(gl_panel_1.createSequentialGroup()
+										.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addContainerGap())
+									.addGroup(gl_panel_1.createSequentialGroup()
+										.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_panel_1.createSequentialGroup()
+												.addComponent(lblEtiketaBatGehitu)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addComponent(lblBalorazioaEman))
+										.addGap(45))
+									.addGroup(gl_panel_1.createSequentialGroup()
+										.addComponent(label)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnBaloratu)
+										.addGap(70))))
+							.addGroup(gl_panel_1.createSequentialGroup()
+								.addGap(35)
+								.addComponent(lblZeIrudituZaizu)
+								.addContainerGap(279, Short.MAX_VALUE)))
 						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(45)
-							.addComponent(lblIkusiEzDituzun))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGap(18)
-									.addComponent(btnPelikulaHauIkusi))
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGap(64)
-									.addComponent(btnBaloratu))
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addGap(35)
-									.addComponent(lblZeIrudituZaizu)))
-							.addGap(26)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnGehitu)
+							.addGap(58))))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(45)
+					.addComponent(lblIkusiEzDituzun)
+					.addContainerGap(483, Short.MAX_VALUE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap(248, Short.MAX_VALUE)
+					.addComponent(btnBestePelikulaBat)
+					.addGap(266))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblIkusiEzDituzun)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(30, Short.MAX_VALUE))
-				.addGroup(gl_panel_1.createSequentialGroup()
 					.addGap(44)
 					.addComponent(btnPelikulaHauIkusi)
-					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
 					.addComponent(lblZeIrudituZaizu)
+					.addGap(61)
+					.addComponent(btnBestePelikulaBat))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblIkusiEzDituzun)
+						.addComponent(lblBalorazioaEman))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnBaloratu)
-					.addGap(41))
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(slider, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+								.addComponent(btnBaloratu)
+								.addComponent(label))
+							.addGap(18)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblEtiketaBatGehitu)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnGehitu))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(36, Short.MAX_VALUE))
 		);
 		Vector elem=necarea.ikusiEzDituenPelikulak(erabiltzaileId);
 		JList list = new JList(elem);
@@ -306,20 +374,48 @@ public class PelikulaBatIkusiFrame extends JFrame {
 		btnPelikulaHauIkusi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (list.getSelectedIndex()!=-1) {
-					btnBaloratu.setVisible(true);
-					lblZeIrudituZaizu.setVisible(true);
 					
-					necarea.pelikulaGehitu((String) list.getSelectedValue(),erabiltzaileId);
-					Vector elem=necarea.ikusiEzDituenPelikulak(erabiltzaileId);
-					JList list = new JList(elem);
-					list.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
-					scrollPane.setViewportView(list);
+					
+					//aquiii
+					lblBalorazioaEman.setVisible(true);
+					slider.setVisible(true);
+					btnBaloratu.setVisible(true); 
+					lblZeIrudituZaizu.setVisible(true);
+					lblEtiketaBatGehitu.setVisible(true);
+					textField.setVisible(true);
+					btnGehitu.setVisible(true);
+					btnBestePelikulaBat.setVisible(true);
+					btnGehitu.setVisible(true);
 					
 					
 					btnBaloratu.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
-							BaloratuFrame baloratu= new BaloratuFrame(erabiltzaileId,p,(String) list.getSelectedValue());
-							baloratu.setVisible(true);
+							float n=(float)slider.getValue();
+							necarea.pelikulaGehitu((String) list.getSelectedValue(),erabiltzaileId);
+							necarea.balorazioaGehitu(erabiltzaileId, (String) list.getSelectedValue(), n);
+							Vector elem=necarea.ikusiEzDituenPelikulak(erabiltzaileId);
+							JList list = new JList(elem);
+							list.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
+							scrollPane.setViewportView(list);
+							btnBaloratu.setVisible(false);
+							label.setVisible(true);
+							label.setText("Pelikula hau jada baloratu duzu");
+							
+						}
+					});
+					
+					btnGehitu.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							String etiketaBerria=textField.getText().trim();
+							necarea.gehituEtiketa(etiketaBerria, (String) list.getSelectedValue());
+							textField.setText("");
+						}
+					});
+					
+					btnBestePelikulaBat.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							PelikulaBatIkusiFrame pp= new PelikulaBatIkusiFrame(erabiltzaileId,p);
+							pp.setVisible(true);
 							dispose();
 						}
 					});
@@ -334,5 +430,4 @@ public class PelikulaBatIkusiFrame extends JFrame {
 		
 		
 	}
-
 }

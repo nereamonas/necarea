@@ -88,7 +88,6 @@ public class Necarea{
     
     public float pelikulariEmandakoBalorazioa(int perts, String peli) {
     	Pertsona pertsona=this.pertsonak.bilatuPertsonaIdz(perts);
-    	int peliPos=this.pelikulak.bilatuPelikularenPosizioa(peli);
     	int peliId =this.pelikulak.bilatuPelikulaIzenaz(peli).getId();
     	return (pertsona.idHorrenPelikularenBalorazioa(peliId));
     }
@@ -125,11 +124,26 @@ public class Necarea{
 	   this.pertsonak.bilatuPertsonaIdz(pertsona).pelikulaGehitu(p);
    }
    
-   public void balorazioaGehitu(int pertsona,String peliIzen,float n) {
+   public void balorazioaGehitu(int pertsonaId,String peliIzen,float n) {
 	  
-	    Pertsona p=this.pertsonak.bilatuPertsonaIdz(pertsona);
-   		int peliPos=this.pelikulak.bilatuPelikularenPosizioa(peliIzen);
-   		p.grafoaraBalorazioaGehitu(peliPos, n);
+	    Pertsona pertsona=this.pertsonak.bilatuPertsonaIdz(pertsonaId);
+	    Pelikula pelikula = this.pelikulak.bilatuPelikulaIzenaz(peliIzen);
+   		pertsona.grafoaraBalorazioaGehitu(pelikula.getId(),n);
+   }
+   
+   public void gehituEtiketa(String etiketaBerria,String peliIzen) {
+	   Pelikula pelikula= this.pelikulak.bilatuPelikulaIzenaz(peliIzen);
+		 //Datuekin etiketa sortu
+			Etiketa e1=new Etiketa(pelikula.getId(), etiketaBerria);
+			
+			//Le añado la etiketa a la peli
+			pelikula.gehituEtiketa(e1);
+			
+			//Si el nombre de la etiketa no se ha dicho, la añadiremos a etiketaGuztiak
+			boolean dago=this.etiketak.bilatuEtiketaIzena(etiketaBerria);
+			this.etiketak.gehituEtiketa(this.etiketak.luzera(), etiketaBerria);
+		   
+	   
    }
 
     
