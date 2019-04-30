@@ -6,4 +6,6 @@ public interface Kargatu {
 	public void kargatuTags()throws FileNotFoundException;
 	public void kargatuRatings()throws FileNotFoundException;
 	public void guztiaKargatu() throws FileNotFoundException;
+	public void kargatuPasahitzak()throws FileNotFoundException;
+
 }

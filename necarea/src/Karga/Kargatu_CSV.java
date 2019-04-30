@@ -1,7 +1,10 @@
 package Karga;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -24,6 +27,7 @@ public class Kargatu_CSV implements Kargatu {
 		this.kargatuTitles();
 		this.kargatuTags();
 		this.kargatuRatings();
+		this.kargatuPasahitzak();
 	}
 
 
@@ -185,5 +189,37 @@ public class Kargatu_CSV implements Kargatu {
 	}			
 	
 	
+	public void kargatuPasahitzak() throws FileNotFoundException {
+		ListaPertsona listaPertsona=ListaPertsona.getListaPertsona();		
+		File archivo = new File("src/Fitxategiak_CVS/movie-pasahitzak.csv");
+		// .csv fitxategia irekitzeko
+		BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-pasahitzak.csv"));
+		//BufferedReader reader = new BufferedReader( new FileReader("src/Fitxategiak_CVS/movie-tags2.csv"));
+		if(archivo.exists()) {
+			try {
+				Scanner s=new Scanner(reader);
 
+				if(s!=null) {	
+					while (s.hasNextLine()) {
+						//lerro bat hartuko dugu
+						String line=s.nextLine();
+					
+						//lerro hori, lehenengo ";"-ren bitartez batatuko dugu. (excelen gelaxkak direnak)
+						String[] datuak=line.split(";");
+						//datuak[0]=erabiltzaileId, datuak[1]=pasahitza
+					
+						//pertsonaBilatu eta pasahitza aldatu
+						Pertsona p=listaPertsona.bilatuPertsonaIdz(Integer.parseInt(datuak[0]));
+						p.pasahitzaAldatu(Integer.parseInt(datuak[1]));
+				}
+			}else {
+				throw (new EzDagoFitxategia());
+			}
+			
+		}catch(EzDagoFitxategia e) {
+			e.mezuaBota();
+		}	
+		
+	} 
+	}
 }

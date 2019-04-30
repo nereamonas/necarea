@@ -7,6 +7,8 @@ import java.util.Vector;
 import Karga.Kargatu;
 import Karga.Kargatu_CSV;
 import Gomendioak.PertsonaEredua;
+import IdatziFitxategian.Idatzi;
+import IdatziFitxategian.Idatzi_CSV;
 
 public class Necarea{
 	//atributuak
@@ -16,6 +18,7 @@ public class Necarea{
     private ListaPertsona pertsonak;
     private Kargatu kargatu;
     private EtiketaGuztiak etiketak;
+    private Idatzi idatzi;
     
 
     
@@ -28,6 +31,7 @@ public class Necarea{
     	this.pelikulak=NecareaPelikulak.getNecareaPelikulak();
     	this.pertsonak=ListaPertsona.getListaPertsona();
     	this.etiketak=EtiketaGuztiak.getEtiketaGuztiak();
+    	this.idatzi= new Idatzi_CSV();
     }    
     
     public static synchronized Necarea getNecarea() {
@@ -103,8 +107,9 @@ public class Necarea{
 	   return pe.bektore10(pe.balorazioakEman(erabiltzaileId));
    }
    
-   public void pasahitzaAldatu(int erabiltzaile, int p) {
+   public void pasahitzaAldatu(int erabiltzaile, int p) throws IOException {
 	   this.pertsonak.bilatuPertsonaIdz(erabiltzaile).pasahitzaAldatu(p);
+	   this.idatzi.pasahitzBerriaIdatzi(erabiltzaile, p);
    }
    
    public int pelikularenUrtea(String peli) {
@@ -124,14 +129,15 @@ public class Necarea{
 	   this.pertsonak.bilatuPertsonaIdz(pertsona).pelikulaGehitu(p);
    }
    
-   public void balorazioaGehitu(int pertsonaId,String peliIzen,float n) {
+   public void balorazioaGehitu(int pertsonaId,String peliIzen,float n) throws IOException {
 	  
 	    Pertsona pertsona=this.pertsonak.bilatuPertsonaIdz(pertsonaId);
 	    Pelikula pelikula = this.pelikulak.bilatuPelikulaIzenaz(peliIzen);
    		pertsona.grafoaraBalorazioaGehitu(pelikula.getId(),n);
+   		this.idatzi.BalorazioBerriaIdatzi(pertsonaId, pelikula.getId(), n);
    }
    
-   public void gehituEtiketa(String etiketaBerria,String peliIzen) {
+   public void gehituEtiketa(String etiketaBerria,String peliIzen) throws IOException {
 	   Pelikula pelikula= this.pelikulak.bilatuPelikulaIzenaz(peliIzen);
 		 //Datuekin etiketa sortu
 			Etiketa e1=new Etiketa(pelikula.getId(), etiketaBerria);
@@ -142,8 +148,7 @@ public class Necarea{
 			//Si el nombre de la etiketa no se ha dicho, la añadiremos a etiketaGuztiak
 			boolean dago=this.etiketak.bilatuEtiketaIzena(etiketaBerria);
 			this.etiketak.gehituEtiketa(this.etiketak.luzera(), etiketaBerria);
-		   
-	   
+			this.idatzi.etiketaBerriaIdatzi(pelikula.getId(), etiketaBerria);
    }
 
     

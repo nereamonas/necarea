@@ -392,7 +392,12 @@ public class PelikulaBatIkusiFrame extends JFrame {
 						public void actionPerformed(ActionEvent arg0) {
 							float n=(float)slider.getValue();
 							necarea.pelikulaGehitu((String) list.getSelectedValue(),erabiltzaileId);
-							necarea.balorazioaGehitu(erabiltzaileId, (String) list.getSelectedValue(), n);
+							try {
+								necarea.balorazioaGehitu(erabiltzaileId, (String) list.getSelectedValue(), n);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							Vector elem=necarea.ikusiEzDituenPelikulak(erabiltzaileId);
 							JList list = new JList(elem);
 							list.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
@@ -407,7 +412,12 @@ public class PelikulaBatIkusiFrame extends JFrame {
 					btnGehitu.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
 							String etiketaBerria=textField.getText().trim();
-							necarea.gehituEtiketa(etiketaBerria, (String) list.getSelectedValue());
+							try {
+								necarea.gehituEtiketa(etiketaBerria, (String) list.getSelectedValue());
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							textField.setText("");
 						}
 					});

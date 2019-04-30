@@ -18,6 +18,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Cursor;
 
@@ -204,7 +205,12 @@ public class PasahitzaAldatuFrame extends JFrame {
 						}else {
 							//biak berdinak izan behar
 							if(pp1==pp2) {
-								necarea.pasahitzaAldatu(erabiltzaile,pp1);
+								try {
+									necarea.pasahitzaAldatu(erabiltzaile,pp1);
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
 								SarreraFrame sarrera= new SarreraFrame();
 								sarrera.setVisible(true);
 								dispose();
