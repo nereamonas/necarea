@@ -6,7 +6,8 @@ import java.util.Vector;
 
 import Karga.Kargatu;
 import Karga.Kargatu_CSV;
-import Gomendioak.PertsonaEredua;
+import Gomendioak.EOI;
+import Gomendioak.Gomendioak;
 import IdatziFitxategian.Idatzi;
 import IdatziFitxategian.Idatzi_CSV;
 
@@ -19,7 +20,7 @@ public class Necarea{
     private Kargatu kargatu;
     private EtiketaGuztiak etiketak;
     private Idatzi idatzi;
-    
+    private Gomendioak gomendio;
 
     
     
@@ -32,6 +33,7 @@ public class Necarea{
     	this.pertsonak=ListaPertsona.getListaPertsona();
     	this.etiketak=EtiketaGuztiak.getEtiketaGuztiak();
     	this.idatzi= new Idatzi_CSV();
+    	this.gomendio=EOI.getEOI();
     }    
     
     public static synchronized Necarea getNecarea() {
@@ -97,14 +99,14 @@ public class Necarea{
     }
     
     public float pelikulaBaloratu(int perts,String peli) {
-    	PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
-    	return (pe.baloratuPelikula(peli, perts));
+    	//PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
+    	return (gomendio.baloratuPelikula(peli, perts));
     }
     
     
    public Vector gehienGustatukoZaizkionPelikulak(int erabiltzaileId) throws IOException {
-	   PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
-	   return pe.bektore10(pe.balorazioakEman(erabiltzaileId));
+	   //PertsonaEredua pe=PertsonaEredua.getPertsonaEredua();
+	   return gomendio.bektore10(gomendio.balorazioakEman(erabiltzaileId));
    }
    
    public void pasahitzaAldatu(int erabiltzaile, int p) throws IOException {

@@ -1,6 +1,7 @@
 package Gomendioak;
 import java.util.HashMap;
 
+import AntzekotasunNeurriak.AntzekotasunNeurriak;
 import AntzekotasunNeurriak.Kosinua;
 import Klaseak.Etiketa;
 import Klaseak.EtiketaGuztiak;
@@ -12,6 +13,7 @@ public class EtiketaMatrize {
 	
 	private static EtiketaMatrize nireEtiketaMatrize=null;
 	private float[][] matrize;	
+	private AntzekotasunNeurriak an;
 	 
 //eraikitzailea    
 	
@@ -19,6 +21,7 @@ public class EtiketaMatrize {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 		this.matrize=new float[np.luzera()][eg.luzera()];
+		this.an=new Kosinua();
 		
 	}
 
@@ -126,11 +129,10 @@ public class EtiketaMatrize {
 		return gehitura;
 	}
 	//Kosinua formula kalkulatuko dugu, ikusi nahi duen pelikularekin	
-	public float kosinuaAplikatu(String peliIzen, float[] perBalorazioa) {
-		Kosinua kos= new Kosinua();
+	public float antzekotasunaAplikatu(String peliIzen, float[] perBalorazioa) {
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 		float[] nahiDuenPelikulaEtiketak = this.matrize[np.bilatuPelikularenPosizioa(peliIzen)];
-		float kosinua=kos.metodoaAplikatu(this.gehituraKalkulatu(perBalorazioa),nahiDuenPelikulaEtiketak);
+		float kosinua=an.metodoaAplikatu(this.gehituraKalkulatu(perBalorazioa),nahiDuenPelikulaEtiketak);
 		return kosinua;
 		
 	}
@@ -138,31 +140,29 @@ public class EtiketaMatrize {
 	
 	//metodo handiarentzat 
 	
-	public float[] kosinuaAplikatutaBektore(float[] pertsonarenBalorazio) {
-	Kosinua kos = new Kosinua();
+	public float[] antzekotasunaAplikatutaBektore(float[] pertsonarenBalorazio) {
 	NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();	
 	float[] gehitura=this.gehituraKalkulatu(pertsonarenBalorazio);
-	float[] kosinuaAplikatuta=new float[np.luzera()];
+	float[] antzAplikatuta=new float[np.luzera()];
 	for (int i=0;i<this.matrize.length;i++) {
 		if (pertsonarenBalorazio[i]==0.0) {
 			//Ez du pelikulaIkusi
 			float[] vectorBat=this.matrize[i];
-			float kosinua=kos.metodoaAplikatu(gehitura,vectorBat);
-			kosinuaAplikatuta[i]=kosinua;
+			float antz=an.metodoaAplikatu(gehitura,vectorBat);
+			antzAplikatuta[i]=antz;
 		}else {
 			//Pelikula ikusi du
-			kosinuaAplikatuta[i]=(float) -2.0;
+			antzAplikatuta[i]=(float) -2.0;
 		}
 	}
-	return kosinuaAplikatuta;
+	return antzAplikatuta;
 	}
 	//hasMap sortu
-	public HashMap<String,Float> hmSortu(float[] kosinuaAplikatuta){
+	public HashMap<String,Float> hmSortu(float[] antzAplikatuta){
 	HashMap<String,Float> HM= new HashMap<String, Float>();
-	Kosinua kos = new Kosinua();
 	NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 	for (int i=0; i<this.matrize.length;i++) {
-		HM.put(np.posiziokoPelikularenIzena(i), kosinuaAplikatuta[i]);
+		HM.put(np.posiziokoPelikularenIzena(i), antzAplikatuta[i]);
 	}
 	return HM;
 	
