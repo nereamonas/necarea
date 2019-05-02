@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 import java.util.TreeSet;
 import java.util.Vector;
-import java.util.Map.Entry;
 
 import Klaseak.EtiketaGuztiak;
 import Klaseak.ListaPertsona;
@@ -16,7 +16,7 @@ import Klaseak.NecareaPelikulak;
 
 public class EOI implements Gomendioak{
  
-private static EOI nireEOI=null;
+	private static EOI nireEOI=null;
 	
 	private EOI() {
 		
