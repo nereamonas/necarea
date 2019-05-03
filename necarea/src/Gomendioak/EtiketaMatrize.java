@@ -42,7 +42,8 @@ public class EtiketaMatrize {
 			for (int j=0;j<le.luzera();j++) {
 				Etiketa eBat=le.posiziokoEtiketa(j);
 				int pos=eg.EtiketarenPosizioa(eBat.getIzena());
-				matriz[i][pos]=eBat.getAldiak();
+				//matriz[i][pos]=eBat.getAldiak();
+				matriz=this.balioaSartu(matriz,i,pos,eBat.getAldiak());
 			}	
 		}	
 		/*System.out.println();
@@ -58,6 +59,11 @@ public class EtiketaMatrize {
 		return matriz;
 	}
 	
+	private int[][] balioaSartu(int[][] matriz,int err,int zut, int aldiak){
+		matriz[err][zut]=aldiak;
+		return matriz;
+	}
+	
 	public void MatrizeaSortu() {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();
 		NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
@@ -66,14 +72,14 @@ public class EtiketaMatrize {
 		for (int i=0;i<np.luzera();i++) {
 			for(int j=0;j<eg.luzera();j++) {
 				if (eg.kantitatea(eg.posiziokoEtiketaIzena(j))==0){
-					m[i][j]=(float)0.0;
-				
+					//m[i][j]=(float)0.0;
+					this.zeroaEsleitu(m,i,j);
 				}else {
 					float bat=(float) lehenengoMatrizea[i][j];
 					float bi=(float) np.luzera();
 					float hiru=(float)eg.kantitatea(eg.posiziokoEtiketaIzena(j));
-					m[i][j]=(float) (bat*Math.log10(bi/hiru));
-					
+					//m[i][j]=(float) (bat*Math.log10(bi/hiru));
+					this.formulaAplikatuEtaEsleitu(m,i,j,bat,bi,hiru);
 				}
 			}
 		}
@@ -87,7 +93,15 @@ public class EtiketaMatrize {
 		
 		
 	}
+	private float[][] zeroaEsleitu(float[][] m,int err,int zut){
+		m[err][zut]=(float)0.0;
+		return m;
+	}
 	
+	private float[][] formulaAplikatuEtaEsleitu(float[][] m,int err, int zut,float bat,float bi,float hiru){
+		m[err][zut]=(float) (bat*Math.log10(bi/hiru));
+		return m;
+	}
 	
 	public int posiziokoZenbakiaLehenengoMatrizean(int peliId,String etiketaIzena) {
 		EtiketaGuztiak eg=EtiketaGuztiak.getEtiketaGuztiak();

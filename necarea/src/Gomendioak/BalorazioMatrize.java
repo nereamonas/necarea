@@ -33,11 +33,16 @@ public class BalorazioMatrize {
 				//System.out.println(i+1 + ". pertsonara heldu gara (i. errenkada)");
 				for(int j=0;j<p1.zenbatPelikulaIkusi();j++) {
 					//System.out.println(i+1 + ". pertsonak ikusitako " + j + ". pelikulara heldu gara (j. zutabea)");
-					mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
-					
+					//mat2[i][np.zeinPosiziotanDago(p1.pelikularenId(j))]=p1.posiziokoPelikularenBalorazioa(j);
+					mat2=this.balorazioaSartu(mat2,i,np.zeinPosiziotanDago(p1.pelikularenId(j)),p1.posiziokoPelikularenBalorazioa(j));
 				}
 			}
 			mat=mat2;
+		}
+		
+		private float[][] balorazioaSartu(float[][] mat2, int pos, int peliPos,float bal){
+			mat2[pos][peliPos]=bal;
+			return mat2;
 		}
 		
 		//1- Balorazio matrizean pertsona bilatuko dugu (id-a, matrizearen posizioa da). Pertsona horren pelikula errenkada hartuko dugu. 
