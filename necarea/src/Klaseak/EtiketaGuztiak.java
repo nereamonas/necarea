@@ -106,7 +106,8 @@ public class EtiketaGuztiak {
 		return lista.size();
 }
 	public void erreseteatu() {
-		lista.clear();		
+		lista.clear();
+		HM.clear();
 	}
 	
 	public String datuakHartu(int p) {
