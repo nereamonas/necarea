@@ -2,12 +2,14 @@ package Gomendioak;
 import Klaseak.ListaPertsona;
 import Klaseak.NecareaPelikulak;
 import Klaseak.Pertsona;
+import Normalizazioa.EzNormalizatu;
+import Normalizazioa.Normalizatu;
 
 public class BalorazioMatrize {
 	
 	private float[][] mat;
 	private static BalorazioMatrize nireBalorazioMatrize=null;
-	
+	private Normalizatu norm;
 	 
 	//eraikitzailea
 		
@@ -15,6 +17,7 @@ public class BalorazioMatrize {
 			ListaPertsona lp=ListaPertsona.getListaPertsona();
 			NecareaPelikulak np=NecareaPelikulak.getNecareaPelikulak();
 			this.mat= new float[lp.luzera()][np.luzera()];
+			this.norm=new EzNormalizatu();
 		}
 
 		public static synchronized BalorazioMatrize getBalorazioMatrize() {
@@ -37,7 +40,9 @@ public class BalorazioMatrize {
 					mat2=this.balorazioaSartu(mat2,i,np.zeinPosiziotanDago(p1.pelikularenId(j)),p1.posiziokoPelikularenBalorazioa(j));
 				}
 			}
+			norm.normalizatu(mat2);
 			mat=mat2;
+			
 		}
 		
 		private float[][] balorazioaSartu(float[][] mat2, int pos, int peliPos,float bal){
