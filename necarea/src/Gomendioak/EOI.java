@@ -133,12 +133,4 @@ public class EOI implements Gomendioak{
 		return elementuak;
 	}
 	
-	//junit
-	
-	public void bektoreaInprimatu(Vector v) {
-		for (int i=0;i<v.size();i++) {
-			System.out.println(v.get(i));
-		}
-		
-	}
 }

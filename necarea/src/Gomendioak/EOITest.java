@@ -131,7 +131,7 @@ public class EOITest {
  		System.out.println("   BALORAZIO GUZTIAK ");
  		//1 pertsonaren pelikulak
  		System.out.println("       1 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm=EOI.balorazioakEman(1);
+ 		LinkedHashMap<String,Float> hm=eoi.balorazioakEman(1);
 
  		for(String key : hm.keySet()) {
  			System.out.println(key + ": " + hm.get(key));
@@ -143,7 +143,7 @@ public class EOITest {
  		
  		//2 pertsonaren pelikulak
  		System.out.println("       2 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm2=EOI.balorazioakEman(2);
+ 		LinkedHashMap<String,Float> hm2=eoi.balorazioakEman(2);
 
  		for(String key : hm2.keySet()) {
  			System.out.println(key + ": " + hm2.get(key));
@@ -155,7 +155,7 @@ public class EOITest {
 
  		//3 pertsonaren pelikulak
  		System.out.println("       3 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm3=EOI.balorazioakEman( 3); 
+ 		LinkedHashMap<String,Float> hm3=eoi.balorazioakEman( 3); 
  			
  		for(String key : hm3.keySet()) {
  			System.out.println(key + ": " + hm3.get(key));
@@ -168,7 +168,7 @@ public class EOITest {
  		
  		//4 pertsonaren pelikulak
  		System.out.println("       4 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm4=EOI.balorazioakEman(4); 
+ 		LinkedHashMap<String,Float> hm4=eoi.balorazioakEman(4); 
  			
  		for(String key : hm4.keySet()) {
  			System.out.println(key + ": " + hm4.get(key));
@@ -181,7 +181,7 @@ public class EOITest {
 		
 		//5 pertsonaren pelikulak
  		System.out.println("       5 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm5=EOI.balorazioakEman( 5); 
+ 		LinkedHashMap<String,Float> hm5=eoi.balorazioakEman( 5); 
  			
  		for(String key : hm5.keySet()) {
  			System.out.println(key + ": " + hm5.get(key));
@@ -193,17 +193,17 @@ public class EOITest {
  		System.out.println();
  		
  		
- 		System.out.println(EOI.baloratuPelikula("Stargate ", 4045));
-		System.out.println(EOI.baloratuPelikula("Twelve Monkeys [a.k.a. 12 Monkeys] ", 4045));
-		System.out.println(EOI.baloratuPelikula( "Seven [a.k.a. Se7en] ", 4045));
-		System.out.println(EOI.baloratuPelikula("Sin City ", 4045));
-		System.out.println(EOI.baloratuPelikula("Star Wars: Episode IV - A New Hope ", 4045));
+ 		System.out.println(eoi.baloratuPelikula("Stargate ", 4045));
+		System.out.println(eoi.baloratuPelikula("Twelve Monkeys [a.k.a. 12 Monkeys] ", 4045));
+		System.out.println(eoi.baloratuPelikula( "Seven [a.k.a. Se7en] ", 4045));
+		System.out.println(eoi.baloratuPelikula("Sin City ", 4045));
+		System.out.println(eoi.baloratuPelikula("Star Wars: Episode IV - A New Hope ", 4045));
 		
 		System.out.println();
 		System.out.println();
 		
 		System.out.println("       4045 PERTSONAREN BALORAZIOAK ");
- 		LinkedHashMap<String,Float> hm6=EOI.balorazioakEman(4045); 
+ 		LinkedHashMap<String,Float> hm6=eoi.balorazioakEman(4045); 
  			
  		for(String key : hm6.keySet()) {
  			System.out.println(key + ": " + hm6.get(key));
@@ -232,17 +232,6 @@ public class EOITest {
        float u= kos.metodoaAplikatu(e,i);
        System.out.println("KOSINUAREN EMAITZA:"); 
        System.out.println(u);
-	}
-	@Test
-	public void testbektore10() throws IOException {
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println("4045 erabiltzaileari gehien gustatuko zaizkion 10 pelikula:"); 
-	       
-		Vector v= n.gehienGustatukoZaizkionPelikulak(4045);
-		EOI.bektoreaInprimatu(v);		
-		
 	}
 	
 	
